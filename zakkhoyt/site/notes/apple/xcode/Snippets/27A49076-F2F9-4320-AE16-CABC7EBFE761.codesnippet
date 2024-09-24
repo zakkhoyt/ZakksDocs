@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark Implements NSTableViewDataSource
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    NSTableCellView *cellView = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    if([tableColumn.identifier isEqualToString:@""]){
+        cellView.textField.stringValue = @"";
+    }
+    return cellView;
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return 0;
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification{
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>27A49076-F2F9-4320-AE16-CABC7EBFE761</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>NSTableViewDataSource</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
