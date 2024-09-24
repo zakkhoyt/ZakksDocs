@@ -1,0 +1,1843 @@
+
+#
+
+## Defaults Locations
+
+```
+~/Library/Preferences
+/Library/Preferences
+```
+
+[Reference](https://gist.github.com/nlutsenko/ee245fbd239087d22137?permalink_comment_id=3046766)
+
+## com.apple.dt.xcodebuild
+
+### Read
+```
+defaults read com.apple.dt.xcodebuild
+```
+
+### Findings
+```
+{s
+    DVTIgnoredDevices =     (
+    );
+    IDESwiftPackageCollectionsAddedDefaultCollectionsDVTToolsVersion = "Xcode 14.0.0";
+}
+
+```
+
+## com.apple.dt.Xcode
+
+### Read
+``` 
+defaults read com.apple.dt.Xcode
+```
+
+### Findings
+
+```
+{
+    "/Users/zakkhoyt/Library/Developer/Xcode/DerivedData/Nightlight-buwsxwijbuslvxcpifcgaenuysht/Logs/Test/Test-Nightlight_Development-2022.01.13_21-35-34--0700.xcresult-SelectedItemIdentifier" = 3;
+    "0B1BE4C2-E89A-4A5A-881C-7221F877FFBB-SelectedItemIdentifier" = "HatchBrainTests.RestoreClockTests.testLogIn()";
+    "1F1ACF83-572C-4780-A708-9B23C84AC34D-SelectedItemIdentifier" = "ArgumentKitTests.ArgumentManagerTests.testNotificationFromManualUserDefaults()";
+    "347B094B-E121-4099-BB8A-DD024107BA67-SelectedItemIdentifier" = "HatchBrainTests.BeaconsParametersChangedTests.testColorDurationChanged()";
+    "3D3392A6-8BE7-4488-9993-7A1CB740431A-SelectedItemIdentifier" = "45F562DC-A5D2-4776-B355-CF2013B88DDB";
+    "429359CF-67D0-4623-AAAB-7266DE1BAE73-SelectedItemIdentifier" = "DC66E232-CC32-49F0-9D79-A947711EFF80:1";
+    "69C29FF7-0428-4090-9E02-E536B3F0C670-SelectedItemIdentifier" = "HatchContentTests.GraphQLClientTests.testGetSubcategoryInfos()";
+    "9B2D0BC4-CA19-407A-AE8C-6DA0212DE8D1-SelectedItemIdentifier" = "0F3878A1-DA13-4456-B427-3A1C789CDADB";
+    "B138BA42-AD44-41BB-906C-08F3FED74B54-SelectedItemIdentifier" = "SwiftScratchpadTests.System Failures.SwiftScratchpad encountered an error";
+    "BD1CE21E-FFD0-4339-8E82-9450B7701B85-SelectedItemIdentifier" = "HatchAssetsTests.HatchAssetsTests.testColorAsset()";
+    BuildReportEditorIsSidebarCollapsedKey = 1;
+    "C87888F6-9D7D-470A-8211-EC1625053E41-SelectedItemIdentifier" = "NightlightUnitTests.SDContentTests.testDecodeReleaseDateUnknown()";
+    "CEBFA599-50E3-4208-B0CE-D27565A7AE2F-SelectedItemIdentifier" = "NightlightUnitTests.AppReviewRulesTests.testDeviceCycleCounterPass()";
+    CurrentAlertPreferencesSelection = "Xcode.AlertEvent.BuildFails";
+    "DVTAnalytics.CrashPointPageableDataSource.userDefaultsKey" = {length = 7273, bytes = 0x7b227265 63656e74 4974656d 73223a5b ... 39303930 317d5d7d };
+    "DVTAnalytics.FeedbackPageableDataSource.userDefaultsKey" = {length = 18, bytes = 0x7b22726563656e744974656d73223a5b5d7d};
+    "DVTAnalytics.HangPageableDataSource.userDefaultsKey" = {length = 18, bytes = 0x7b22726563656e744974656d73223a5b5d7d};
+    "DVTAnalytics.ProcessorUsagePageableDataSource.userDefaultsKey" = {length = 18, bytes = 0x7b22726563656e744974656d73223a5b5d7d};
+    DVTDeveloperAccountManagerAppleIDLists =     {
+        "IDE.Prod" =         (
+                        {
+                username = "zakkhoyt@hatchbaby.com";
+            },
+                        {
+                username = "vaporwarewolf+apple@gmail.com";
+            }
+        );
+    };
+    DVTDevicesWindowControllerSelectedDeviceIdentifier = "00008027-001E616434E2402E";
+    DVTDevicesWindowControllerSelectedSimulatorIdentifier = "C6EA4CD7-C994-45DB-9852-E41979119458";
+    DVTDisclosureViewDisclosedStates =     {
+        "4414891424403965342_com.apple.platform.iphoneos_com.hatchbaby.NightlightDevelopmentUITests" = 0;
+    };
+    DVTDownloadableAutomaticUpdate = 0;
+    DVTFontAndColorLastUpdatedToolsVersion = "13.1";
+    DVTGlobalFindIgnoreCase = 1;
+    DVTGlobalFindTypeDefault = 0;
+    DVTIgnoredDevices =     (
+    );
+    DVTProductsSplitViewPositionKey = "387.5";
+    DVTRecentCustomColors = {length = 5098, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000134c };
+    DVTSourceControlAccountDefaultsKey =     (
+                {
+            DVTSourceControlAccountAuthTypeKey = 4;
+            DVTSourceControlAccountNameKey = "SwiftyPing-617327f5";
+            DVTSourceControlAccountSSHKeyPath = "/Users/zakkhoyt/.ssh/id_ecdsa";
+            DVTSourceControlAccountURLKey = "/Users/zakkhoyt/Library/Developer/Xcode/DerivedData/Nightlight-buwsxwijbuslvxcpifcgaenuysht/SourcePackages/repositories/SwiftyPing-617327f5";
+            DVTSourceControlAccountUsernameKey = git;
+            DVTSourceControlRepositoryIdentifierKey = 03B2671ED16F32193C1AB97C6FA8F9418DA24FC8;
+            DVTSourceControlSystemIdentifierKey = "com.apple.dt.Xcode.sourcecontrol.Git";
+        },
+                {
+            DVTSourceControlAccountAuthTypeKey = 4;
+            DVTSourceControlAccountNameKey = "SwiftyPing-617327f5";
+            DVTSourceControlAccountSSHKeyPath = "/Users/zakkhoyt/.ssh/id_ecdsa";
+            DVTSourceControlAccountURLKey = "/Users/zakkhoyt/Library/Developer/Xcode/DerivedData/Nightlight-buwsxwijbuslvxcpifcgaenuysht/SourcePackages/repositories/SwiftyPing-617327f5";
+            DVTSourceControlAccountUsernameKey = git;
+            DVTSourceControlRepositoryIdentifierKey = 03B2671ED16F32193C1AB97C6FA8F9418DA24FC8;
+            DVTSourceControlSystemIdentifierKey = "com.apple.dt.Xcode.sourcecontrol.Git";
+        }
+    );
+    DVTTextCompletionRecentCompletions =     (
+        hexString,
+        let,
+        "separator:",
+        "joined(separator:)",
+        "elementHex(:)",
+        "map(:)",
+        guard,
+        String,
+        String,
+        colorJson,
+        green,
+        aa,
+        redComponent,
+        color,
+        textColor,
+        titleLabel,
+        label,
+        UIColor,
+        HatchAssets,
+        HatchAssets,
+        time,
+        date,
+        dateAndTime,
+        date,
+        date,
+        datePickerMode,
+        picker,
+        "__fiz",
+        "__fiz",
+        "custom(verb:description:)",
+        strikeoutRect,
+        width,
+        strikeoutRect,
+        height,
+        "insetBy(dx:dy:)",
+        normalizedRect,
+        width,
+        height,
+        width,
+        x,
+        strikeoutRect,
+        strikeoutRect,
+        width,
+        size,
+        height,
+        size,
+        y,
+        x,
+        origin,
+        normalizedRect,
+        "",
+        "width:height:",
+        CGSize,
+        "",
+        "x:y:",
+        CGPoint,
+        "",
+        "origin:size:",
+        CGRect,
+        let,
+        CGRect,
+        stroke,
+        o,
+        o,
+        red,
+        o,
+        "opacity(:)",
+        red,
+        green,
+        green,
+        red,
+        subgrid,
+        column,
+        autoclosure,
+        cell,
+        "color(source:opacity:)",
+        opacity,
+        Double,
+        "opacity(:)",
+        color,
+        return,
+        Color,
+        let,
+        subgrid,
+        case,
+        row,
+        case,
+        column,
+        case,
+        cell,
+        case,
+        source,
+        switch,
+        Double,
+        ShaderSource,
+        enum,
+        struct,
+        Color,
+        Color,
+        SwiftUI,
+        extension,
+        import,
+        width,
+        config,
+        return,
+        Config,
+        "localAndRemote(remoteProperties:takeScreenshot:isBreadcrumb:)",
+        "destination:",
+        "__fiz",
+        "__fiz",
+        "addEntry(:scope:)",
+        HatchBrain,
+        HatchModels,
+        import,
+        import,
+        HatchLogger,
+        Dispatch,
+        Dispatch,
+        CoreFoundation,
+        Dispatch,
+        Dispatch,
+        import,
+        Dispatch,
+        AVFAudio,
+        Dispatch,
+        SwiftUI,
+        AVFAudio,
+        import,
+        AVFAudio,
+        import,
+        "__fiz",
+        "__fiz",
+        HatchBrain,
+        CoreFoundation,
+        SwiftUI,
+        Swift,
+        CoreFoundation,
+        CoreFoundation,
+        SupportProvidersSDK,
+        ZendeskSupportProvidersSDK,
+        FirebaseCore,
+        import,
+        Firebase,
+        import,
+        FirebaseCrashlytics,
+        Dispatch,
+        "__fiz",
+        "__fiz",
+        AWSCore,
+        Dispatch,
+        FirebasePerformance,
+        FirebaseRemoteConfig,
+        "__fiz",
+        "__fiz",
+        "__fiz",
+        "__fiz",
+        AVFAudio,
+        import,
+        Dispatch,
+        Dispatch,
+        import,
+        Dispatch,
+        import,
+        AVFAudio,
+        import,
+        CoreAudioTypes,
+        AVFAudio,
+        AVFoundation,
+        import,
+        Darwin,
+        Foundation,
+        import,
+        CoreFoundation,
+        import,
+        CoreFoundation,
+        import,
+        CoreFoundation,
+        import,
+        ObjectiveC,
+        import,
+        ObjectiveC,
+        Foundation,
+        import,
+        Dispatch,
+        import,
+        Dispatch,
+        import,
+        Dispatch,
+        import,
+        Foundation,
+        Dispatch,
+        Foundation,
+        import,
+        isHidden,
+        buttonMaskButton,
+        "__arg",
+        "__arg",
+        false,
+        isHidden,
+        "__fiz",
+        "__fiz",
+        "__fiz",
+        "__fiz",
+        "__fix",
+        "__fix",
+        "__fiz",
+        "__fiz",
+        break,
+        false,
+        Beacon,
+        "wakeBeacon()",
+        Program,
+        RIOT,
+        "program()",
+        case,
+        isSleepScene,
+        favorite,
+        Favorite,
+        RIOT,
+        default,
+        default,
+        case,
+        switch,
+        nil,
+        let,
+        label,
+        Progam,
+        Progams,
+        Strings,
+        "__fix",
+        "__fix",
+        "__fiz",
+        tableView,
+        import,
+        Darwin,
+        SwiftUI,
+        AVFoundation,
+        AVFoundation,
+        import,
+        AVFoundation,
+        Foundation,
+        import,
+        Foundation,
+        SwiftUI,
+        Foundation,
+        Foundation,
+        import,
+        AWSIoT,
+        import,
+        AWSIoT,
+        AVFoundation,
+        import,
+        AVFoundation,
+        import,
+        AVFoundation,
+        Foundation,
+        import,
+        HatchLogger,
+        import,
+        HatchLogger,
+        import,
+        AVFoundation,
+        import,
+        AVFoundation,
+        import,
+        AVFoundation,
+        import,
+        Foundation,
+        import,
+        AVFoundation,
+        AVFoundation,
+        Foundation,
+        import,
+        Foundation,
+        import,
+        "__slint",
+        "__slint",
+        "toggle()",
+        isPowered,
+        "__slintnext",
+        "__slint",
+        color,
+        color,
+        break,
+        nil,
+        return,
+        nil,
+        return,
+        "assertionFailure(:)",
+        IoTShadowAdaptorHeadphonesItem,
+        iotShadowAdaptor,
+        iotHeadphonesItem,
+        iotShadowAdaptorItem,
+        iotShadowAdaptor,
+        "critical(::destination:userInfo:file:function:line:)",
+        iotShadowAdaptor,
+        "dropMajor()",
+        "dropMajor()",
+        "__fiz",
+        "__fiz",
+        currentHeadphonesName,
+        IoTShadowAdaptorHeadphonesItem,
+        "unsubscribeFromHeadphonesScan()",
+        headphonesCompatibleIoTShadowAdaptor,
+        headphonesSupported,
+        iotShadowAdaptor,
+        iotShadowAdaptor,
+        iotShadowAdaptor,
+        iotShadowAdaptor,
+        iotShadowAdaptor,
+        iotShadowAdaptor,
+        iotShadowAdaptor,
+        "__fiz",
+        "__fiz",
+        "__fix",
+        nil,
+        return,
+        iotHardwareProduct,
+        iotShadowAdaptor,
+        IoTHardwareProduct,
+        "iotShadowAdaptor:",
+        case,
+        IoTShadowAdaptorItem,
+        iotHardwareProduct,
+        "warning(::destination:userInfo:)",
+        HatchLogger,
+        IoTShadowAdaptor,
+        "__slintnext",
+        iotHeadphonesItem,
+        iotShadowAdaptorItem,
+        "empty()",
+        Headphones,
+        Shadow,
+        iotShadowAdaptor,
+        iotShadowAdaptor,
+        iotHeadphonesItem,
+        iotShadowAdaptors,
+        iotShadowAdaptor,
+        iotHeadphonesItem,
+        iotHeadphonesItem,
+        iotShadowAdaptorItem,
+        desiredHeadphones,
+        iotShadowAdaptor,
+        var,
+        "__fiz",
+        "__fiz",
+        "self { \\U2026",
+        switch,
+        "__fix",
+        typealias,
+        public,
+        "__fiz",
+        "__fiz",
+        "__fiz",
+        "__fiz",
+        IoTShadowAdaptorHeadphonesItem,
+        IoTShadowAdaptorItem,
+        "__fiz",
+        "__fiz",
+        "__fiz",
+        iotShadowAdaptor,
+        restoreConnectionAssets,
+        interactor,
+        "(iotShadowAdaptor: IoTShadowAdaptor)",
+        "__fiz",
+        "__fiz",
+        IoTShadowAdaptor,
+        sa,
+        "init(iotShadowAdaptor:)",
+        nil,
+        return,
+        "__fix",
+        IoTHeadphonesCompatible,
+        IoTShadowAdaptor,
+        "__fiz",
+        "__fiz",
+        return,
+        "warning(::destination:userInfo:)",
+        Logger,
+        "assertionFailure(:)",
+        iotShadowAdaptor,
+        restoreConnectionAssets,
+        interactor,
+        "(iotShadowAdaptor: IoTShadowAdaptor & IoTHeadphonesCompatible)",
+        "unsubscribeFromHeadphonesScan()",
+        "unsubscribeFromHeadphonesScan()",
+        subscribed,
+        delegate,
+        "subscribeToHeadphonesScan(delegate:subscribed:)",
+        "__fiz",
+        "__fiz",
+        completion,
+        message,
+        headphones,
+        "writeHeadphones(:message:completion:)",
+        desiredHeadphones,
+        "__fiz",
+        "__fiz",
+        nil,
+        nil,
+        guard,
+        nil,
+        return,
+        break,
+        "iotShadowAdaptorItem { \\U2026",
+        iotShadowAdaptor,
+        switch,
+        nil,
+        nil,
+        catch,
+        do,
+        iotHeadphonesItem,
+        iotHeadphonesI,
+        iotHeadphones,
+        iotHeadphone,
+        iotHa,
+        superIoTConnection,
+        "iotShadowAdaptor:",
+        IoTShadowAdaptorHeadphonesItem,
+        iotShadowAdaptor,
+        let,
+        headphonesSupported,
+        headphonesSupported,
+        iotShadowAdaptor,
+        "invalidIoTShadowAdaptor()",
+        Error,
+        throw,
+        IoTShadowAdaptor,
+        Error,
+        Swift,
+        default,
+        contact,
+        Airship,
+        reported,
+        reported,
+        headphones,
+        desired,
+        headphones,
+        desired,
+        iotShadowAdaptor,
+        Headphones,
+        Shadow,
+        IoTHeadphonesCompatible,
+        Shadow,
+        "__fiz",
+        "__fiz",
+        restoreConnection,
+        "__fiz",
+        "__fix",
+        "__fiz",
+        "__fiz",
+        "__fiz",
+        nil,
+        return,
+        restoreConnection,
+        headphones,
+        desired,
+        description,
+        superIoTConnection,
+        return,
+        SuperIoTConnection,
+        RestoreConnection,
+        RestoreConnectionCollectionViewCell,
+        iotShadowAdaptor,
+        iotShadowAdaptor,
+        switch,
+        IoTHTTPResponse,
+        switch,
+        Headphones,
+        HatchModels,
+        iotShadowAdaptor,
+        desiredCommon,
+        iotShadowAdaptor,
+        "__fiz",
+        "__fiz",
+        iotShadowAdaptor,
+        "iotShadowAdaptor:",
+        IoTHeadphonesCompatible,
+        HatchModels,
+        headphones,
+        headphones,
+        stateResult,
+        connectedHeadphonesName,
+        reported,
+        TestSuperIoTConnection,
+        TestRestoreConnection,
+        "__fiz",
+        SuperIoTConnection,
+        HatchUtilities,
+        import,
+        "__fiz",
+        extension,
+        IoTHeadphonesCompatible,
+        restoreConnection,
+        superIoTConnection,
+        "evaluateHeadphones(iotShadowAdaptor:)",
+        IoTShadowAdaptor,
+        "restoreV4()",
+        description,
+        description
+    );
+    DVTTextEditorWrapsLines = 0;
+    DVTTextPageGuideLocation = 160;
+    DVTTextShowAuthors = 0;
+    DVTTextShowCodeCoverage = 0;
+    DVTTextShowFoldingSidebar = 1;
+    DVTTextShowInvisibleCharacters = 1;
+    DVTTextShowMinimap = 0;
+    DVTTextShowPageGuide = 1;
+    "FE15C22E-465A-42E3-8B94-DA5F92AD6004-SelectedItemIdentifier" = "ArgumentKitTests.ArgumentManagerTests.testNotificationFromModifyUserDefaults()";
+    HangLogViewControllerScrollPositionStateRestorationCache =     {
+        DVTUserDefaultsCachingCache =         {
+            "2022-12-02_12-14-19.794_-0500-1d61158367921de9da74d74a67efb92fb65d5f36.3" =             (
+                0,
+                "-72"
+            );
+        };
+        DVTUserDefaultsCachingKeysRecentlyUsed =         (
+            "2022-12-02_12-14-19.794_-0500-1d61158367921de9da74d74a67efb92fb65d5f36.3"
+        );
+    };
+    IBAppliesAutoResizingRulesWhileResizing = 0;
+    IBDesktopImageCacheVersionKey = "13.0.1-14B47b";
+    IBDocumentConnectToSourceLastUserSelectedStorageType = 1;
+    IBGlobalLastEditorDocumentClassName = IBStoryboardDocument;
+    IBGlobalLastEditorTargetRuntime = "IBCocoaTouchFramework-sixteenAndLater";
+    IBICDefaultColorComponentMode = Hexadecimal;
+    IBIncludeUninstalledConstraintsInInspectorReferencingConstraintsList = 1;
+    IBOutlineViewIsShowing = 1;
+    IBOutlineViewWidth = 375;
+    IBPreferencesMigrated = 1;
+    IDEActivityLogShowAllResultsDefaultKey = 1;
+    IDEActivityLogShowsAllBuildSteps = 1;
+    IDEActivityLogShowsAnalyzerResults = 1;
+    IDEActivityLogShowsErrors = 1;
+    IDEActivityLogShowsWarnings = 1;
+    IDEAlwaysShowCompressedStackFrames = 0;
+    "IDEAnalyticsMetricsNotifications.AnalyticsMetricsNotificationsController.lastRefreshAttemptDate" = "2023-03-14 00:45:05 +0000";
+    IDEAnalyticsPointChartViewData = 3;
+    IDEAnalyticsPointChartViewTime = 3;
+    IDEAnalyticsPointDetailViewControllerAnalyticsLogSelected =     {
+        DVTUserDefaultsCachingCache =         {
+            "Dzc7t1j-qYOTOcq5HWbbML" = "2022-12-15_06-46-54.8137_-0800-2f2c449f0485c105fc2d4b54f8aa8b83d062783a";
+            PPiSs6Yb8gYHhkm4kEJPJ = "2022-09-13_22-46-11.0026_-0400-0503e699c986545235871efcc78b2d7e5680328b";
+        };
+        DVTUserDefaultsCachingKeysRecentlyUsed =         (
+            PPiSs6Yb8gYHhkm4kEJPJ,
+            "Dzc7t1j-qYOTOcq5HWbbML"
+        );
+    };
+    IDEAppStatisticsRunDestinationPlatform =     {
+        iphoneos = 1;
+        iphonesimulator = 1;
+        macosx = 1;
+    };
+    IDEAppStatisticsXcodeVersionMetricsHistoryStorage =     {
+        13C100 = "2022-04-03 19:27:05 +0000";
+        13C5066c = "2021-11-01 04:36:28 +0000";
+        13C90 = "2021-12-18 06:09:03 +0000";
+        13E113 = "2022-05-15 06:36:39 +0000";
+        13E500a = "2022-05-17 11:02:55 +0000";
+        13E5104i = "2022-03-04 21:17:17 +0000";
+        13F100 = "2022-09-13 19:04:16 +0000";
+        13F17a = "2022-06-03 16:04:42 +0000";
+        14A309 = "2022-09-27 03:18:08 +0000";
+        14A400 = "2022-10-19 22:23:59 +0000";
+        14A5229c = "2022-07-13 04:05:40 +0000";
+        14A5270f = "2022-07-13 18:11:42 +0000";
+        14A5294e = "2022-08-18 18:25:30 +0000";
+        14B47 = "2022-11-07 01:19:30 +0000";
+        14B47b = "2022-12-13 04:52:39 +0000";
+        14B5033e = "2022-10-17 06:55:32 +0000";
+        14C18 = "2023-03-14 00:43:03 +0000";
+    };
+    IDEAppStoreProductSourceRateLimiter =     {
+        DVTUserDefaultsCachingCache =         {
+            "App Store Product Source Accounts: zakkhoyt@hatchbaby.com" = "2023-02-16 23:12:17 +0000";
+            "App Store Product Source Accounts: zakkhoyt@hatchbaby.com and vaporwarewolf+apple@gmail.com" = "2022-12-16 07:09:56 +0000";
+        };
+        DVTUserDefaultsCachingKeysRecentlyUsed =         (
+            "App Store Product Source Accounts: zakkhoyt@hatchbaby.com and vaporwarewolf+apple@gmail.com",
+            "App Store Product Source Accounts: zakkhoyt@hatchbaby.com"
+        );
+    };
+    IDEAppearance = 0;
+    IDEBuildLocationStyle = Unique;
+    IDECopyFilesToTargetGroup = 0;
+    IDECrashLogViewControllerScrollPosition =     {
+        DVTUserDefaultsCachingCache =         {
+            "2021-10-29_11-47-28.4540_-0400-4198a31bc35261c9c37007ba8954168c137c7f8d" = "-71";
+            "2021-10-30_17-25-39.7259_-0500-8645f970b133c4e13e27da710bf2bcd864da6775" = "-71";
+            "2021-10-31_18-08-40.4184_-0500-0223e44d4c49ff3f3ca442cba5053ec7b0043848" = "-71";
+            "2021-10-31_23-13-11.8150_-0700-83af0e34e36d8b06ea525761b06ecba0cd329927" = "-71";
+            "2021-11-01_01-30-19.5685_-0500-013a3bcd8a657cebd740121f86f5a5caf1fa2e27" = "-71";
+            "2021-11-01_19-12-18.9823_-0400-b142faeaf3e689040141b16119d7267eda9ced3e" = "-71";
+            "2021-12-17_11-12-16.3481_-0800-24544dc2a017f1204f4c57730bd36ff49feb24c7" = "-71";
+            "2022-09-13_19-32-33.9091_-0500-41f55ec34dcd2fc08f599331516fb4b7b1d2b763" = "-71";
+            "2022-09-13_22-46-11.0026_-0400-0503e699c986545235871efcc78b2d7e5680328b" = "-71";
+            "2022-10-27_13-30-56.1566_-0400-aa7563dd69b88b01ef06baeb1406f26d7b9bf2fc" = "-71";
+            "2022-12-15_04-46-38.0099_-0800-dafb78907323e7f95b27d809290107afd085f109" = "-71";
+            "2022-12-15_05-59-21.6414_-0800-70da2b5db18fa5d35ce46d777c72806fec551c28" = "-71";
+            "2022-12-15_06-46-54.8137_-0800-2f2c449f0485c105fc2d4b54f8aa8b83d062783a" = "-71";
+            "2023-01-10_20-02-55.1989_-0500-0364c3fbe5e61f4e47cdfd12e66bf00bc286c43f" = "-71";
+            "2023-01-11_23-22-22.8742_-0700-34bd2de3fda61adf39401dc91e0d323aab29f9bd" = "-71";
+            "2023-01-25_20-10-20.6616_-0700-3d10bcb2f44fc38cca59e82fcd802bfa33c46831" = "-71";
+            "2023-01-26_20-07-26.0269_-0600-46234473627aa58e27700f985fb582327910b2b9" = "-71";
+            "2023-02-10_07-30-36.4003_-0500-837139edbd621857da913052079bcce0980ffd1a" = "-71";
+            "2023-02-14_18-45-33.1954_-0600-e65c36950bae5add0a559e05f0ef9cf11293ac0b" = "-71";
+            "2023-02-14_19-33-30.7220_-0600-68f68bc2153994682b1892334fc745d271dc16ab" = "-71";
+        };
+        DVTUserDefaultsCachingKeysRecentlyUsed =         (
+            "2021-11-01_19-12-18.9823_-0400-b142faeaf3e689040141b16119d7267eda9ced3e",
+            "2021-10-31_18-08-40.4184_-0500-0223e44d4c49ff3f3ca442cba5053ec7b0043848",
+            "2021-10-31_23-13-11.8150_-0700-83af0e34e36d8b06ea525761b06ecba0cd329927",
+            "2021-11-01_01-30-19.5685_-0500-013a3bcd8a657cebd740121f86f5a5caf1fa2e27",
+            "2021-10-30_17-25-39.7259_-0500-8645f970b133c4e13e27da710bf2bcd864da6775",
+            "2021-10-29_11-47-28.4540_-0400-4198a31bc35261c9c37007ba8954168c137c7f8d",
+            "2021-12-17_11-12-16.3481_-0800-24544dc2a017f1204f4c57730bd36ff49feb24c7",
+            "2022-09-13_19-32-33.9091_-0500-41f55ec34dcd2fc08f599331516fb4b7b1d2b763",
+            "2022-10-27_13-30-56.1566_-0400-aa7563dd69b88b01ef06baeb1406f26d7b9bf2fc",
+            "2022-09-13_22-46-11.0026_-0400-0503e699c986545235871efcc78b2d7e5680328b",
+            "2022-12-15_04-46-38.0099_-0800-dafb78907323e7f95b27d809290107afd085f109",
+            "2022-12-15_05-59-21.6414_-0800-70da2b5db18fa5d35ce46d777c72806fec551c28",
+            "2022-12-15_06-46-54.8137_-0800-2f2c449f0485c105fc2d4b54f8aa8b83d062783a",
+            "2023-01-11_23-22-22.8742_-0700-34bd2de3fda61adf39401dc91e0d323aab29f9bd",
+            "2023-01-10_20-02-55.1989_-0500-0364c3fbe5e61f4e47cdfd12e66bf00bc286c43f",
+            "2023-01-25_20-10-20.6616_-0700-3d10bcb2f44fc38cca59e82fcd802bfa33c46831",
+            "2023-01-26_20-07-26.0269_-0600-46234473627aa58e27700f985fb582327910b2b9",
+            "2023-02-14_19-33-30.7220_-0600-68f68bc2153994682b1892334fc745d271dc16ab",
+            "2023-02-14_18-45-33.1954_-0600-e65c36950bae5add0a559e05f0ef9cf11293ac0b",
+            "2023-02-10_07-30-36.4003_-0500-837139edbd621857da913052079bcce0980ffd1a"
+        );
+    };
+    IDECreateGroupsForFolders = 1;
+    IDECustomBuildIntermediatesPath = "Build/Intermediates.noindex";
+    IDECustomBuildLocationType = RelativeToWorkspace;
+    IDECustomBuildProductsPath = "Build/Products";
+    IDEDefaultPrimaryEditorFrameSizeForPaths =     {
+        "file:///Users/zakkhoyt/Documents/3DPrinting/dad_120_club_2.stl" =         {
+            height = 750;
+            width = 699;
+        };
+        "file:///Users/zakkhoyt/Downloads/lem-updates.json" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/Library/Developer/Xcode/Products/com.hatchbaby.Nightlight/Crashes/Points/Dzc7t1j-qYOTOcq5HWbbML.xccrashpoint" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/Library/org.swift.swiftpm/collections.json" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/gitlab/PeriodicTable/ElementLIstExtractor/ElementLIstExtractor/String+CodingConvention.swift" =         {
+            height = 1415;
+            width = 1280;
+        };
+        "file:///Users/zakkhoyt/code/repositories/gitlab/PeriodicTable/ElementLIstExtractor/ElementLIstExtractor/StringConventionTests.swift" =         {
+            height = 1415;
+            width = 1280;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatch-baby/HatchSleep/2/HatchSleep/Sources/HatchSleep/ViewControllers/Onboarding/Screens/Bluetooth/OBBluetooth.storyboard" =         {
+            height = 1079;
+            width = 1467;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatch-baby/HatchSleep/2/HatchSleep/Sources/HatchSleep/ViewControllers/Programs/Programs/Cell/ProgramTableViewCell.swift" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatch-baby/HatchSleep/2/HatchSleep/Sources/HatchSleep/ViewControllers/Programs/Programs/Cell/ProgramTableViewCell.xib" =         {
+            height = 1079;
+            width = 1467;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatch-baby/HatchSleep/2/fastlane/scripts/packages/translator/output/ApolloCodegenDeps_script.json" =         {
+            height = 900;
+            width = 1400;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatch-baby/HatchSleep/scripts/name_game.py" =         {
+            height = 750;
+            width = 960;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatch-baby/MachineSpecificInstaller/Sources/DevelopmentArgumentsProvider+MachineSpecific.swift" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatch-baby/RedHenBaby_production/Pods/AFNetworking/AFNetworking/AFURLConnectionOperation.h" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatch-baby/Subscription/Answered_ferbie/HatchBrain/HatchBrain/Source/RedirectUrlManager.swift" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatch/hatch-sleep/0/Nightlight/README.md" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatchbaby/AsciiArtHeaders/AsciiArtHeaders.xcodeproj/xcshareddata/IDETemplateMacros.plist" =         {
+            height = 900;
+            width = 1400;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatchbaby/AsciiArtHeaders/IDETemplateMacros.plist" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatchbaby/EasyTipView/Sources/EasyTipView/EasyTipView.swift" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatchbaby/HatchSleep_Sensitive/DevelopmentArgumentsProvider+MachineSpecific.swift" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatchbaby/JSON/swiftgen.yml" =         {
+            height = 917;
+            width = 1316;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatchbaby/Nightlight/HatchAssets/Sources/HatchAssets/Resources/Assets.xcassets/Color/Contents.json" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatchbaby/Nightlight/Nightlight.xcworkspace/xcshareddata/IDETemplateMacros.plist" =         {
+            height = 761;
+            width = 1286;
+        };
+        "file:///Users/zakkhoyt/code/repositories/hatchbaby/Nightlight_backup/HatchBrain/Sources/HatchBrain/API/CURLLog.swift" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/migration/HatchSleep-iOS/fastlane/scripts/attribution.py" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/migration/HatchSleep-iOS_pr/Nightlight/ViewControllers/Settings/DeviceDetail/IoTShadowAdaptorSettingsViewController.swift" =         {
+            height = 900;
+            width = 1400;
+        };
+        "file:///Users/zakkhoyt/code/repositories/other/Configurations-release-2.0.9.2/config/examples/Creality/Ender-3%20Pro/BigTreeTech%20SKR%20Mini%20E3%201.0/Configuration_adv.h" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/other/JyersUI/Configurations-bugfix-2.0.x/config/examples/Creality/Ender-3%20V2/CrealityV422/CrealityUI/Configuration_adv.h" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/other/JyersUI/Configurations-bugfix-2.0.x/config/examples/FolgerTech/i3-2020/Configuration_adv.h" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/other/JyersUI/Configurations/config/examples/Creality/Ender-3%20V2/BigTreeTech%20SKR%20E3%20Turbo/CrealityUI/Configuration.h" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/other/JyersUI/Configurations/config/examples/Creality/Ender-3%20V2/BigTreeTech%20SKR%20E3%20Turbo/MarlinUI/Configuration.h" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/other/JyersUI/Jyers-2.0.1_ublhs_10x10/Configuration%20Files/Jyers's%20Config/Configuration.h" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/other/JyersUI/Jyers_2.0.1/Configuration%20Files/E3V2%20Templates/UBL-BLTouch-10x10/Configuration.h" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/other/JyersUI/Jyers_2.0.1/platformio.ini" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/raycast/jira.sh" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/code/repositories/raycast/scripts/swifty-script.swift" =         {
+            height = 933;
+            width = 1496;
+        };
+        "file:///Users/zakkhoyt/temp/command/run.sh" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/temp/data.json" =         {
+            height = 750;
+            width = 800;
+        };
+        "file:///Users/zakkhoyt/temp/zakkTest.yml" =         {
+            height = 750;
+            width = 800;
+        };
+    };
+    IDEDisableGitSupportForNewProjects = 1;
+    IDEDocSearchSelectedReferenceIdentifier = data;
+    IDEDocumentationIndexedStoreLastAccessed = "699471211.197561";
+    "IDEEditorCoordinatorTarget_DoubleClick" = SameAsClick;
+    IDEEditorDefaultCodeReviewPreference = 1;
+    "IDEEditorNavigationStyle_DefaultsKey" = "IDEEditorNavigationStyle_OpenInPlace";
+    IDEEnableLiveIssues = 0;
+    IDEExtensionsBuiltPriorToXcode12 =     (
+    );
+    IDEFileExtensionDisplayMode = 1;
+    "IDEFileTemplateChooserAssistantSelectedTemplateName_iOS" = "Documentation/Article File";
+    IDEFileTemplateChooserAssistantSelectedTemplateSection = "com.apple.platform.iphoneos";
+    "IDEFoundation.SigningEditorCapsuleViewStateRestorationManager.collapsedViewControllersCache" =     {
+        DVTUserDefaultsCachingCache =         {
+            "-4115090333473152167" = 1;
+        };
+        DVTUserDefaultsCachingKeysRecentlyUsed =         (
+            "-4115090333473152167"
+        );
+    };
+    IDEHasConvertedXcode3BuildPrefs = 1;
+    IDEHexEditorByteGrouping = 8;
+    IDEHexEditorHextTextShowing = 1;
+    IDEHexEditorLineNumberFormat = 0;
+    IDEIssueNavigatorDetailLevel = 10;
+    "IDEJumpToLineWindowController.location" =     {
+        horizontal =         {
+            anchor = 1;
+            distance = 0;
+        };
+        vertical =         {
+            anchor = 1;
+            distance = "0.2399293286219081";
+        };
+    };
+    "IDEJumpToLineWindowController.width" = 454;
+    IDEKeyBindingCurrentPreferenceSet = "Default.idekeybindings";
+    IDEKeyBindingExcludedPreferenceSet =     (
+        Default
+    );
+    "IDEKit.SigningEditorConfiguratonsScopeBarButtonManager.selectedSigningEditorConfigurationCache" =     {
+        DVTUserDefaultsCachingCache =         {
+            KeyboardFocusDemo = All;
+            Nightlight = All;
+            "Sudoku-iOS" = Release;
+            WaveSynth = All;
+        };
+        DVTUserDefaultsCachingKeysRecentlyUsed =         (
+            KeyboardFocusDemo,
+            WaveSynth,
+            Nightlight,
+            "Sudoku-iOS"
+        );
+    };
+    IDELastBreakpointActionClassName = IDELogBreakpointAction;
+    IDELastLSRegisterHashes =     {
+        "/Applications/Xcode.app/Contents/Applications/Accessibility Inspector.app" = {length = 20, bytes = 0x6581875f9a58b24a87c9a3a5d6326baa2a24b2e0};
+        "/Applications/Xcode.app/Contents/Applications/FileMerge.app" = {length = 20, bytes = 0xb2ae376187eaf2e295a4e52ae9cc24309e68a9b0};
+        "/Applications/Xcode.app/Contents/Applications/Instruments.app" = {length = 20, bytes = 0x36655fb4fe90ec21444151779ba95b03b0ac1409};
+        "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" = {length = 20, bytes = 0x21261d980f2b6c9d7890dd9c74511fbb256e4ba9};
+        "/System/Library/CoreServices/CoreTypes.bundle" = {length = 20, bytes = 0x7df446f16630f2250f5528578af46264fd28e681};
+    };
+    IDELastShownWhatsNewContentRevision = 1;
+    "IDELibrary.assetViewStyle" =     {
+        "Xcode.IDEKit.SymbolLibrary" = 2;
+    };
+    "IDELibrary.lastSelectedLibraryExtensionIDByEditorID" =     {
+        "" = "Xcode.IDECodeSnippetLibrary";
+        "Xcode.IDEKit.EditorDocument.AssetCatalog" = "Xcode.IDECodeSnippetLibrary";
+        "Xcode.IDEKit.EditorDocument.LogDocument" = "Xcode.IDECodeSnippetLibrary";
+        "Xcode.IDEKit.EditorDocument.PegasusSourceCode" = "Xcode.IDECodeSnippetLibrary";
+        "Xcode.IDEKit.InterfaceBuilder.EditorDocument.Storyboard" = "Xcode.InterfaceBuilderKit.ObjectsLibrary";
+        "Xcode.IDEKit.InterfaceBuilder.EditorDocument.XIB" = "Xcode.InterfaceBuilderKit.ObjectsLibrary";
+        "Xcode.Xcode3ProjectSupport.EditorDocument.Xcode3Project" = "Xcode.DVTKit.Library.Capabilities";
+    };
+    "IDELibrary.showingDetails" = 0;
+    "IDELibraryWindowController-With-Details.height" = 779;
+    "IDELibraryWindowController-With-Details.location" =     {
+        horizontal =         {
+            anchor = 1;
+            distance = "0.04765625";
+        };
+        vertical =         {
+            anchor = 2;
+            distance = "0.09469964664310954";
+        };
+    };
+    "IDELibraryWindowController-With-Details.width" = 1328;
+    "IDELibraryWindowController-Without-Details.height" = 1241;
+    "IDELibraryWindowController-Without-Details.location" =     {
+        horizontal =         {
+            anchor = 0;
+            distance = 0;
+        };
+        vertical =         {
+            anchor = 2;
+            distance = "0.08975265017667844";
+        };
+    };
+    "IDELibraryWindowController-Without-Details.width" = 1202;
+    IDELogNavigatorGroupByKey = 0;
+    IDENavigatorRowSizeStyle = 2;
+    "IDEOpenQuicklyWindowController.location" =     {
+        horizontal =         {
+            anchor = 1;
+            distance = 0;
+        };
+        vertical =         {
+            anchor = 1;
+            distance = "0.09592711682743837";
+        };
+    };
+    "IDEOpenQuicklyWindowController.width" = 454;
+    "IDEPlatformsFirstLaunchPresentedSDKVersions-appletvos" =     (
+        20K67,
+        20K5052c,
+        20J373,
+        20J5355f
+    );
+    "IDEPlatformsFirstLaunchPresentedSDKVersions-iphoneos" =     (
+        20C52,
+        20B71,
+        20B5056e,
+        20A360,
+        20A5339d
+    );
+    "IDEPlatformsFirstLaunchPresentedSDKVersions-macosx" =     (
+        22C55,
+        22A372,
+        22A5358d,
+        21E226,
+        22A5321d
+    );
+    "IDEPlatformsFirstLaunchPresentedSDKVersions-watchos" =     (
+        20S71,
+        20S5055d,
+        20R362,
+        20R5343e
+    );
+    "IDEPlatformsFirstLaunchSelected-appletvos" = 1;
+    "IDEPlatformsFirstLaunchSelected-iphoneos" = 1;
+    "IDEPlatformsFirstLaunchSelected-watchos" = 1;
+    IDEPlaygroundTemplateChooserAssistantSelectedTemplateSection = "com.apple.platform.iphoneos";
+    IDEProductsUISelectedInspector = "-6968856782400629023";
+    IDEProductsViewControllerSelectedProductIdentifier =     {
+        bundleIdentifier = "com.hatchbaby.Nightlight";
+        productCategory = "ProductCategory_iOSApp";
+        productIdentifierType = 0;
+        productType = 1;
+    };
+    IDEProductsViewControllerSelectedProductSectionIdentifier = "Xcode.ProductsWindow.ProductSection.Row.CrashPoints";
+    IDEProductsViewControllerSourceListSplitPosition = 215;
+    IDEProfileActionSelectedTab = Options;
+    IDEProvisioningTeamManagerLastSelectedTeamID = R9NLYTXPDC;
+    IDEProvisioningTeams =     {
+        "vaporwarewolf+apple@gmail.com" =         (
+                        {
+                isFreeProvisioningTeam = 0;
+                teamID = J7U74N85YF;
+                teamName = "zachary hoyt";
+                teamType = Individual;
+            }
+        );
+        "zakkhoyt@hatchbaby.com" =         (
+                        {
+                isFreeProvisioningTeam = 1;
+                teamID = SJ4486PRQ5;
+                teamName = "Zachary Hoyt (Personal Team)";
+                teamType = "Personal Team";
+            },
+                        {
+                isFreeProvisioningTeam = 0;
+                teamID = R9NLYTXPDC;
+                teamName = "Hatch Baby Inc.";
+                teamType = Company;
+            }
+        );
+    };
+    IDERecentEditorDocuments =     (
+        {length = 1264, bytes = 0x626f6f6b f0040000 00000410 30000000 ... c4020000 00000000 },
+        {length = 1152, bytes = 0x626f6f6b 80040000 00000410 30000000 ... 74020000 00000000 },
+        {length = 1216, bytes = 0x626f6f6b c0040000 00000410 30000000 ... a4020000 00000000 },
+        {length = 1196, bytes = 0x626f6f6b ac040000 00000410 30000000 ... 9c020000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 156, bytes = 0x626f6f6b 9c000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 1476, bytes = 0x626f6f6b c4050000 00000410 30000000 ... 58030000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 1244, bytes = 0x626f6f6b dc040000 00000410 30000000 ... cc020000 00000000 },
+        {length = 1544, bytes = 0x626f6f6b 08060000 00000410 30000000 ... 80030000 00000000 },
+        {length = 1300, bytes = 0x626f6f6b 14050000 00000410 30000000 ... e4020000 00000000 },
+        {length = 156, bytes = 0x626f6f6b 9c000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 156, bytes = 0x626f6f6b 9c000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 156, bytes = 0x626f6f6b 9c000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 156, bytes = 0x626f6f6b 9c000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 1508, bytes = 0x626f6f6b e4050000 00000410 30000000 ... 74030000 00000000 },
+        {length = 1476, bytes = 0x626f6f6b c4050000 00000410 30000000 ... 64030000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 1180, bytes = 0x626f6f6b 9c040000 00000410 30000000 ... 78020000 00000000 },
+        {length = 784, bytes = 0x626f6f6b 10030000 00000410 30000000 ... 04000000 00000000 },
+        {length = 1208, bytes = 0x626f6f6b b8040000 00000410 30000000 ... 78020000 00000000 },
+        {length = 1236, bytes = 0x626f6f6b d4040000 00000410 30000000 ... 98020000 00000000 },
+        {length = 1476, bytes = 0x626f6f6b c4050000 00000410 30000000 ... 64030000 00000000 },
+        {length = 1240, bytes = 0x626f6f6b d8040000 00000410 30000000 ... 98020000 00000000 },
+        {length = 1180, bytes = 0x626f6f6b 9c040000 00000410 30000000 ... 78020000 00000000 },
+        {length = 1180, bytes = 0x626f6f6b 9c040000 00000410 30000000 ... 78020000 00000000 },
+        {length = 1164, bytes = 0x626f6f6b 8c040000 00000410 30000000 ... 70020000 00000000 },
+        {length = 1340, bytes = 0x626f6f6b 3c050000 00000410 30000000 ... f0020000 00000000 },
+        {length = 1252, bytes = 0x626f6f6b e4040000 00000410 30000000 ... a0020000 00000000 },
+        {length = 784, bytes = 0x626f6f6b 10030000 00000410 30000000 ... 04000000 00000000 },
+        {length = 1392, bytes = 0x626f6f6b 70050000 00000410 30000000 ... 24030000 00000000 },
+        {length = 1424, bytes = 0x626f6f6b 90050000 00000410 30000000 ... 44030000 00000000 },
+        {length = 1216, bytes = 0x626f6f6b c0040000 00000410 30000000 ... a4020000 00000000 },
+        {length = 1560, bytes = 0x626f6f6b 18060000 00000410 30000000 ... 98030000 00000000 },
+        {length = 1168, bytes = 0x626f6f6b 90040000 00000410 30000000 ... 7c020000 00000000 },
+        {length = 1528, bytes = 0x626f6f6b f8050000 00000410 30000000 ... 88030000 00000000 },
+        {length = 1392, bytes = 0x626f6f6b 70050000 00000410 30000000 ... 18030000 00000000 },
+        {length = 1536, bytes = 0x626f6f6b 00060000 00000410 30000000 ... 8c030000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 1320, bytes = 0x626f6f6b 28050000 00000410 30000000 ... ec020000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 },
+        {length = 1388, bytes = 0x626f6f6b 6c050000 00000410 30000000 ... 14030000 00000000 },
+        {length = 144, bytes = 0x626f6f6b 90000000 00000410 30000000 ... 04000000 00000000 }
+    );
+    IDERunActionSelectedTab = Options;
+    "IDERunSheetController_UIState" = {length = 515, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000017f };
+    IDESearchNavigatorDetailLevel = 2;
+    IDESourceControlCommitViewerReviewFilesSelectedChoice = 4;
+    "IDESourceControlHostAccounts_10" =     (
+                {
+            AccountName = GitHub;
+            Authentication =             {
+                TokenKeychainEntryName = "Xcode-SCM-Token-23B51C2C-55E1-4ED8-920F-41ED2B7D976A";
+                Type = Bearer;
+            };
+            CloneType = 1;
+            ExtensionIdentifier = "com.apple.dt.GitHubHostBuiltInExtension";
+            HostURL = "https://github.com";
+            SSHKeyPath = "/Users/zakkhoyt/.ssh/id_ecdsa";
+            SSHKeyUsername = git;
+            Username = zakkhoyt;
+        },
+                {
+            AccountName = "GitLab.com";
+            Authentication =             {
+                TokenKeychainEntryName = "Xcode-SCM-Private-Token-7CB968FC-A21C-451C-8DB4-415F4BCD9516";
+                Type = "Private-Token";
+            };
+            CloneType = 1;
+            ExtensionIdentifier = "com.apple.dt.GitLabHostBuiltInExtension";
+            HostURL = "https://gitlab.com";
+            SSHKeyPath = "/Users/zakkhoyt/.ssh/id_rsa_gitlab_hatchbaby";
+            SSHKeyUsername = git;
+            Username = "group_712076_bot";
+        }
+    );
+    IDESourceControlKnownSSHHostsDefaultsKey =     {
+        "github.com" = 7B99811E4C91A50D5A2E2E80133F24CA;
+    };
+    IDESourceControlPreferencesVersion = 201;
+    IDESourceControlWarnUncommittedChangesDefaultsKey = 0;
+    IDESourceTreeDisplayNames =     {
+    };
+    IDESuppressStopBuildWarning = 1;
+    IDESuppressStopExecutionWarning = 1;
+    IDESuppressStopExecutionWarningTarget = "IDESuppressStopExecutionWarningTargetValue_Stop";
+    IDESuppressStopTestWarning = 1;
+    "IDESupressSwiftPackageManagerAlertForCommandWritability-SwiftFormat-SwiftFormatPlugin" = 1;
+    IDESwiftPackageAdditionAssistantRecentlyUsedPackages =     (
+        "https://github.com/zendesk/support_sdk_ios.git",
+        "https://github.com/samiyr/SwiftyPing.git",
+        "https://github.com/SwiftyJSON/SwiftyJSON.git",
+        "https://github.com/RevenueCat/purchases-ios.git",
+        "https://github.com/hmlongco/Resolver.git",
+        "https://github.com/ashleymills/Reachability.swift.git",
+        "https://github.com/NordicSemiconductor/IOS-DFU-Library.git",
+        "https://github.com/joaodforce/Locksmith.git",
+        "https://github.com/kishikawakatsumi/KeychainAccess.git",
+        "https://github.com/firebase/firebase-ios-sdk.git",
+        "https://github.com/contentful/contentful-persistence.swift",
+        "https://github.com/contentful/contentful.swift",
+        "https://github.com/bugsee/spm",
+        "https://github.com/aws-amplify/aws-sdk-ios-spm",
+        "https://github.com/amplitude/Amplitude-iOS.git",
+        "https://github.com/urbanairship/ios-library.git",
+        "https://gitlab.com/hatchbaby/hatchterminal",
+        "https://github.com/apple/swift-argument-parser.git",
+        "https://gitlab.com/hatchbaby/hatcharcane"
+    );
+    IDESwiftPackageCollectionsAddedDefaultCollectionsDVTToolsVersion = "Xcode 14.0.0";
+    IDETemplateCompletionDefaultPath = "/Users/zakkhoyt/temp";
+    IDETemplateOptions =     {
+        appLifecycle = SwiftUI;
+        bundleExtension = bundle;
+        bundleIdentifierPrefix = "com.hatchbaby";
+        cocoaSubclass = NSObject;
+        coreData = false;
+        coreDataCloudKit = false;
+        gameType = SceneKit;
+        hasDocumentation = true;
+        hasUnitAndUITests = false;
+        hasUnitTests = true;
+        integrateGK = false;
+        languageChoice = Swift;
+        testSubclass = XCTestCase;
+        userInterface = SwiftUI;
+    };
+    IDETestActionSelectedTab = Options;
+    "IDETestReport_ShowAllTests" = 0;
+    "IDETestReport_ShowExpectedFailureTests" = 0;
+    "IDETestReport_ShowFailedTests" = 0;
+    "IDETestReport_ShowMixedTestsKey" = 0;
+    "IDETestReport_ShowPassedTests" = 1;
+    "IDETestReport_ShowSkippedTests" = 0;
+    IDEUserWantsToEnableDeveloperSystemPolicyMode = 0;
+    "IDE_CA_Daily_LastReport" = "700447384.1639121";
+    NSColorPanelMode = 1;
+    NSColorPickerPreferredRGBEntryMode = 2;
+    NSColorPickerSlidersDefaults = 1;
+    NSNavLastRootDirectory = "~/code/repositories/hatch/hatch-sleep/0";
+    NSNavPanelExpandedSizeForOpenMode = "{969, 696}";
+    NSNavPanelExpandedSizeForSaveMode = "{928, 768}";
+    NSNavPanelExpandedStateForSaveMode = 1;
+    "NSSplitView Subview Frames IDEDistributionSummarySplitView" =     (
+        "0.000000, 0.000000, 200.000000, 344.000000, NO, NO",
+        "201.000000, 0.000000, 502.000000, 344.000000, NO, NO"
+    );
+    "NSSplitView Subview Frames NSColorPanelSplitView" =     (
+        "0.000000, 0.000000, 228.000000, 315.000000, NO, NO",
+        "0.000000, 316.000000, 228.000000, 43.000000, NO, NO"
+    );
+    "NSSplitView Subview Frames com.apple.dt.Xcode.DevicesWidow.DevicesSplit" =     (
+        "0.000000, 0.000000, 219.000000, 700.000000, NO, NO",
+        "220.000000, 0.000000, 820.000000, 700.000000, NO, NO"
+    );
+    "NSTableView Columns v3 CoverageReport" = {length = 587, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019d };
+    "NSTableView Columns v3 InspectedCustomAttributes" = {length = 555, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000017f };
+    "NSTableView Columns v3 PlistColumns" = {length = 586, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000019c };
+    "NSTableView Columns v3 TestReportv2" = {length = 497, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 0000015d };
+    "NSTableView Sort Ordering v2 CoverageReport" = {length = 237, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 000000b5 };
+    "NSTableView Sort Ordering v2 InspectedCustomAttributes" = {length = 237, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 000000b5 };
+    "NSTableView Sort Ordering v2 PlistColumns" = {length = 237, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 000000b5 };
+    "NSTableView Sort Ordering v2 TestReportv2" = {length = 237, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 000000b5 };
+    "NSTableView Supports v2 CoverageReport" = 1;
+    "NSTableView Supports v2 InspectedCustomAttributes" = 1;
+    "NSTableView Supports v2 PlistColumns" = 1;
+    "NSTableView Supports v2 TestReportv2" = 1;
+    "NSToolbar Configuration com.apple.NSColorPanel" =     {
+        "TB Is Shown" = 1;
+    };
+    NSUserKeyEquivalents =     {
+        Capitalize = "@~$c";
+        "Make Lower Case" = "@~$l";
+        "Make Upper Case" = "@~$u";
+    };
+    "NSWindow Frame Documentation Viewer Window" = "930 0 1280 1415 0 0 2560 1415 ";
+    "NSWindow Frame IDEDownloadProgressWindow" = "52 158 400 100 0 0 1496 933 ";
+    "NSWindow Frame IDEEditContextSheet" = "481 230 534 501 0 0 1496 933 ";
+    "NSWindow Frame IDEEditSchemeWindow" = "201 28 1095 867 0 0 1496 933 ";
+    "NSWindow Frame IDEManageRunContextSheet" = "902 309 756 825 0 0 2560 1415 ";
+    "NSWindow Frame IDENewContextSheet" = "1034 647 493 150 0 0 2560 1415 ";
+    "NSWindow Frame IDEPreferencesPanel" = "333 322 830 500 0 0 1496 933 ";
+    "NSWindow Frame IDESwiftPackageAdditionAssistant" = "738 405 1084 605 0 0 2560 1415 ";
+    "NSWindow Frame NSColorPanel" = "1064 551 228 335 0 0 2560 1415 ";
+    "NSWindow Frame NSNavPanelAutosaveName" = "816 322 928 768 0 0 2560 1415 ";
+    "NSWindow Frame NSSpellCheckerSubstitutionsPanel2" = "1796 148 428 137 0 0 2560 1415 ";
+    "NSWindow Frame Products" = "532 241 1496 933 0 0 2560 1415 ";
+    "NSWindow Frame com.apple.dt.xcode.devicesWindow" = "985 706 1040 700 0 0 2560 1415 ";
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:02164437-D6C3-4357-83FC-7342F75E9E9F" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:03F913B3-9F5E-4DF8-AA0A-3BA34B1DEEF8" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:06EA441A-1F52-42AC-9A7A-0D17A133BEEF" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:0A1C1B2D-1D31-4FA5-9F91-ABBC74C1E7A0" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:0B000140-404B-4223-9926-112B98337375" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:0D63C7A8-F272-48FD-8485-E85ED95C0B67" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:0F45112F-4575-4651-9CE3-A4ACBFC71B31" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:13406E3D-A16C-4EC4-9CEB-4A2B59D68F54" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:147BE920-A0F3-483F-8D4D-8D3BE37D6716" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:14BC926C-E6A9-44CF-964C-AC775000E09B" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:181C2C13-C220-468C-A5FF-DF35E6D8B330" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:18291E77-693C-43AE-98D3-3B617B3FF576" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:1997A71E-5623-45C1-9A60-0B6B108D1D00" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:1A332B7A-E274-4139-AE3D-0F954391C16A" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:1A5E373E-3D6A-433D-9542-21501A7C6F9C" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:1B3FD597-BC1F-4E9D-A239-D69C28CCD309" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:1CCFE266-0248-479F-8FD0-FFD08084D903" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:2269FD13-F0AF-4BF4-9EC6-833F152323D1" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:23463431-4E2F-44C2-8AC9-661DCA712BA9" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:24AA66A5-61C9-451D-9CDA-2656F4F0ECD2" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:26288CCE-6B26-495D-9A04-9743768DB74C" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:2B0CDC5B-5BDE-4CB6-ADA1-CA8062B8593F" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:2D9131DC-01D9-4FDF-9B76-52D91CB9BE0E" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:32C1274E-8000-4999-B419-76E43364AA3E" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:332B1263-82F6-4B51-9966-44E0D64BCDC4" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:357B281F-BDEC-48AE-8FA0-F12AD749B330" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:37FB1E76-9786-4808-873C-61018DBB0D5A" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:38155889-4B51-4A4A-9987-9A2F4096763E" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:3C713028-C622-4C39-874B-C907859BF305" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:3CD7A144-5207-4AC1-A92F-89A90E23B4FC" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:3CD9F7D9-0B82-4CDD-BC70-334E345553C2" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:3DD91A26-DF77-4BAF-B001-F9A599B1B9A5" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:3E520039-EE80-41B0-8D88-8F53F2077D01" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:40DD0EBE-97E3-40D7-9893-F4C1897FDD42" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:40EFE95A-78F6-44E8-8411-D231B4800E14" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:453B2143-B33A-443A-99E2-3B8DB5124D42" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:45A8B012-1D3D-4B30-BAA3-6D169FBC6CE4" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:46CE8D64-C97E-4A60-87E8-984FBC5FD74D" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:4743EAD4-0706-4B4B-8172-DD028B27EAFA" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:48C33AB3-5F0E-4B1B-8B86-1CA15E0AF2BA" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:48DC3EB8-8B59-4107-9A37-071AD4082EB5" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:4A23F657-DD08-41B9-9640-35860D843A27" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:4AB64FA5-EB8A-4F04-94EE-397D247F0345" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:4E8964D5-29AC-4AAB-AC2F-032FE951FF86" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:4EA3D9F9-2552-485E-83EF-65133799C74E" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:4EE78904-7D5B-4545-AA5E-385E11E33525" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:4F20DBF6-AC20-41C0-A876-7F69DBDFA2C8" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:51491434-961F-48BE-A0D6-AE725E9D9C21" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:5210D2DC-A0B8-49AE-A13E-E90CEB71BDC8" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:5373B41E-C9F6-4380-A396-DA30A2B4F74B" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:558FE72A-E744-43FA-9CAE-8E968799CB3D" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:56E87ECA-6AF1-4A6E-9C5A-77B413C85948" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:58FFD480-9C63-451D-8593-E383CB457203" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:5C7134E2-4775-40CB-B9EC-C623C0961446" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:6032027D-F736-475F-88CA-78BC1E5EA8C0" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:61DA3F70-8AC1-4096-837E-58A5D3F5DB50" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:61E7212F-BB96-4A58-8A48-7B40361653AD" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:628FA62E-98DF-4A14-B180-F6CFF2A572A8" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:63612D03-2417-4B4F-B34B-0C006ADAF7F4" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:6466F069-BA7A-41AD-B2F4-C5A8DFCC7CE9" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:64B96DFB-A49C-427C-8BBF-7F68F1569198" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:64D75F90-096F-4A17-8513-B0216A58733C" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:6B418D15-42DB-42D2-8DB7-430AFE8F2BBC" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:6D1A3663-5293-4083-ADCA-6358D6EB5428" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:6D90FE61-DCC5-4A7A-B6F6-87E0945062A7" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:6E0DACE9-6AE2-4E21-831D-A1FF1D85C72A" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:6E259AF3-6839-490D-B1C2-AEF264575CCC" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:6E3B9BA6-9184-49DA-8D58-0B38E0A51F31" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:6E88C3D4-CF09-484E-8A7C-23B898D3D6AA" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:70ECA338-2127-4028-B3EC-F1A9AF4700E2" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:716894C9-EFDB-4785-964D-3A98A181FE8D" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:72A66B15-4EAE-477B-896D-6EBBD13259A9" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:74AF73D9-C55E-43DF-843C-D51DFFA172F8" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:75A5922A-2A71-4B94-A1AB-2391400D42E1" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:75EDDB87-BF1D-4100-9AAD-E7E248FBF22A" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:7AAD97EF-CB78-4308-981A-F64F5F1F88B3" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:7B851F84-91E4-47D6-9182-3C4492DB99E5" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:7BF26DC3-CA04-4E42-83AD-6A0E54E5B2C8" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:7D2AD5A5-049F-4CE4-9380-342F33E023DF" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:80886601-050A-417F-8BD7-74F4F7BAD16A" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:80A2B13A-67BB-4EE0-96EE-48BB376082CE" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:81CAB5CD-6891-4223-AA9A-B7F5B25C05C6" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:8D3DCB33-A622-4E21-9E8E-155B56B813E3" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:8DAFDA4F-8862-4DA5-8FCA-F008468ADC69" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:8DEDD6C2-DE67-4D3D-AA12-E2FA33527FFD" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:8FB0F812-C47E-407D-BC35-8F2406FDF2BC" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:90B15550-440C-4CA5-8575-1274A951FCCF" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:92635DC3-3CC8-4D50-9D97-9E1DA7414DCA" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:92C5E8C4-89AC-4311-AB2F-C043A7FFB5D5" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:95926349-AB7E-4E26-BB91-60ECEB066B3E" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:970050DB-FFDC-4725-BDEF-0017C8FE4A85" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:974CC756-3490-4F08-B83B-B6315BCDF26A" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:983D57FE-037E-4B0D-A6B1-256C9274530C" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:9BA86055-FAFA-4DA6-8708-D5212D9C8F56" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:9BA8D001-C7BD-4C3D-95A9-2668C6FF3869" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:9BCC0227-FC5C-4C32-84A9-4475E07932AC" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:9C621979-FEC7-4456-8506-8D2B951DB0BF" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:9C770564-AD86-48C2-9D6C-BE94560B3FB5" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:9C7BA493-C948-4A6F-9321-8FE7B1133D67" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:9D0AA63A-910A-4990-827D-3E69F9BB2E13" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:A0889213-38EB-49FF-96F4-E3EBFF1C78D0" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:A48C2757-646F-4F5A-BE8E-C75862B36CD2" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:A51F88A2-2936-4C1F-BA3F-0076D5CEE446" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:A69EB065-7E41-4F85-9CEF-2E4F5A0B372C" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:A8F984FF-9220-4192-9659-CAA39216CF3B" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:A969DE50-7DC9-4C2B-8ADF-6C4F8BE638F6" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:B173EA2F-8076-411E-9F31-0958C8DFAAAE" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:B1B56720-D524-4830-927E-AA683D44DE35" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:B662D641-104C-4DBE-911D-30973419D517" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:B720F712-3D33-4B26-B0E9-012C5581228C" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:B79D93A7-063F-4AE0-9ABE-7F2B57075C7A" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:B94C9C4A-E739-47D1-90D8-4CFB604BF960" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:BA153ADB-CA7E-41EE-954E-473161E9760E" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:BDA3A68F-3C44-452C-8A12-140110519476" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:C03A7647-2DDE-477C-ADEA-DB8E655608B7" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:C0BCEBC1-0ACD-4AC8-9193-FF32F6667719" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:C2972133-E6DF-450B-ACA5-8BA33DDDEF9A" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:C39F1BD0-9BA3-43E4-8F6A-74D5DABE4235" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:C4DC9F2F-EEBB-469A-A149-0FC87A75DC30" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:C7A389F0-6DCF-4C01-888A-CED337FB4BAB" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:C825A0CE-8C01-4635-9F31-6F91DFC66669" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:C9E1EE84-950E-481D-B25B-F2E43C67164D" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:CACD8FBB-A883-40F4-9A69-0010BE062F57" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:CAF151EC-9D20-43CE-B536-BAE2C802603C" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:CD403507-8945-4986-B929-7B1B48FC31E6" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:CD86806E-1C17-4B2E-8162-A1184FCEC985" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:CDFDDF66-2A3E-4011-8A57-D77D75F13867" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:D075A095-E65B-49D2-83DF-AE90A2FE2668" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:D2AD3558-8CC0-4745-A809-1F6F4934CD82" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:D2C13579-882E-44AF-B3B3-11A9D179E9F6" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:DA2D5CE2-6BF3-4538-B594-C6C47E853869" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:DA5072E1-2E87-4C8F-896F-B3F2DF4220A8" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:DADC247B-7A84-41B3-A1D6-2865D612CD36" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:DC780C7A-9CF4-45B0-86F1-AE4C46D06C55" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:DDA4C9BD-0649-4A73-AE09-9B0A49DA9AE0" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:DE5A21A6-94DB-4C47-AF2B-0479451210C0" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:E062EB4B-957E-4FF6-B23F-EFE451ABDD98" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:E474DA87-911C-490A-AADE-D38D8E3F7657" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:E4A7DDD6-1E4F-4E7E-BAEC-411A52C75166" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:E5F4CFDB-D2EA-4299-99A3-68B545FCA2F5" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:E608F12D-3CBA-46B0-B3D1-FF8B467E3BAF" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:E95060E5-FEE2-414C-A920-BFE84AAB6AC9" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:EAB269F1-581E-4EA5-8F3B-205B4B5BA944" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:EB4FDF29-A3E9-438A-9AE0-78C48E3719DC" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:ED498948-77CD-430D-80FF-A85848CFF33F" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:F0A9BFB9-9CD7-4B41-9D1E-32D72B96D6B8" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:F346C1C4-657F-486B-9E28-35F623E5DE48" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:F7352883-D36E-4F64-BB65-0512546AA48F" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:F7CEFE55-AF08-49D7-9973-6A184782F151" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:F974426B-D1CC-4316-AAF2-D6BE88252C83" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:FBA2ED68-AB40-47D0-A917-38E5E6D8573A" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:FF102742-719E-447A-94C2-F2D880618BC3" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:FF208FED-1FE9-441B-B8E7-658D97921A4F" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:FF65CF1A-72FE-4CBE-8459-D1431DEB848E" = 1;
+    "NSWindowTabbingShoudShowTabBarKey-IDEWorkspaceDocument:FFBC2507-8168-40DD-8365-E1A13FC85885" = 1;
+    ProductMappingKey = {length = 346, bytes = 0x62706c69 73743030 d4010203 04050607 ... 00000000 00000120 };
+    RecentRegions =     (
+        "",
+        US
+    );
+    SKESceneEditorStates =     {
+        SKESceneEditorCanvasViewControllerStateKey =         {
+            AuthoringMaskValid = 1;
+            SKECanvasViewControllerAspectRatioIdentifier = 0;
+            SKECanvasViewControllerAuthoringDisplayMaskStateIdentifier = 0;
+            SKECanvasViewControllerEnableAutomaticDefaultLightingStateIdentifier = 1;
+            SKECanvasViewControllerPerspectiveTransformStateIdentifier =             (
+                "0.7071068",
+                0,
+                "-0.7071068",
+                0,
+                "-0.2705981",
+                "0.9238796",
+                "-0.2705981",
+                0,
+                "0.6532815",
+                "0.3826835",
+                "0.6532815",
+                0,
+                "199.454",
+                "103.7614",
+                "149.0413",
+                1
+            );
+        };
+        SKESceneEditorDebugOptionsKey = 0;
+        SKESceneEditorJitteringEnabledKey = 0;
+        SKESceneEditorOutlineState =         (
+            0
+        );
+        SKESceneEditorShowsSceneGraphViewStateKey = 0;
+        SKESceneEditorSplitViewStateKey =         {
+            DVTSplitViewItems =             (
+                                {
+                    DVTIdentifier = "";
+                    DVTIsVisible = 0;
+                    DVTViewMagnitude = 276;
+                },
+                                {
+                    DVTIdentifier = "";
+                    DVTIsVisible = 1;
+                    DVTViewMagnitude = 731;
+                }
+            );
+        };
+    };
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.iOS-14-0-Shell" = 18A394;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.iOS-15-0-Shell" = 19A339;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.iOS-15-2-Shell" = 19C51;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.iOS-15-5-Shell" = 19F70;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.iOS-16-0-Shell" = 20A360;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.iOS-16-1-Shell" = 20B72;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.iOS-16-2-Shell" = 20C52;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.tvOS-15-0-Shell" = 19J344;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.tvOS-15-2-Shell" = 19K50;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.tvOS-15-4-Shell" = 19L439;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.tvOS-16-1-Shell" = 20K67;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.watchOS-8-0-Shell" = 19R345;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.watchOS-8-3-Shell" = 19S51;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.watchOS-8-5-Shell" = 19T241;
+    "UVLastDeviceSetPurge-com.apple.CoreSimulator.SimRuntime.watchOS-9-1-Shell" = 20S75;
+    UVLastUsedDate = {length = 18, bytes = 0x3639363138383534312e3132343535323937};
+    VariablesViewShowsRawValues = 1;
+    XCFontAndColorCurrentDarkTheme = "Default (Dark).xccolortheme";
+    XCFontAndColorCurrentTheme = "Default (Light).xccolortheme";
+    XCFontAndColorExcludedThemes =     (
+        "Bare.xccolortheme",
+        "Spartan.xccolortheme",
+        "Default (Dark).xccolortheme"
+    );
+    "Xcode.AlertEvents" =     {
+        "Xcode.AlertEvent.XcodeCloud.BuildFailed" =         {
+            "Xcode.Alert.Bounce" =             {
+                enabled = 1;
+            };
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+            "Xcode.Alert.FirstIssue" =             {
+                destination = firstIssue;
+                enabled = 0;
+            };
+            "Xcode.Alert.RunScript" =             {
+                enabled = 0;
+            };
+            "Xcode.Alert.ShowDebugger" =             {
+                action = show;
+                destination = workspace;
+                enabled = 0;
+                visibility = 0;
+            };
+            "Xcode.Alert.ShowNavigator" =             {
+                action = 0;
+                enabled = 0;
+                navigator = "Xcode.IDEKit.Navigator.Structure";
+            };
+            "Xcode.Alert.ShowTab" =             {
+                enabled = 0;
+                tabTarget = 0;
+            };
+            "Xcode.Alert.Sound" =             {
+                enabled = 0;
+                soundPath = "/System/Library/Sounds/Sosumi.aiff";
+            };
+            "Xcode.Alert.Speech" =             {
+                enabled = 0;
+                voice = "com.apple.voice.compact.en-US.Samantha";
+            };
+        };
+        "Xcode.AlertEvent.XcodeCloud.BuildSucceeded" =         {
+            "Xcode.Alert.Bounce" =             {
+                enabled = 0;
+            };
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+            "Xcode.Alert.FirstIssue" =             {
+                destination = firstIssue;
+                enabled = 0;
+            };
+            "Xcode.Alert.RunScript" =             {
+                enabled = 0;
+            };
+            "Xcode.Alert.ShowDebugger" =             {
+                action = show;
+                destination = workspace;
+                enabled = 0;
+                visibility = 0;
+            };
+            "Xcode.Alert.ShowNavigator" =             {
+                action = 0;
+                enabled = 0;
+                navigator = "Xcode.IDEKit.Navigator.Structure";
+            };
+            "Xcode.Alert.ShowTab" =             {
+                enabled = 0;
+                tabTarget = 0;
+            };
+            "Xcode.Alert.Sound" =             {
+                enabled = 0;
+                soundPath = "/System/Library/Sounds/Sosumi.aiff";
+            };
+            "Xcode.Alert.Speech" =             {
+                enabled = 0;
+                voice = "com.apple.voice.compact.en-US.Samantha";
+            };
+        };
+    };
+    "Xcode.AlertEvents.4_1" =     {
+        "Xcode.AlertEvent.BotFailsBlameLocalUser" =         {
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.BuildFails" =         {
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.BuildNewIssues" =         {
+            "Xcode.Alert.ShowNavigator" =             {
+                enabled = 1;
+                navigator = "Xcode.IDEKit.Navigator.Issues";
+            };
+        };
+        "Xcode.AlertEvent.BuildStart" =         {
+        };
+        "Xcode.AlertEvent.BuildSucceeds" =         {
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.FindCompletesNoResults" =         {
+        };
+        "Xcode.AlertEvent.FindCompletesWithResults" =         {
+        };
+        "Xcode.AlertEvent.InstallFails" =         {
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.InstallSucceeds" =         {
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.OpenGLCaptureCompletes" =         {
+            "Xcode.Alert.ShowDebugger" =             {
+                action = show;
+                destination = workspace;
+                enabled = 1;
+                visibility = 0;
+            };
+            "Xcode.Alert.ShowNavigator" =             {
+                enabled = 1;
+                navigator = "Xcode.IDEKit.Navigator.Debug";
+            };
+        };
+        "Xcode.AlertEvent.OpenGLCaptureStarts" =         {
+            "Xcode.Alert.Dialog" =             {
+            };
+            enabled = 1;
+        };
+        "Xcode.AlertEvent.PlaygroundGeneratesOutput" =         {
+            "Xcode.Alert.ShowDebugger" =             {
+                action = show;
+                destination = workspace;
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.RunCompletes" =         {
+            "Xcode.Alert.ShowDebugger" =             {
+                action = hideIfNoOutput;
+                destination = workspace;
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.RunExitsUnexpectedly" =         {
+        };
+        "Xcode.AlertEvent.RunGeneratesOutput" =         {
+            "Xcode.Alert.ShowDebugger" =             {
+                action = show;
+                destination = workspace;
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.RunPauses" =         {
+            "Xcode.Alert.ShowDebugger" =             {
+                action = show;
+                destination = workspace;
+                enabled = 1;
+            };
+            "Xcode.Alert.ShowNavigator" =             {
+                enabled = 1;
+                navigator = "Xcode.IDEKit.Navigator.Debug";
+            };
+        };
+        "Xcode.AlertEvent.RunStart" =         {
+            "Xcode.Alert.ShowNavigator" =             {
+                enabled = 0;
+                navigator = "Xcode.IDEKit.Navigator.Debug";
+            };
+        };
+        "Xcode.AlertEvent.SharingCompletes" =         {
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.SharingFails" =         {
+        };
+        "Xcode.AlertEvent.SharingStart" =         {
+        };
+        "Xcode.AlertEvent.TestingFails" =         {
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.TestingNewIssues" =         {
+            "Xcode.Alert.ShowNavigator" =             {
+                enabled = 1;
+                navigator = "Xcode.IDEKit.Navigator.Test";
+            };
+        };
+        "Xcode.AlertEvent.TestingPauses" =         {
+            "Xcode.Alert.ShowDebugger" =             {
+                action = show;
+                destination = workspace;
+                enabled = 1;
+            };
+            "Xcode.Alert.ShowNavigator" =             {
+                enabled = 1;
+                navigator = "Xcode.IDEKit.Navigator.Debug";
+            };
+        };
+        "Xcode.AlertEvent.TestingStart" =         {
+        };
+        "Xcode.AlertEvent.TestingSucceeds" =         {
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.WatchedIntegrationFinishes" =         {
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+        };
+        "Xcode.AlertEvent.XcodeCloud.BuildFailed" =         {
+            "Xcode.Alert.Bounce" =             {
+                enabled = 1;
+            };
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+            "Xcode.Alert.EnterFullScreen" =             {
+                action = 0;
+                enabled = 0;
+            };
+            "Xcode.Alert.FirstIssue" =             {
+                destination = firstIssue;
+                enabled = 0;
+            };
+            "Xcode.Alert.RunScript" =             {
+                enabled = 0;
+            };
+            "Xcode.Alert.ShowDebugger" =             {
+                action = show;
+                destination = workspace;
+                enabled = 0;
+                visibility = 0;
+            };
+            "Xcode.Alert.ShowEditor" =             {
+                action = 0;
+                destination = 0;
+                enabled = 0;
+                visibility = 0;
+            };
+            "Xcode.Alert.ShowNavigator" =             {
+                action = 0;
+                enabled = 0;
+                navigator = "Xcode.IDEKit.Navigator.Structure";
+            };
+            "Xcode.Alert.ShowTab" =             {
+                enabled = 0;
+                tabTarget = 0;
+            };
+            "Xcode.Alert.ShowToolbar" =             {
+                action = 0;
+                enabled = 0;
+            };
+            "Xcode.Alert.ShowUtilityArea" =             {
+                action = 0;
+                enabled = 0;
+            };
+            "Xcode.Alert.Sound" =             {
+                enabled = 0;
+                soundPath = "/System/Library/Sounds/Sosumi.aiff";
+            };
+            "Xcode.Alert.Speech" =             {
+                enabled = 0;
+                voice = "com.apple.voice.compact.en-US.Samantha";
+            };
+        };
+        "Xcode.AlertEvent.XcodeCloud.BuildSucceeded" =         {
+            "Xcode.Alert.Bounce" =             {
+                enabled = 0;
+            };
+            "Xcode.Alert.Dialog" =             {
+                enabled = 1;
+            };
+            "Xcode.Alert.EnterFullScreen" =             {
+                action = 0;
+                enabled = 0;
+            };
+            "Xcode.Alert.FirstIssue" =             {
+                destination = firstIssue;
+                enabled = 0;
+            };
+            "Xcode.Alert.RunScript" =             {
+                enabled = 0;
+            };
+            "Xcode.Alert.ShowDebugger" =             {
+                action = show;
+                destination = workspace;
+                enabled = 0;
+                visibility = 0;
+            };
+            "Xcode.Alert.ShowEditor" =             {
+                action = 0;
+                destination = 0;
+                enabled = 0;
+                visibility = 0;
+            };
+            "Xcode.Alert.ShowNavigator" =             {
+                action = 0;
+                enabled = 0;
+                navigator = "Xcode.IDEKit.Navigator.Structure";
+            };
+            "Xcode.Alert.ShowTab" =             {
+                enabled = 0;
+                tabTarget = 0;
+            };
+            "Xcode.Alert.ShowToolbar" =             {
+                action = 0;
+                enabled = 0;
+            };
+            "Xcode.Alert.ShowUtilityArea" =             {
+                action = 0;
+                enabled = 0;
+            };
+            "Xcode.Alert.Sound" =             {
+                enabled = 0;
+                soundPath = "/System/Library/Sounds/Sosumi.aiff";
+            };
+            "Xcode.Alert.Speech" =             {
+                enabled = 0;
+                voice = "com.apple.voice.compact.en-US.Samantha";
+            };
+        };
+    };
+    Xcode3BuildRulesEditorDisplayMode = 1;
+    Xcode3BuildSettingsEditorDisplayMode = 0;
+    Xcode3BuildSettingsEditorMode = 0;
+    Xcode3ProjectEditorSourceListVisible = 1;
+    "Xcode3ProjectTemplateChooserAssistantSelectedTemplateName_Multiplatform" = "Application/Safari Extension App";
+    "Xcode3ProjectTemplateChooserAssistantSelectedTemplateName_iOS" = "Application/App";
+    "Xcode3ProjectTemplateChooserAssistantSelectedTemplateName_macOS" = "Application/Command Line Tool";
+    Xcode3ProjectTemplateChooserAssistantSelectedTemplateSection = "com.apple.platform.macosx";
+    "Xcode3TargetTemplateChooserAssistantSelectedTemplateName_macOS" = "Framework & Library/Bundle";
+    Xcode3TargetTemplateChooserAssistantSelectedTemplateSection = "com.apple.platform.macosx";
+    XcodeCloudDoNotWarnAboutDeactivatingWorkflowKey = 0;
+    XcodeCloudDoNotWarnStartBuildConfirmationKey = 0;
+    XcodeCloudOnboardingPromptEnabled = 1;
+    XcodeCloudUpsellPromptEnabled = 1;
+}
+
+```

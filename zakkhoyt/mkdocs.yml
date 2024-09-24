@@ -1,0 +1,37 @@
+
+site_name: Zakk's Notes
+site_url: https://zakkhoyt.github.io
+site_author: Zakk Hoyt
+site_description: Been documenting...
+color_mode: dark
+nav_style: dark
+hljs_languages: 
+  - shellscript
+  - swift
+  - ruby
+  - fastlane
+  - json
+  - xml
+  - html
+  - yaml
+  - c++
+  - c
+  - python
+  
+draft_docs: |
+  notes/drafts/               # A "drafts" directory anywhere.
+  _unpublished.md       # A md file ending in _unpublished.md
+  !/foo_unpublished.md  # But keep this particular file.
+
+docs: |
+  notes/
+nav:
+  - About: index.md
+  - Notes: notes/index.md
+  # - XCODES: notes/apple/XCODES.md
+  # - LotF: notes/video_games/lords_of_the_fallen/ring_extract.md
+  # - environment: notes/apple/xcode/ENVIRONMENT.md
+  # - snippets: notes/apple/xcode/SNIPPETS.md
+  # - notes/**.md
+  
+
