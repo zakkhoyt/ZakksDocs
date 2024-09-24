@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/accessory_setup_kit/ACCESSORYSETUPKIT/">
+        <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+        <title>ACCESSORYSETUPKIT - Zakk's Notes</title>
+        <link href="../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#about" class="nav-link">About</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#references" class="nav-link">References</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#questions" class="nav-link">Questions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#usage-overview" class="nav-link">Usage Overview</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#from-wwdc-video" class="nav-link">From WWDC Video</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#from-documentation" class="nav-link">From Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#tips-from-wwdc-video" class="nav-link">Tips (from WWDC video)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>AccessorySetupKit was introduced in iOS 18. It gives a HomeKit style UI/behavior to BLE / WiFi accessory setup.</p>
+<h1 id="about">About</h1>
+<ul>
+<li>Gives a HomeKit style UI </li>
+<li>The user can use Hatch devices without granting overly-broad or long-lasting Bluetooth access.</li>
+<li>User is no longer asked about BLE permissions, etc... </li>
+<li>User does not need to leave the app (go to settings)</li>
+<li>Offers compatiblity and migration from current CoreBluetooth code</li>
+<li>Accessories will reside under a new section in <code>iOS Settings -&gt; Privacy &amp; Security -&gt; Accessories -&gt; $APP</code></li>
+<li>
+<p>App will still reside under <code>iOS Settings -&gt; $APP</code>, but:</p>
+<ul>
+<li>Will have a new "Accessories" submenu</li>
+<li>The old <code>CoreBluetooth</code> should might not be present anymore (it's not in Apple's demo app, but ours is more complicated)</li>
+</ul>
+</li>
+<li>
+<p>Note: Does not help us with WiFi SSID access </p>
+</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://developer.apple.com/videos/play/wwdc2024/10203/">AccessorySetupKit WWDC</a></li>
+<li><a href="https://developer.apple.com/documentation/accessorysetupkit/authorizing-a-bluetooth-accessory-to-share-a-dice-roll">Apple Docs w/Example Code Projects</a> </li>
+</ul>
+<h1 id="questions">Questions</h1>
+<ul>
+<li>[X] ~~<em>How does backwards comp work?</em>~~ [2024-07-06]</li>
+<li><code>ASAccessory.showPicker(...)</code> will pass back a <code>ASAccessoryEventType.accessoryAdded</code>. <ul>
+<li>Capture <code>event.accessory</code> here. </li>
+<li><code>ASAccessory.showPicker(...)</code> will pass back a <code>ASAccessoryEventType.pickerDidDismiss</code>. </li>
+<li>Use your retained <code>event.accessory.bluetoothIdentifier</code> (a <code>peripheral.identifier</code>) to retrieve the peripheral from <code>CBCentralManager</code></li>
+<li>Connect/discover as normal</li>
+</ul>
+</li>
+<li>[X] ~~<em>How does migration work?</em>~~ [2024-07-06]</li>
+<li>You can also perform a one-time migration of previously-configured accessories, which adds them to AccessorySetupKit’s store of known accessories.</li>
+<li>Create instances of <code>ASMigrationDisplayItem</code> and include them in the array passed to <code>showPicker(...)</code>. </li>
+<li>Items to migrate need to additionally supply either an <code>peripheral.identifier</code> or <code>hotspotSSID</code><ul>
+<li>For Bluetooth accessories, the accessory identifiers you use in display items need to match the values you supply in the app’s information property list.</li>
+</ul>
+</li>
+<li>If all goes well, receive <code>ASAccessoryEventType.migrationComplete</code></li>
+<li>[X] ~~<em>Do we have to declare EVERY service SSID or just one? <code>ASPickerDisplayItem</code></em>~~ [2024-07-10]</li>
+<li>A: Just one, the one that is associated with <code>CBAdvertisementDataServiceUUIDsKey</code> in the advertisment</li>
+<li>[X] ~~<em>3d image for sheet (like airpods)</em>~~ [2024-07-10]</li>
+<li>A: Looks like it needs ot be a <code>UIImage</code>, so static image. </li>
+<li>[X] ~~<em>Is it AccessorySetupKit compatible with everything we do?</em>~~ [2024-07-10]</li>
+<li>[X] ~~<em>Reading (rapidly changing) advertisment data (<code>ASAccessoryEventType.accessoryChanged</code>)</em>~~ [2024-07-10] <ul>
+<li>A: Mostly. WE can parse advertisment, by pasing <code>manufacturerDataBlob</code> and <code>manufacturerDataMask</code>, but needs to be done prior to the scan response. </li>
+</ul>
+</li>
+<li>[X] ~~<em>Faster BLE scan updates vs power consumption</em>~~ [2024-07-10]<ul>
+<li>A: It looks like we can't opt into this, but is that really a problem now adays?</li>
+</ul>
+</li>
+<li>[ ] Does <code>AccessorySetupKit</code> always do the scan for us? Or just for registration?</li>
+<li>[ ] How does <a href="https://developer.apple.com/documentation/accessorysetupkit/asaccessory/state">ASAccessory.AccessoryState</a> come into play? Does it intersect with permissions?</li>
+<li>[ ] Where do we encounter <a href="https://developer.apple.com/documentation/accessorysetupkit/aserror">ASError</a>?</li>
+</ul>
+<h1 id="usage-overview">Usage Overview</h1>
+<h2 id="from-wwdc-video">From WWDC Video</h2>
+<ul>
+<li>Add AccessorySetupKit to Info. plist</li>
+<li>Activate ASAccessorySession</li>
+<li>Create ASPickerDisplayltem</li>
+<li>Show accessory picker and listen for events</li>
+<li>Migrate existing accessories with ASMigrationDisplayltem</li>
+</ul>
+<h2 id="from-documentation">From Documentation</h2>
+<p>To discover accessories and present them in your app, you perform the following four steps:
+* Declare that your app uses AccessorySetupKit in its information property list.
+* In your app, create an instance of ASAccessorySession and activate it.
+* Provide information about your supported accessories to display a picker (create <code>ASPickerDisplayltem</code>). 
+  * This lets the person using your app discover and select nearby accessories to configure.
+* Design assets for the accessory picker
+* Display the picker...
+* When the picker dismisses, use information about the selected device to create a Bluetooth or Wi-Fi connection.</p>
+<h2 id="tips-from-wwdc-video">Tips (from WWDC video)</h2>
+<ul>
+<li>Sheet image space is 180pt x 120pt. Use thin to zero alpha padding. </li>
+<li>App ui will be covered by ASK UI, plan for it.  </li>
+<li>Bind the call to <code>showPicker()</code> to a button w/nearby copy about adding a device (so the user isn't surprsed())</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../js/base.js"></script>
+        <script src="../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

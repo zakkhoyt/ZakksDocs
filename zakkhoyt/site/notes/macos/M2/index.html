@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/macos/M2/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>macOS install - Zakk's Notes</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#macos-install" class="nav-link">macOS install</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#macos-settings" class="nav-link">macOS settings</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#setup-scripts" class="nav-link">Setup Scripts</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#manual-setup" class="nav-link">Manual Setup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#firefox" class="nav-link">Firefox</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#extensions" class="nav-link">Extensions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#private-internet-access-vpn" class="nav-link">Private Internet Access (VPN)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#finder" class="nav-link">Finder</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#terminal" class="nav-link">Terminal</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#gh-cli" class="nav-link">GH CLI</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#shottr-cleanshotx" class="nav-link">Shottr / CleanshotX</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#istatmenu" class="nav-link">iStatMenu</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#dev-tools" class="nav-link">Dev tools</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#vscode" class="nav-link">vscode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#xcodes-gui" class="nav-link">xcodes (gui)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#xcodes-command-line" class="nav-link">xcodes (command line)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#xcode-latest" class="nav-link">Xcode (latest)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#mail" class="nav-link">Mail</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#resolution-apps" class="nav-link">Resolution Apps</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#betterdisplay" class="nav-link">BetterDisplay</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#display-menu" class="nav-link">Display Menu</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#hiddenbar" class="nav-link">HiddenBar</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#itsycal" class="nav-link">Itsycal</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#inyourface" class="nav-link">InYourFace</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#alttab" class="nav-link">Alttab</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#maccy" class="nav-link">Maccy</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#lgtv" class="nav-link">LGTV</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#monitorcontrol" class="nav-link">monitorControl</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#hammerspoon" class="nav-link">Hammerspoon</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#video-editors" class="nav-link">Video Editors</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#shotcut" class="nav-link">Shotcut</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#avidemux" class="nav-link">Avidemux</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#ps-remote-play" class="nav-link">PS Remote Play</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#raycast" class="nav-link">Raycast</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#bettersnaptool" class="nav-link">Bettersnaptool</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#bettertouchtool" class="nav-link">Bettertouchtool</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#betterzip" class="nav-link">BetterZip</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#qbittorrent" class="nav-link">QBitTorrent</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#discord" class="nav-link">Discord</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#slack" class="nav-link">Slack</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#sfsymbols" class="nav-link">SFSymbols</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#monodraw" class="nav-link">monodraw</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#grandperspective" class="nav-link">GrandPerspective</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#logic-pro" class="nav-link">Logic Pro</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#audacity" class="nav-link">Audacity</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#vlc" class="nav-link">VLC</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#blender" class="nav-link">Blender</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#google-earth" class="nav-link">Google Earth</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#stellarium" class="nav-link">Stellarium</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#openscad" class="nav-link">OpenSCAD</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#video-games" class="nav-link">video games</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#steam" class="nav-link">Steam</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#velocidrone" class="nav-link">velocidrone</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#clone-hero" class="nav-link">Clone Hero</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#openemu" class="nav-link">OpenEMU</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#retroarch" class="nav-link">RetroArch</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#radio-control" class="nav-link">Radio Control</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#todo-other-apps" class="nav-link">TODO (other apps)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#hatch-specific" class="nav-link">Hatch Specific</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#reimburse-update" class="nav-link">Reimburse / update</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#prepare-for-future" class="nav-link">Prepare for Future</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#recovery-from-zakkbookmax" class="nav-link">Recovery from zakkbookmax</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#todo-new-setup" class="nav-link">TODO (new setup)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="macos-install">macOS install</h1>
+<ul>
+<li>defaults really, iCloud account, touchID, wallet</li>
+</ul>
+<h1 id="macos-settings">macOS settings</h1>
+<h2 id="setup-scripts">Setup Scripts</h2>
+<ul>
+<li><a href="https://gitlab.com/zakkhoyt/zsh_home">zakk's .zsh_home repo</a></li>
+</ul>
+<h2 id="manual-setup">Manual Setup</h2>
+<ul>
+<li>Wallpaper</li>
+<li>Screensaver (point to pictures)</li>
+<li>Battery</li>
+<li>dim display after N minutes</li>
+<li>keyboard </li>
+<li>[ ] speed/repeat rate</li>
+<li>[ ] brightness</li>
+<li>[ ] shortcuts -&gt; services -&gt; open terminal at folder</li>
+<li>trackpad</li>
+<li>[ ] disable <code>Force Click and haptic feedback</code></li>
+<li>[ ] silent clicking</li>
+<li>sharing </li>
+<li>[ ] file sharing (smb type stuff)</li>
+<li>[ ] remote login </li>
+<li>[ ] fn key to: <code>nothing</code></li>
+<li>messages</li>
+<li>[ ] log in</li>
+<li>[ ] enable iCloud messages</li>
+<li>[ ] disable read receipts </li>
+<li>Control Center</li>
+<li>[ ] Focus mode (dark clock) </li>
+<li>[ ] Hide functions from menu bar</li>
+</ul>
+<h1 id="firefox">Firefox</h1>
+<ul>
+<li>[ ] install</li>
+<li>[ ] sign in to firefox to sync extensions</li>
+<li>copy <code>userChrome.css</code> from source computer to <code>$profileFolder/chrome</code> </li>
+<li>VideoDownloadHelper</li>
+<li><a href="https://www.downloadhelper.net/install-coapp-v2">v2 companion</a> </li>
+<li><a href="https://groups.google.com/g/video-downloadhelper-q-and-a/c/S9BPzSdwtPw/m/3iRkXBFhEQAJ">configure</a></li>
+</ul>
+<h2 id="extensions">Extensions</h2>
+<ul>
+<li>lastpass</li>
+<li>[X] ~~<em>log in</em>~~ [2023-11-24]</li>
+<li>sidebury</li>
+<li>[X] ~~<em>sync appropriate backup</em>~~ [2023-11-24]</li>
+<li>video downloader </li>
+<li>[X] ~~<em>install companion app</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>activate license</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>settings</em>~~ [2023-11-24]<ul>
+<li>[X] ~~<em>translator</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>download dir</em>~~ [2023-11-24]</li>
+</ul>
+</li>
+</ul>
+<h1 id="private-internet-access-vpn">Private Internet Access (VPN)</h1>
+<ul>
+<li>[X] ~~<em>install</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>log in</em>~~ [2023-11-24]</li>
+<li>[ ] launch at startup</li>
+<li>[X] ~~<em>default: <code>US West</code></em>~~ [2023-11-24]</li>
+</ul>
+<h1 id="finder">Finder</h1>
+<ul>
+<li>[X] ~~<em>show file extensions</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>empty trash 30 days</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>list view defaults</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em><code>~/Pictures/screenshots</code></em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>setup favorites</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>settings -&gt; Keep folders on top</em>~~ [2023-11-24]</li>
+</ul>
+<h1 id="terminal">Terminal</h1>
+<ul>
+<li>[X] ~~<em>homebrew</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>Add to <code>PATH</code></em>~~ [2023-11-25]</li>
+<li>[ ] copy from Hatch Env Setup</li>
+<li>[ ] zshrc</li>
+<li>[ ] ohmyzsh</li>
+<li>[ ] terminal settings</li>
+<li>[X] ~~<em>appearance</em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>disable <code>advanced/audible bell</code></em>~~ [2023-11-24]</li>
+<li>Create and retain script</li>
+<li>git configuration</li>
+<li>see <code>~/Documents/notes/git/GIT.md</code></li>
+<li>[ ] <code>brew install ascii</code></li>
+</ul>
+<h2 id="gh-cli">GH CLI</h2>
+<ul>
+<li>[X] ~~<em><a href="https://cli.github.com/">install</a></em>~~ [2023-12-01]</li>
+<li>[X] ~~<em>authenticate using PAT / env for GITHUB_TOKEN</em>~~ [2023-12-01]</li>
+<li>See <code>/Users/zakkhoyt/Documents/HatchDocs/notes/github/gh_cli/gh_cli.md</code></li>
+</ul>
+<h1 id="shottr-cleanshotx">Shottr / CleanshotX</h1>
+<ul>
+<li>[X] ~~<em>install</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>launch at login</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>disable macOS hotkeys</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>custom hotkeys</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>save on capture</em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>right side preview</em>~~ [2023-11-25]</li>
+</ul>
+<h1 id="istatmenu">iStatMenu</h1>
+<ul>
+<li>[X] ~~<em><a href="https://bjango.com/mac/istatmenus/">install</a></em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>license in lastpass</em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>combined</em>~~ [2023-11-25]</li>
+</ul>
+<h1 id="dev-tools">Dev tools</h1>
+<h2 id="vscode">vscode</h2>
+<ul>
+<li>[X] ~~<em>sign in via github to sync extensions</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>install command line path</em>~~ [2023-11-24]</li>
+</ul>
+<h2 id="xcodes-gui">xcodes (gui)</h2>
+<ul>
+<li>[X] ~~<em><a href="https://github.com/XcodesOrg/XcodesApp/releases">install</a></em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>log in (apple)</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>enable notifications</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>Always rename to Xcode.app</em>~~ [2023-11-24]</li>
+</ul>
+<h3 id="vww">VWW</h3>
+<ul>
+<li></li>
+</ul>
+<h3 id="hatch">Hatch</h3>
+<h2 id="xcodes-command-line">xcodes (command line)</h2>
+<ul>
+<li>[ ] <code>brew install xcodesorg/made/xcodes</code></li>
+</ul>
+<h2 id="xcode-latest">Xcode (latest)</h2>
+<ul>
+<li>[X] ~~<em>install using xcodes</em>~~ [2023-11-24]</li>
+<li>configure settings (TODO)</li>
+<li>[ ] platforms / iOS</li>
+<li>[ ] snippets</li>
+</ul>
+<h1 id="mail">Mail</h1>
+<ul>
+<li>[X] ~~<em>log in to each account</em>~~ [2023-11-25]</li>
+</ul>
+<h1 id="resolution-apps">Resolution Apps</h1>
+<h2 id="betterdisplay">BetterDisplay</h2>
+<ul>
+<li><a href="https://github.com/waydabber/BetterDisplay/releases">install</a> </li>
+<li>[X] ~~<em>launch at startup</em>~~ [2023-11-24]</li>
+<li>[X] ~~<em>settings -&gt; Displays -&gt; LGTV -&gt; Enable DDC control -&gt; false</em>~~ [2023-12-09]</li>
+</ul>
+<h2 id="display-menu">Display Menu</h2>
+<p>This is an older alternative to BetterDisplay
+* <a href="https://apps.apple.com/us/app/display-menu/id549083868?mt=12">install</a></p>
+<h1 id="hiddenbar">HiddenBar</h1>
+<ul>
+<li>[X] ~~<em><a href="https://apps.apple.com/us/app/hidden-bar/id1452453066?mt=12">install (app store)</a></em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>settings</em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>configure apps</em>~~ [2023-11-25]</li>
+</ul>
+<h1 id="itsycal">Itsycal</h1>
+<ul>
+<li>[X] ~~<em>install</em>~~ [2023-11-30]</li>
+<li>[X] ~~<em>configure</em>~~ [2023-11-30]</li>
+</ul>
+<h1 id="inyourface">InYourFace</h1>
+<ul>
+<li>[X] ~~<em>install</em>~~ [2023-11-30]</li>
+<li>[X] ~~<em>configure</em>~~ [2023-11-30]</li>
+</ul>
+<h1 id="alttab">Alttab</h1>
+<ul>
+<li>[X] ~~<em><a href="https://alt-tab-macos.netlify.app/">install</a></em>~~ [2023-12-07]</li>
+<li>[X] ~~<em>launch at startup</em>~~ [2023-12-07]</li>
+<li>[X] ~~<em>configure</em>~~ [2023-12-07]</li>
+</ul>
+<h1 id="maccy">Maccy</h1>
+<ul>
+<li>[X] ~~<em><a href="https://github.com/p0deje/Maccy/tags">install</a></em>~~ [2023-12-07]</li>
+<li>[X] ~~<em>launch at startup</em>~~ [2023-12-07]</li>
+<li>[X] ~~<em>configure hotkey</em>~~ [2023-12-07]</li>
+<li>[ ] other (pins, regex, shortcuts)</li>
+</ul>
+<h1 id="lgtv">LGTV</h1>
+<h2 id="monitorcontrol">monitorControl</h2>
+<ul>
+<li>[X] ~~<em><a href="https://github.com/MonitorControl/MonitorControl/releases">install</a></em>~~ [2023-11-30]</li>
+<li>[X] ~~<em>settings -&gt; launch at startup</em>~~ [2023-11-30]</li>
+</ul>
+<h2 id="hammerspoon">Hammerspoon</h2>
+<ul>
+<li>[X] ~~<em>install (homebrew)</em>~~ [2023-11-29]</li>
+<li>[X] ~~<em>Enable accessiblity in settings menu</em>~~ [2023-11-29]</li>
+<li>[X] ~~<em>set up <a href="https://github.com/zakkhoyt/lg-tv-control-macos">LGTV</a></em>~~ [2023-11-29]</li>
+<li>See notes/lgtv</li>
+<li>[ ] spoons setup (reload on write)</li>
+</ul>
+<h1 id="video-editors">Video Editors</h1>
+<h2 id="shotcut">Shotcut</h2>
+<ul>
+<li><a href="https://github.com/mltframework/shotcut">github</a></li>
+<li><a href="https://ww  w.shotcut.org/">install</a></li>
+<li><a href="https://www.shotcut.org/tutorials/">tutorials</a></li>
+</ul>
+<h2 id="avidemux">Avidemux</h2>
+<ul>
+<li><code>brew install avidemux</code></li>
+<li><code>brew install --HEAD avidemux</code></li>
+</ul>
+<h1 id="ps-remote-play">PS Remote Play</h1>
+<ul>
+<li>[X] ~~<em><a href="https://remoteplay.dl.playstation.net/remoteplay/lang/en/1100002.html#title_iz5_p1d_cxb">install</a></em>~~ [2023-11-30]</li>
+</ul>
+<h1 id="raycast">Raycast</h1>
+<ul>
+<li>[X] ~~<em><a href="https://www.raycast.com/#">install</a></em>~~ [2023-12-24]</li>
+<li>[ ] <a href="https://manual.raycast.com/hotkey">Replace Spotlight</a></li>
+<li>[ ] <code>brew install raycast</code></li>
+</ul>
+<h1 id="bettersnaptool">Bettersnaptool</h1>
+<ul>
+<li>[X] ~~<em><a href="https://apps.apple.com/us/app/bettersnaptool/id417375580?mt=12">install (app store)</a></em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>launch as startup</em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>custom hotkeys</em>~~ [2023-11-25]</li>
+</ul>
+<h1 id="bettertouchtool">Bettertouchtool</h1>
+<ul>
+<li>[X] ~~<em><a href="https://folivora.ai/">install</a></em>~~ [2023-11-25]</li>
+<li>[ ] launch as startup</li>
+<li>[X] ~~<em>license (lastpass)</em>~~ [2023-11-25]</li>
+<li>[ ] custom hotkeys</li>
+</ul>
+<h1 id="betterzip">BetterZip</h1>
+<ul>
+<li>[X] ~~<em><a href="https://betterzip.com/">install</a></em>~~ [2023-12-07]</li>
+<li>[X] ~~<em>settings -&gt; Opening an archive from the Finder immediately extracts it</em>~~ [2023-12-07]</li>
+</ul>
+<h1 id="qbittorrent">QBitTorrent</h1>
+<ul>
+<li>[X] ~~<em><a href="https://www.qbittorrent.org/download">install</a></em>~~ [2023-12-24]</li>
+<li>[X] ~~<em>download dir</em>~~ [2023-12-24]</li>
+</ul>
+<h1 id="discord">Discord</h1>
+<ul>
+<li>[ ] <a href="https://discord.com/download">Install</a></li>
+</ul>
+<h1 id="slack">Slack</h1>
+<ul>
+<li>[ ] Install</li>
+<li>Accounts</li>
+<li>[ ] hatch</li>
+<li>[ ] betaflight</li>
+<li>[ ] embrace</li>
+<li>[ ] raycast</li>
+</ul>
+<h1 id="sfsymbols">SFSymbols</h1>
+<ul>
+<li>[X] ~~<em>install</em>~~ [2023-12-08]</li>
+</ul>
+<h1 id="monodraw">monodraw</h1>
+<ul>
+<li>[x] <a href="https://apps.apple.com/us/app/monodraw/id920404675?mt=12">AppStore</a></li>
+</ul>
+<h1 id="grandperspective">GrandPerspective</h1>
+<ul>
+<li><a href="https://apps.apple.com/us/app/grandperspective/id1111570163?mt=12">Install (app store)</a></li>
+</ul>
+<h1 id="logic-pro">Logic Pro</h1>
+<ul>
+<li><a href="https://apps.apple.com/us/app/logic-pro/id634148309?mt=12">Install (app store)</a></li>
+</ul>
+<h1 id="audacity">Audacity</h1>
+<ul>
+<li><a href="https://www.audacityteam.org/">Install</a></li>
+</ul>
+<h1 id="vlc">VLC</h1>
+<ul>
+<li><a href="https://get.videolan.org/vlc/3.0.20/macosx/vlc-3.0.20-intel64.dmg">install</a></li>
+<li>settings</li>
+<li>[X] ~~<em>dark mode</em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>disable "Video Auto Scaling"</em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>disable <code>Resize interface to the native video size</code></em>~~ [2023-11-25]</li>
+<li>[X] ~~<em>disable <code>Keep Recent Items</code></em>~~ [2023-11-25]</li>
+<li>settings -&gt; all -&gt; video -&gt; <code>Video Auto Scaling</code> (enable)</li>
+<li>[ ] hotkeys</li>
+</ul>
+<h1 id="blender">Blender</h1>
+<ul>
+<li>[X] ~~<em>install</em>~~ [2023-11-25]</li>
+<li>[ ] set up (BLENDER3.md)</li>
+<li>[ ] import settings file</li>
+</ul>
+<h1 id="google-earth">Google Earth</h1>
+<ul>
+<li><a href="https://www.google.com/earth/about/versions/#download-pro">download</a></li>
+</ul>
+<h1 id="stellarium">Stellarium</h1>
+<ul>
+<li><a href="https://github.com/Stellarium/stellarium/releases">github</a></li>
+</ul>
+<h1 id="openscad">OpenSCAD</h1>
+<ul>
+<li>[ ] install: </li>
+</ul>
+<pre><code>brew install openscad
+</code></pre>
+<h1 id="video-games">video games</h1>
+<h2 id="steam">Steam</h2>
+<ul>
+<li>[X] ~~<em><a href="https://store.steampowered.com/about/download">install</a></em>~~ [2023-12-02]</li>
+<li>[X] ~~<em><code>settings</code> -&gt; <code>Run Steam when my computer starts</code></em>~~ [2023-12-24]</li>
+<li>Download select games</li>
+</ul>
+<h3 id="games">Games</h3>
+<h2 id="velocidrone">velocidrone</h2>
+<ul>
+<li>[ ] install</li>
+</ul>
+<h2 id="clone-hero">Clone Hero</h2>
+<ul>
+<li>[ ] <a href="https://clonehero.net/releases/">homepage download</a></li>
+</ul>
+<h1 id="openemu">OpenEMU</h1>
+<ul>
+<li>[X] ~~<em><a href="https://github.com/OpenEmu/OpenEmu/releases">install</a></em>~~ [2023-12-28]</li>
+</ul>
+<h1 id="retroarch">RetroArch</h1>
+<h1 id="radio-control">Radio Control</h1>
+<ul>
+<li>[ ] betaflight configurator</li>
+<li>[ ] betaflight blackbox</li>
+<li>[ ] iNav configurator</li>
+<li>[ ] ExpressLRS Configurator</li>
+<li>[ ] BLHeli_32</li>
+<li>[ ] BLHeli_s</li>
+<li>[ ] EdgeTX Companion</li>
+<li>[ ] EdgeTX Buddy</li>
+</ul>
+<h1 id="todo-other-apps">TODO (other apps)</h1>
+<ul>
+<li>[ ] google sketchup</li>
+<li>[ ] download</li>
+<li>[ ] cura slicer</li>
+<li>[ ] printer profile / import</li>
+</ul>
+<h1 id="hatch-specific">Hatch Specific</h1>
+<ul>
+<li>[ ] slack</li>
+<li>[ ] iOS env setup</li>
+<li>[ ] amazon VPN</li>
+<li>[ ] photoshop</li>
+<li>[ ] CI cron (maybe do this on remote machine instead)</li>
+</ul>
+<h2 id="reimburse-update">Reimburse / update</h2>
+<ul>
+<li>[ ] cleanshotx</li>
+<li>[ ] update lastpass</li>
+<li>[ ] betterdisplay license</li>
+<li>[ ] update lastpass</li>
+</ul>
+<h1 id="prepare-for-future">Prepare for Future</h1>
+<ul>
+<li>[ ] Set up time machine on external disk</li>
+<li>[ ] <code>~/code/repositories/iCloud</code> to <code>iCloud</code></li>
+<li>[ ] Update github/gitlab's .zshrc</li>
+<li>[ ] Setup cron job to commit/push</li>
+<li>[ ] Cura Slicer. Back up configuration</li>
+</ul>
+<h1 id="recovery-from-zakkbookmax">Recovery from zakkbookmax</h1>
+<ul>
+<li>[ ] <code>~/*.code-workspace</code></li>
+<li>[ ] hammerspoon script</li>
+<li>[ ] <code>~/Pictures/*</code></li>
+<li>[ ] wallpapers, screenshots, etc...</li>
+<li>[ ] <code>~/Movies/*</code></li>
+<li>[ ] iMovie, old PC HDD</li>
+<li>[ ] .zshrc</li>
+<li>[ ] <code>~/code/*</code></li>
+<li>[ ] books on coding</li>
+<li>[ ] wavesynth<ul>
+<li>[ ] midi projects / apple examples</li>
+</ul>
+</li>
+<li>[ ] wifiHotspot</li>
+<li>[ ] learning folder</li>
+<li>[ ] mpengine</li>
+<li>[ ] <code>~/zlib/*</code></li>
+<li>[ ] cura profiles</li>
+<li>[ ] <code>~/Pictures/screenshots/*</code></li>
+<li>[ ] sidebury</li>
+<li>[ ] recreate m1</li>
+<li>[ ] sync</li>
+<li>[ ] Context Search (firefox)</li>
+<li>[ ] automator scripts / aps</li>
+<li>[ ] <code>hss</code> directory (hatch scripts)</li>
+</ul>
+<h1 id="todo-new-setup">TODO (new setup)</h1>
+<ul>
+<li>zsh / alias / </li>
+<li>[ ] fastlane_source</li>
+<li>[ ] forbid push do to development</li>
+<li>[ ] source ansi_echo.sh</li>
+<li>[ ] ji<ul>
+<li>[X] ~~<em>basics from shell script</em>~~ [2023-12-02]</li>
+<li>[ ] parse &amp; pass args to fastlane</li>
+<li>[ ] iosdeveloper's JIRA_ values can create new tickets. zakkhoyt's cannot. Deal with environment</li>
+</ul>
+</li>
+<li>hatch CI</li>
+<li>[ ] token for <code>HATCH_MOBILE_ENGINEERING_BOT_TOKEN</code><ul>
+<li>[ ] update LastPass file</li>
+<li>[ ] slack comments/docs</li>
+</ul>
+</li>
+<li>vscode</li>
+<li>[ ] backup workspace files</li>
+<li>automator</li>
+<li>re-create apps:<ul>
+<li>[ ] open folder in VSCode</li>
+<li>[ ] move airdrop images tools screenshots</li>
+<li>[ ] <a href="https://bmorton.com/posts/automatically-clearing-the-clipboard-in-macos-monterey/">clear clipboard</a>  </li>
+</ul>
+</li>
+<li>[ ] back up automations</li>
+<li>[ ] set up symbolic link dirs</li>
+<li>[ ] </li>
+<li>timemachine</li>
+<li>set up timemachine app</li>
+<li>mirror to external disk</li>
+<li>set up reminder to connect/back up </li>
+<li>apple dev (vww)</li>
+<li>Create match repository</li>
+<li>Create fastlane boilerplate / helpers</li>
+<li>[ ] CRON setup for ios-tinuous</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

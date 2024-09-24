@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/SWIFT/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Precompiler Macros - Zakk's Notes</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#precompiler-macros" class="nav-link">Precompiler Macros</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#mac-catalyst" class="nav-link">Mac Catalyst</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#debugging-reflection" class="nav-link">Debugging &amp; Reflection</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#enum-struct-class" class="nav-link">Enum, Struct, Class</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#with-customstringconvertible-and-customdebugstringconvertible" class="nav-link">With CustomStringConvertible and CustomDebugStringConvertible</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#swift-59-wwdc" class="nav-link">Swift 5.9 WWDC</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#notes-form-video" class="nav-link">Notes form video</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#xcode-logging" class="nav-link">Xcode logging</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#preview" class="nav-link">Preview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#bookmarks" class="nav-link">bookmarks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#previews" class="nav-link">Previews</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#more-to-watch" class="nav-link">More to watch</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#preview_1" class="nav-link">Preview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#string-multiline-wrapping" class="nav-link">String multiline, wrapping</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#conformance" class="nav-link">Conformance</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#reachability" class="nav-link">Reachability</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#attributes" class="nav-link">Attributes</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#available" class="nav-link">available</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#endian" class="nav-link">Endian</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#binary-path" class="nav-link">Binary Path</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#finding-swift-binaries" class="nav-link">Finding Swift binaries</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="precompiler-macros">Precompiler Macros</h1>
+<p><a href="https://developer.apple.com/documentation/xcode/running-code-on-a-specific-version">Apple Docs</a></p>
+<pre><code class="language-swift">#if os(iOS)
+#elseif os(tvOS)
+#elseif os(macOS)
+#elseif os(watchOS)
+#else
+#endif
+</code></pre>
+<pre><code class="language-swift">#if targetEnvironment(simulator)
+  // Simulator!
+#endif
+</code></pre>
+<h2 id="mac-catalyst">Mac Catalyst</h2>
+<ul>
+<li><a href="https://developer.apple.com/documentation/uikit/mac_catalyst/optimizing_your_ipad_app_for_mac">Make your iPad app more like a Mac app</a></li>
+</ul>
+<h3 id="conditionally-compile-code-for-maccatalyst">Conditionally compile code for macCatalyst</h3>
+<pre><code class="language-swift">#if targetEnvironment(macCatalyst)
+  // macCatalyst!
+#else
+
+</code></pre>
+<h3 id="check-at-runtime-if-process-is-maccatalyst-or-not">Check at runtime if process is macCatalyst or not</h3>
+<pre><code class="language-swift">if ProcessInfo.processInfo.isMacCatalystApp {
+  // iOS app running on macOS device.
+  if ProcessInfo.processInfo.isiOSAppOnMac {
+    // Target is of type: Mac (Designed for iPad)
+  } else {
+    // Target is of type: Mac (Mac Catalyst)
+  }
+} else {
+  // iOS app running on iOS device.
+}
+
+
+// // macCatalyst app
+// ProcessInfo.processInfo.isMacCatalystApp: true
+// ProcessInfo.processInfo.isiOSAppOnMac: false
+
+// // Designed for iPad
+// ProcessInfo.processInfo.isMacCatalystApp: true
+// ProcessInfo.processInfo.isiOSAppOnMac: true
+</code></pre>
+<h1 id="debugging-reflection">Debugging &amp; Reflection</h1>
+<pre><code class="language-swift">print(1.0)
+print(1.0, 2.0, 3.0, 4.0, 5.0, separator: &quot; ... &quot;)
+</code></pre>
+<h2 id="enum-struct-class">Enum, Struct, Class</h2>
+<pre><code>// print
+a
+b
+// debugPrint
+MPMenuLearning.MyEnum.a
+MPMenuLearning.MyEnum.b
+// dump
+- MPMenuLearning.MyEnum.a
+- MPMenuLearning.MyEnum.b
+
+// print 
+MyStruct(name: &quot;a&quot;)
+MyStruct(name: &quot;b&quot;)
+// debugPrint
+MPMenuLearning.MyStruct(name: &quot;a&quot;)
+MPMenuLearning.MyStruct(name: &quot;b&quot;)
+// dump
+▿ MPMenuLearning.MyStruct
+  - name: &quot;a&quot;
+▿ MPMenuLearning.MyStruct
+  - name: &quot;b&quot;
+
+// print
+MPMenuLearning.MyClass
+MPMenuLearning.MyClass
+// debugPrint
+MPMenuLearning.MyClass
+MPMenuLearning.MyClass
+// dump
+▿ MPMenuLearning.MyClass #0
+  - name: &quot;a&quot;
+▿ MPMenuLearning.MyClass #0
+  - name: &quot;b&quot;
+</code></pre>
+<h2 id="with-customstringconvertible-and-customdebugstringconvertible">With CustomStringConvertible and CustomDebugStringConvertible</h2>
+<pre><code>// print
+enum description a
+enum description b
+// debugPrint
+enum debugDescription a
+enum debugDescription b
+// dump
+- enum debugDescription a
+- enum debugDescription b
+
+// print
+struct description a
+struct description b
+// debugPrint
+struct debugDescription a
+struct debugDescription b
+// dump
+▿ struct debugDescription a
+  - name: &quot;a&quot;
+▿ struct debugDescription b
+  - name: &quot;b&quot;
+
+// print
+class description a
+class description b
+// debugPrint
+class debugDescription a
+class debugDescription b
+// dump
+▿ class debugDescription a #0
+  - name: &quot;a&quot;
+▿ class debugDescription b #0
+  - name: &quot;b&quot;
+</code></pre>
+<h1 id="swift-59-wwdc">Swift 5.9 WWDC</h1>
+<p><a href="https://developer.apple.com/wwdc23/10164">WWDC Video</a></p>
+<h2 id="notes-form-video">Notes form video</h2>
+<h3 id="macros">Macros</h3>
+<p>( Notice the <code>#Predicate</code> keyword)</p>
+<pre><code class="language-swift">@freestanding(expression)
+public macro Predicate&lt;each Input&gt; (
+
+- body: (repeat each Input) -&gt; Bool
+) -&gt; Predicate&lt;repeat each Input&gt;
+
+let pred = #Predicate&lt;Person&gt; {
+$0.favoriteColor == .blue
+}
+let blueLovers = people.filter(pred)
+</code></pre>
+<h3 id="consuming">Consuming</h3>
+<h4 id="copyable">~Copyable</h4>
+<p>Supress the ability to copy value types</p>
+<pre><code class="language-swift">struct FileDescriptor: ~Copyable {
+private var fd: CInt
+</code></pre>
+<p>After adding <code>~Copyable</code> to a value type, you can give it a <code>deinit</code></p>
+<p>Give ownership to callee instead of copying on</p>
+<p>Calling a consumable gives up ownership the value you called. </p>
+<pre><code class="language-swift">consuming func close() {
+  Darwin.close(fd)
+}
+</code></pre>
+<p>You can no longer use the value after this. <strong>This is enforced by the compiler</strong>. </p>
+<h3 id="c">C++</h3>
+<p>Must enable interoperablilty in project settings. </p>
+<h3 id="cmake-support-for-swift">Cmake Support for swift</h3>
+<h3 id="actors-can-now-specify-which-dispatchqueue-to-run-on">Actors can now specify which dispatchQueue to run on</h3>
+<pre><code class="language-swift">protocol SerialExecutor: Executor {
+</code></pre>
+<pre><code class="language-swift">actor MyConnection {
+private var database: UnsafeMutablePointer&lt;sqlite3&gt;
+private let queue: DispatchSerialQueue
+
+nonisolated var unownedExecutor: UnownedSerialExecutor { queue.asUnownedSerialExecutor () }
+
+init(filename: String, queue: DispatchSerialQueue) throws { ... }
+
+func pruneoldEntries () { ... }
+func fetchEntry&lt;Entry&gt; (named: String, type: Entry.Type) -&gt; Entry? { ... }
+}
+
+await connection.pruneoldEntries ()
+</code></pre>
+<h2 id="xcode-logging">Xcode logging</h2>
+<p><a href="https://developer.apple.com/wwdc23/10226">WWDC video</a></p>
+<h2 id="preview">Preview</h2>
+<p>Works with UIKit and AppKit</p>
+<pre><code class="language-swift">#Preview {
+let controller = DetailedMapViewController ()
+
+controller.mapView.camera = MKMapCamera (
+  lookingAtCenter: CLLocation(latitude:37.335_690, longitude:-122.013_330). coordinate,
+  fromDistance: 0,
+  pitch: 0,
+  heading: 0
+)
+return controller
+}
+</code></pre>
+<h2 id="bookmarks">bookmarks</h2>
+<p>Not more FIXME tags or #warning</p>
+<h2 id="previews">Previews</h2>
+<ul>
+<li>Can preview UIKIt/AppKit</li>
+<li>Can preview live on real devices</li>
+</ul>
+<h2 id="more-to-watch">More to watch</h2>
+<ul>
+<li>DocC</li>
+<li>
+<h1 id="preview_1">Preview</h1>
+</li>
+<li>Parameter Packs</li>
+<li>Macros</li>
+<li>SwiftData</li>
+</ul>
+<h1 id="string-multiline-wrapping">String multiline, wrapping</h1>
+<ul>
+<li><a href="https://useyourloaf.com/blog/swift-string-cheat-sheet/">Cheatsheet</a></li>
+</ul>
+<pre><code class="language-swift">do {
+    let text: String = &quot;Here is a &quot; +
+    &quot;single line String split into multiple &quot; +
+    &quot;lines of Swift code.&quot;
+    print(text)
+}
+print(&quot;&quot;)
+
+do {
+    let text: String = &quot;&quot;&quot;
+    Here is a \
+    single line String split into multiple \
+    lines of Swift code.
+    &quot;&quot;&quot;
+    print(text)
+}
+print(&quot;&quot;)
+
+do {
+    let text: String = [
+        &quot;Here is a &quot;,
+        &quot;single line String split into multiple &quot;,
+        &quot;lines of Swift code.&quot;
+    ].joined()
+    print(text)
+}
+print(&quot;&quot;)
+
+do {
+    let text: String = &quot;Here is a\n&quot; +
+    &quot;multi-line String split into multiple\n&quot; +
+    &quot;lines of Swift code.&quot;
+    print(text)
+}
+print(&quot;&quot;)
+
+do {
+    let text: String = &quot;&quot;&quot;
+    Here is a
+    multi-line String split into multiple
+    lines of Swift code.
+    &quot;&quot;&quot;
+    print(text)
+}
+print(&quot;&quot;)
+
+
+Here is a single line String split into multiple lines of Swift code.
+
+Here is a single line String split into multiple lines of Swift code.
+
+Here is a single line String split into multiple lines of Swift code.
+
+Here is a
+multi-line String split into multiple
+lines of Swift code.
+
+Here is a
+multi-line String split into multiple
+lines of Swift code.
+</code></pre>
+<h1 id="conformance">Conformance</h1>
+<pre><code class="language-swift">@frozen public struct UInt64 : FixedWidthInteger, UnsignedInteger {
+extension UInt64 : CustomReflectable {
+    /// A mirror that reflects the `Int64` instance.
+    public var customMirror: Mirror { get }
+}
+
+
+public protocol BinaryInteger : CustomStringConvertible, Hashable, Numeric, Strideable where Self.Magnitude : BinaryInteger, Self.Magnitude == Self.Magnitude.Magnitude {
+public protocol FixedWidthInteger : BinaryInteger, LosslessStringConvertible where Self.Magnitude : FixedWidthInteger, Self.Magnitude : UnsignedInteger, Self.Stride : FixedWidthInteger, Self.Stride : SignedInteger {
+public protocol UnsignedInteger : BinaryInteger {
+
+extension AsyncButton where Label == Text { // generic type
+extension IoTStatusReasoning where Self.RawValue == Int { // assciateType
+extension IoTPreviewable where Self: RestMiniConnection {
+extension Collection where Element: ContentIdentifiable {
+
+extension UserSessionFlag where Self: RawRepresentable, Self.RawValue == String { // combo
+public extension ApolloExtension where Base: OptionalType, Base.WrappedType: Collection { // combo
+
+</code></pre>
+<h1 id="reachability">Reachability</h1>
+<p><a href="https://www.hackingwithswift.com/plus/networking/user-friendly-network-access">link</a></p>
+<h1 id="attributes">Attributes</h1>
+<ul>
+<li><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/attributes/">link</a></li>
+</ul>
+<h2 id="available">available</h2>
+<p><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/attributes/#available">link</a></p>
+<p><code>unavailable</code>, <code>introduced</code>, <code>deprecated</code>, <code>introduced</code>, <code>obsoleted</code>, <code>message</code>, <code>renamed</code></p>
+<pre><code class="language-swift">@available(*, deprecated, message: &quot;Please adopt...&quot;)
+</code></pre>
+<pre><code class="language-swift">@available(*, renamed: &quot;contract(max:)&quot;)
+@available(*, renamed: &quot;contract(max:)&quot;, message: &quot;Renamed to coordinate with similar structs&quot;)
+
+@available(*, unavailable, renamed: &quot;contract(max:)&quot;)
+@available(*, unavailable, renamed: &quot;contract(max:)&quot;, message: &quot;Renamed to coordinate with similar structs&quot;)
+</code></pre>
+<pre><code class="language-swift">if #available(iOS 10.0, *) {
+}
+
+if #available(iOS 17.2, *) {
+}
+
+if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+} else {
+}
+</code></pre>
+<pre><code class="language-swift">#if os(iOS)
+</code></pre>
+<pre><code class="language-swift">#if swift(&gt;=5.0)
+print(&quot;Running Swift 5.0 or later&quot;)
+#else
+print(&quot;Running old Swift&quot;)
+#endif
+</code></pre>
+<h2 id="endian">Endian</h2>
+<p>To convert between big/little see <code>FixedWidthInteger</code></p>
+<pre><code class="language-swift">
+/// Creates an integer from its big-endian representation, changing the byte
+/// order if necessary.
+///
+/// - Parameter value: A value to use as the big-endian representation of the
+///   new integer.
+init(bigEndian value: Self)
+
+/// Creates an integer from its little-endian representation, changing the
+/// byte order if necessary.
+///
+/// - Parameter value: A value to use as the little-endian representation of
+///   the new integer.
+init(littleEndian value: Self)
+
+
+/// The big-endian representation of this integer.
+///
+/// If necessary, the byte order of this value is reversed from the typical
+/// byte order of this integer type. On a big-endian platform, for any
+/// integer `x`, `x == x.bigEndian`.
+var bigEndian: Self { get }
+
+/// The little-endian representation of this integer.
+///
+/// If necessary, the byte order of this value is reversed from the typical
+/// byte order of this integer type. On a little-endian platform, for any
+/// integer `x`, `x == x.littleEndian`.
+var littleEndian: Self { get }
+
+/// A representation of this integer with the byte order swapped.
+var byteSwapped: Self { get }
+</code></pre>
+<p><a href="https://reintech.io/blog/mastering-endianness-in-swift">Reference</a></p>
+<pre><code class="language-sh">
+#if _endian(big)
+// Code for reading file as is
+#elseif _endian(little)
+// Code for reversing the byte order
+#endif
+
+</code></pre>
+<h1 id="binary-path">Binary Path</h1>
+<pre><code class="language-sh"># This one is executable
+/Applications/Xcode-16.0.0-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift
+
+/Applications/Xcode-16.0.0-Beta.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB
+</code></pre>
+<pre><code class="language-sh">/usr/bin/swift
+</code></pre>
+<pre><code class="language-sh">
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift --version
+/Applications/Xcode-15.4.0-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift --version
+/Applications/Xcode-15.4.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift --version
+/Applications/Xcode-16.0.0-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift --version
+
+</code></pre>
+<h2 id="finding-swift-binaries">Finding Swift binaries</h2>
+<pre><code class="language-sh">
+cd /Applications/Xcode-16.0.0-Beta.app/Contents
+find . -name &quot;swift&quot;
+find . -name &quot;swift&quot; | xargs realpath
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

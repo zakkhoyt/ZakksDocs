@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/MACROS/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Swift Macros - Zakk's Notes</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#swift-macros" class="nav-link">Swift Macros</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#roles-you-can-compose-multiple-roles" class="nav-link">Roles (You can compose multiple roles)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#implementation" class="nav-link">Implementation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#ideas" class="nav-link">Ideas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#examples" class="nav-link">Examples</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#questions" class="nav-link">Questions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="swift-macros">Swift Macros</h1>
+<ul>
+<li><a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/macros/">Documentation</a></li>
+<li><a href="https://www.hackingwithswift.com/swift/5.9/macros">hackingwithswift</a></li>
+<li><a href="https://swiftylion.com/articles/swift-macros">swiftylion</a></li>
+<li>
+<p><a href="https://www.avanderlee.com/swift/macros/">3rd party article</a></p>
+</li>
+<li>
+<p><a href="https://developer.apple.com/documentation/swift/file()">Apple (get source code info)</a></p>
+</li>
+<li>
+<p><a href="https://swiftpackageindex.com/apple/swift-syntax/509.0.2/documentation/swiftsyntax">SwiftSyntax</a></p>
+</li>
+<li><a href="https://github.com/apple/swift-syntax/tree/main/Sources/SwiftSyntaxBuilder">SwiftSyntaxBuilder</a></li>
+<li><a href="https://swiftinit.org/docs/swift-syntax/swiftsyntax/exprsyntax">SwiftSyntaxBuilder</a></li>
+</ul>
+<p><code>opt</code> + click on a macro to see documentation</p>
+<p>2 types of macros:
+* Freestanding: begins with <code>#</code>
+* Attaches: Begins with <code>@</code></p>
+<p>Can break/debug into macros
+Can write tests for macros</p>
+<h2 id="roles-you-can-compose-multiple-roles">Roles (You can compose multiple roles)</h2>
+<ul>
+<li><code>@freestanding (expression)</code> </li>
+<li>Creates a piece of code that returns a value</li>
+<li><code>ExpressionMacro</code></li>
+<li><code>@freestanding (declaration)</code> </li>
+<li>Creates one or more declarations</li>
+<li><code>DeclarationMacro</code></li>
+<li><code>@attached (peer)</code> </li>
+<li>Adds new declarations alongside the declaration it's applied to</li>
+<li><code>PeerMacro</code></li>
+<li><code>@attached (accessor)</code> </li>
+<li>Adds accessors to a property</li>
+<li><code>AccessorMacro</code></li>
+<li><code>@attached (memberAttribute)</code> </li>
+<li>Adds attributes to the declarations in the type/extension it's app</li>
+<li><code>MemberAttributeMacro</code></li>
+<li><code>@attached (member)</code> </li>
+<li>Adds new declarations inside the type/extension it's applied to</li>
+<li><code>MemberMacro</code></li>
+<li><code>@attached (conformance)</code> </li>
+<li>Adds contormances to the type/extension it's applied to</li>
+<li><code>ConformanceMacro</code></li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<ul>
+<li>
+<p><code>#externalMacro</code></p>
+</li>
+<li>
+<p>Declaration goes in normal SPM module</p>
+</li>
+<li>
+<p>Implementation goes in its own <code>.macro</code> module </p>
+</li>
+<li>
+<p>SwiftSyntax is a big part of learning. </p>
+</li>
+</ul>
+<h3 id="return-typs">Return typs</h3>
+<ul>
+<li><code>DeclSyntaxProtocol</code></li>
+</ul>
+<h3 id="debugging-breakpoints">Debugging / Breakpoints</h3>
+<ul>
+<li>How to debug a macro? I want to break/inspect <code>DeclGroupSyntax</code>, <code>MacroExpansionContext</code>, etc..</li>
+<li>See 19:50 in this <a href="https://developer.apple.com/wwdc23/10166">WWDC video</a> </li>
+<li>You have to set a breakpoint inside the  macro expansion function, then hit that BP by running the unit test (mandatory)</li>
+<li><code>(lldb) po declaration</code></li>
+</ul>
+<pre><code>EnumDeclSyntax
+├─attributes: AttributeListSyntax
+│ ╰─[0]: AttributeSyntax
+│   ├─atSign: atSign
+│   ╰─attributeName: IdentifierTypeSyntax
+│     ╰─name: identifier(&quot;SlopeSubset&quot;)
+├─modifiers: DeclModifierListSyntax
+├─enumKeyword: keyword(SwiftSyntax.Keyword.enum)
+├─name: identifier(&quot;EasySlope&quot;)
+╰─memberBlock: MemberBlockSyntax
+  ├─leftBrace: leftBrace
+  ├─members: MemberBlockItemListSyntax
+  │ ├─[0]: MemberBlockItemSyntax
+  │ │ ╰─decl: EnumCaseDeclSyntax
+  │ │   ├─attributes: AttributeListSyntax
+  │ │   ├─modifiers: DeclModifierListSyntax
+  │ │   ├─caseKeyword: keyword(SwiftSyntax.Keyword.case)
+  │ │   ╰─elements: EnumCaseElementListSyntax
+  │ │     ╰─[0]: EnumCaseElementSyntax
+  │ │       ╰─name: identifier(&quot;beginnersParadise&quot;)
+  │ ╰─[1]: MemberBlockItemSyntax
+  │   ╰─decl: EnumCaseDeclSyntax
+  │     ├─attributes: AttributeListSyntax
+  │     ├─modifiers: DeclModifierListSyntax
+  │     ├─caseKeyword: keyword(SwiftSyntax.Keyword.case)
+  │     ╰─elements: EnumCaseElementListSyntax
+  │       ╰─[0]: EnumCaseElementSyntax
+  │         ╰─name: identifier(&quot;practiceRun&quot;)
+  ╰─rightBrace: rightBrace
+</code></pre>
+<h3 id="throwing-errors-and-help">Throwing Errors and Help</h3>
+<p>Throw errors using Diagnostic. 
+context.diagnose(Diagnostic(...))</p>
+<h2 id="ideas">Ideas</h2>
+<ul>
+<li>completionn / async </li>
+<li>Span/trace</li>
+<li>OSlog + remote </li>
+</ul>
+<h2 id="examples">Examples</h2>
+<ul>
+<li><a href="https://developer.apple.com/wwdc23/10166">From WWDC</a>, we will do the ski slop example (adds an init and computed property to enums) </li>
+</ul>
+<h2 id="questions">Questions</h2>
+<ul>
+<li>how to pass parameters into a macro. Suppose a macro for logging a var. How to pass a message in with it?</li>
+</ul>
+<p>DeclarationMacro
+https://medium.com/@tahabebek/swift-macros-36417a8557a</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

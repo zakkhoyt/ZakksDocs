@@ -1,0 +1,168 @@
+
+' @startuml
+' title Example Terminal Command
+' participant "HatchSleep App" as app #Orange
+' participant "Tx characteristic" as tx #aqua
+' participant "Rx characteristic" as rx #aqua
+' participant "Firmware" as fw #aqua
+
+' app -> rx: "XX" (command code)
+' rx -> fw: Decode/relay command
+' tx <-- fw: Encode/transmit response
+' app <-- tx: "YY" (response code)
+' @enduml
+
+
+' @startuml
+' title Example Terminal (Get Color)
+' participant "HatchSleep App" as app #Orange
+' participant "Tx characteristic" as tx #aqua
+' participant "Rx characteristic" as rx #aqua
+' participant "Firmware" as fw #aqua
+
+' app -> rx: "GC" (command)
+' note right of tx
+'     "GC" = Get Color
+' end note
+' rx -> fw: Decode/relay command
+' fw --> fw: Process command
+' tx <-- fw: Encode/transmit payload & response
+' app <-- tx: "00FF00FF" (payload)
+' app <-- tx: "OK" (response code)
+' note right of app
+'     response == "OK" ? Decode payload as RRGGBBII : throw error
+' end note
+' @enduml
+
+
+
+' @startuml
+' title Example Terminal (Set Color)
+' participant "HatchSleep App" as app #Orange
+' participant "Tx characteristic" as tx #aqua
+' participant "Rx characteristic" as rx #aqua
+' participant "Firmware" as fw #aqua
+
+' note left of app
+'     command: "SC" = Set Color
+'     value: "00FF00FF" = RRGGBBII
+'     command+value: "SC00FF00FF"
+' end note
+' app -> rx: "SC00FF00FF"
+' ' note right of tx
+' '     command: "SC" = Set Color
+' '     value: "00FF00FF" = RRGGBBII
+' '     command+value: "SC00FF00FF"
+' ' end note
+' rx -> fw: Decode/relay command
+' fw --> fw: Process command
+' tx <-- fw: Encode/transmit payload & response
+' app <-- tx: "OK" (response code)
+' note right of app
+'     response == "OK" ? yay : throw error
+' end note
+' @enduml
+
+@startuml
+
+title Registration\n(Get WiFi Networks)
+
+participant "HatchSleep\nApp" as app #WhiteSmoke
+participant "BLE Tx\ncharacteristic" as tx #aqua
+participant "BLE Rx\ncharacteristic" as rx #aqua
+participant "Hatch Device" as device #WhiteSmoke
+
+app -> rx: "WGS" (command for Get Wifi Networks)
+rx -> device: Scan for wifi networks
+device --> device: Aggregate networks 
+tx <-- device: Json list of networks
+tx -> tx: for packet in packets...
+
+note right of tx #aqua
+    Each pack is made of:
+    * payload (32 LSB)
+    * header (8 MSB)
+    * if header.MSb is set, this is final packet.
+end note
+app <-- tx: "00000000 7B2022776966694E6574776F726B7322"
+app <-- tx: "00000001 3A205B207B202272737369223A202D32"
+app <-- tx: "00000002 392C202273736964223A202250696564"
+app <-- tx: "..."
+app <-- tx: "0000004C 7074696F6E223A2022575041325F5053"
+app <-- tx: "8000004D 4B22207D20205D207D"
+
+note right of app #red
+    * [ ] Collect typical JSON size
+    * [ ] Compute # of packets
+    * [ ] Collect typical datarate stats
+end note
+
+note right of app #aqua
+    Header.MSB = 0x8 (0b10000000)
+    isFinalPacket = Header.MSB.MSb == 1
+    Decode Data -> [Wifi.Network]
+end note
+@enduml
+
+@startuml
+
+title Registration\n(Get WiFi Networks)
+
+participant "HatchSleep\nApp" as app #WhiteSmoke
+participant "BLE Tx\ncharacteristic" as tx #aqua
+participant "BLE Rx\ncharacteristic" as rx #aqua
+participant "Hatch Device" as device #WhiteSmoke
+
+note right of app #GreenYellow
+    The app now has a list of WiFi networks.
+    Present the user with UI to collect SSID and password
+end note
+
+app -> app: Present UI (WiFi SSID Picker)
+app -> app: Present UI (WiFi Password)
+
+
+@enduml
+
+@startuml
+
+title Registration\n(Get WiFi Networks)
+
+participant "HatchSleep\nApp" as app #WhiteSmoke
+participant "BLE Tx\ncharacteristic" as tx #aqua
+participant "BLE Rx\ncharacteristic" as rx #aqua
+participant "Hatch Device" as device #WhiteSmoke
+
+note right of app #GreenYellow
+    The app has now collected WiFi SSID and Password from the user. 
+    Send them to device over BLE. 
+end note
+
+
+
+note right of app #aqua
+    Send WiFi SSID to Device
+end note
+app -> rx: "WSSMyNetwork" (command to Set WiFi SSID)
+rx -> device: Receive/decode command
+device --> device: Retain WiFi SSID
+tx <-- device: Encode/transmit payload & response
+app <-- tx: "OK" (response code)
+note right of app #aqua
+    response == "OK" ? yay : throw error
+end note
+
+note right of app #aqua
+    Send WiFi Password to Device
+end note
+app -> rx: "WSsMyPassword" (command to Set WiFi Password)
+rx -> device: Receive/decode command
+device --> device: Retain WiFi Password
+tx <-- device: Encode/transmit payload & response
+app <-- tx: "OK" (response code)
+note right of app #aqua
+    response == "OK" ? yay : throw error
+end note
+
+@enduml
+

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/INTENTS/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>Intents - Zakk's Notes</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#intents" class="nav-link">Intents</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#references" class="nav-link">References</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="intents">Intents</h1>
+<p>This article discusses <code>Intents</code> and <code>AppIntents</code>. </p>
+<h2 id="overview">Overview</h2>
+<p>What are Intents? What are AppIntents? How do they differ? </p>
+<p>How to dontate (register) them, how to ship them, how to debug them. </p>
+<h3 id="appintents">AppIntents</h3>
+<p>By default, iOS launches your app in a limited mode in the background and executes the Intent’s <code>perform()</code>
+function on an arbitrary queue.</p>
+<ul>
+<li>To override this behavior and launch the app in the foreground, set the intent’s<code>openAppWhenRun</code> variable to <code>true</code>.</li>
+<li>If your intent manipulates the app’s user interface, annotate <code>perform()</code> with <code>@MainActor</code>.</li>
+</ul>
+<p>See <code>ProgressReportingIntent</code> for surfacing progress reporting in long running intents
+See <code>EnumerableEntityQuery</code> for small number of entities for surfacing lists to find/query functions in shortcuts app
+  vs <code>EntityPropertyQuery</code> for large numbers of entities, see also <code>findIntentDescription</code> property: https://developer.apple.com/videos/play/wwdc2023/10103/</p>
+<ul>
+<li>See <code>AppIntents.ProgressReportingIntent</code> for surfacing progress reporting in long running intents</li>
+<li>See <code>AppIntents.EnumerableEntityQuery</code> for small number of entities for surfacing lists to find/query functions in shortcuts app<ul>
+<li>About <code>findIntentDescription</code> property (<a href="https://developer.apple.com/videos/play/wwdc2023/10103/">WWDC</a>)</li>
+</ul>
+</li>
+<li>See <code>AppIntents.EntityPropertyQuery</code> for large numbers of entities</li>
+</ul>
+<p>Session 10170: Implement App Shortcuts with App Intents, and session 10169: Design App Shortcuts.</p>
+<h2 id="references">References</h2>
+<h3 id="hatch-code-examples">Hatch code examples</h3>
+<ul>
+<li><code>AppExtensions/HatchSleepAppIntents.swift</code></li>
+<li><code>ViewControllers/Routine/RoutineViewController+SiriIntents.swift</code></li>
+<li><code>HatchSleepAppIntents</code></li>
+<li><code>RoutineViewController+SiriIntents</code></li>
+</ul>
+<h3 id="wwdc">WWDC</h3>
+<ul>
+<li><a href="https://developer.apple.com/wwdc21/10231">Donate Intents and expand your app's presence</a>(WWDC21)</li>
+<li><a href="https://developer.apple.com/wwdc22/10170">Implement App Shortcuts with App Intents</a>(WWDC22)</li>
+<li><a href="https://developer.apple.com/wwdc22/10169">Design App Shortcuts</a>(WWDC22)</li>
+<li><a href="https://developer.apple.com/wwdc22/10032">Dive into App Intents</a>(WWDC22)</li>
+<li><a href="https://developer.apple.com/videos/play/tech-talks/10168">Migrate custom intents to App Intents</a>(Tech Talks)</li>
+<li><a href="https://developer.apple.com/wwdc23/10103">Explore enhancements to App Intents</a>(WWDC23)</li>
+</ul>
+<h3 id="app-shortcuts">App Shortcuts</h3>
+<ul>
+<li>App Shortcuts require no setup</li>
+<li>Available as soon as your app is installed (vs. donating)</li>
+<li>Can be run from Shortcuts, Spotlight, and Siri</li>
+<li>[ ] Add parameter summary (fancy in ShortcutsApp</li>
+<li>Intents can show custom UI during input confirm, other confirm, and on result. </li>
+<li>Return the view within the <code>.result(dialog:view:)</code></li>
+<li>
+<p>Custom params using <code>AppEntity</code> conformance to a struct + <code>@Parameter</code> annotation</p>
+</li>
+<li>
+<p>Shortcuts demo ideas</p>
+</li>
+<li>Turn on many Rest+ devices</li>
+<li>Start wind-down, set iOS to do not disturb, turn down Homekit lights. </li>
+<li>Trigger events (time of day, location, focus filters, etc...)</li>
+<li>Desktop shortcut icon</li>
+<li>realistic<ul>
+<li>"Edit my Hatch alarm"</li>
+<li>"Start my hatch routine"</li>
+</ul>
+</li>
+</ul>
+<h3 id="appintents_1">AppIntents</h3>
+<ul>
+<li>Focus Filters seem to be a new replacement for WindDown</li>
+<li>"Meet Focus Filters" WWDC22</li>
+<li>Intent can be use from:</li>
+<li>Menu Bar</li>
+<li>Share Extensions</li>
+<li>Terminal</li>
+<li>AppleScript</li>
+<li>Home Screen</li>
+<li>Suggestions</li>
+<li>Lock Screen</li>
+<li>Shortcuts Widgets</li>
+<li>Quick Actions</li>
+<li>Voice | Apple Watch</li>
+<li>HomePod</li>
+<li>Automations</li>
+<li>Shortcuts App</li>
+<li>Keyboard</li>
+<li>Spotlight</li>
+<li>Intent parameters conform to <code>AppEnum</code> + <code>@Parameter</code> property wrapper</li>
+<li>Parameter summary makes the choices pretty in the dialogs in shortcuts</li>
+<li><code>AppIntent</code> should implement <code>static var parameterSummary: some ParameterSummary</code></li>
+<li>For shelling into the app, <code>AppIntent</code> should implement <code>static var openAppWhenRun: Bool = true</code></li>
+<li>Queries are an interface for retrieving Entities from your app</li>
+<li>All Queries look up entities by ID</li>
+<li><code>StringQuery</code> looks up entities using a search string</li>
+<li><code>PropertyQuery</code> looks up entities based on other criteria</li>
+<li>Queries can provide suggested entities to pick from</li>
+<li>Provide an entity by making a struct that conforms to <code>AppEntity</code><ul>
+<li>EX: <code>struct BookEntity: AppEntity, Identifiable</code></li>
+</ul>
+</li>
+<li>Provide a query by making a struct conform to <code>EntityQuery</code>. <ul>
+<li>EX: <code>struct BookQuery: EntityQuery</code></li>
+</ul>
+</li>
+<li>[ ] Implement multi-scene support for best performance in the background</li>
+</ul>
+<h3 id="widgets-powered-by-intents">Widgets powered by Intents</h3>
+<ul>
+<li>See WWDC: <code>Explore enhancements to App Intents</code></li>
+<li></li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

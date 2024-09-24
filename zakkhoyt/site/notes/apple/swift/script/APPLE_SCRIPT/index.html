@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/script/APPLE_SCRIPT/">
+        <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+        <title>Language - Zakk's Notes</title>
+        <link href="../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#language" class="nav-link">Language</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#vscode-extensions" class="nav-link">VSCode Extensions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#references" class="nav-link">References</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#comments" class="nav-link">Comments</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#debugging" class="nav-link">Debugging</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#running-applescript-from-terminal" class="nav-link">Running AppleScript from Terminal</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#interacting-with-users" class="nav-link">Interacting with Users</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#log" class="nav-link">Log</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#beeping" class="nav-link">Beeping</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#say" class="nav-link">Say</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#notification" class="nav-link">Notification</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#dialog" class="nav-link">Dialog</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#alert" class="nav-link">Alert</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#choose-from-list" class="nav-link">Choose from List</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#references_1" class="nav-link">References</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#launching-terminal-with-applescript" class="nav-link">Launching Terminal with AppleScript</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#examples" class="nav-link">Examples</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#inspecting-properties-of-an-object" class="nav-link">Inspecting properties of an object</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#inspecting-system-settings-preference-panes" class="nav-link">Inspecting System Settings preference panes</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#errors" class="nav-link">Errors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#inspecting-built-in-applescript-support" class="nav-link">Inspecting Built in AppleScript Support</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="language">Language</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/AppleScript">wiki</a></li>
+<li>Script files: <code>*.applescript</code></li>
+<li>Compiled files: <code>*.scpt</code></li>
+</ul>
+<h2 id="vscode-extensions">VSCode Extensions</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=idleberg.applescript">AppleScript</a></p>
+<pre><code class="language-sh">code --install-extension ~/Downloads/applescript-0.25.1.vsix
+</code></pre>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html">Apple Fundamentals</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html">Commands Reference</a></li>
+</ul>
+<h2 id="comments">Comments</h2>
+<ul>
+<li><a href="https://alvinalexander.com/blog/post/mac-os-x/applescript-use-comments/">Comments</a></li>
+</ul>
+<pre><code class="language-applescript"># this is a comment
+
+-- this is a comment
+
+(* these
+are
+comments *)
+</code></pre>
+<h2 id="debugging">Debugging</h2>
+<ul>
+<li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html#//apple_ref/doc/uid/TP40000983-CH218-SW20">Apple (debugging)</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html#//apple_ref/doc/uid/TP40000983-CH216-SW49">log</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/conceptual/ASLR_fundamentals.html#//apple_ref/doc/uid/TP40000983-CH218-SW17">logging</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_cmds.html#//apple_ref/doc/uid/TP40000983-CH216-SW12">display_dialog</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/AppleScript/Conceptual/AppleScriptLangGuide/reference/ASLR_error_xmpls.html#//apple_ref/doc/uid/TP40000983-CH221-SW1">working with errors</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/MakeaSystem-WideService.html">automator</a></li>
+</ul>
+<h1 id="running-applescript-from-terminal">Running AppleScript from Terminal</h1>
+<pre><code class="language-applescript">a.scpt:
+on run argv
+    return &quot;hello, &quot; &amp; item 1 of argv &amp; &quot;.&quot;
+end run
+</code></pre>
+<pre><code class="language-sh">% osascript a.scpt world
+    hello, world.
+</code></pre>
+<h1 id="interacting-with-users">Interacting with Users</h1>
+<ul>
+<li><a href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayDialogsandAlerts.html">Apple (Interacting with Users)</a></li>
+</ul>
+<h2 id="log">Log</h2>
+<pre><code class="language-applescript">log currentWord
+</code></pre>
+<h2 id="beeping">Beeping</h2>
+<pre><code class="language-applescript">beep 3 -- three beeps; a very important part of the script!
+</code></pre>
+<h2 id="say">Say</h2>
+<pre><code class="language-applescript">say &quot;I'm in the clientName handler. The client is &quot; &amp; currentClient
+</code></pre>
+<h2 id="notification">Notification</h2>
+<pre><code class="language-sh">notify_error() {
+    osascript -e &quot;display notification \&quot;$*\&quot; with title \&quot;Error in Xcode Behavior\&quot;&quot;
+}
+</code></pre>
+<h2 id="dialog">Dialog</h2>
+<pre><code class="language-applescript">display dialog &quot;In factorial routine; x = &quot; &amp; (x as string)
+</code></pre>
+<h2 id="alert">Alert</h2>
+<pre><code class="language-applescript">set theAlertText to &quot;An error has occurred.&quot;
+set theAlertMessage to &quot;The amount of available free space is dangerously low. Would you like to continue?&quot;
+display alert theAlertText message theAlertMessage as critical buttons {&quot;Don't Continue&quot;, &quot;Continue&quot;} default button &quot;Continue&quot; cancel button &quot;Don't Continue&quot;
+</code></pre>
+<h2 id="choose-from-list">Choose from List</h2>
+<pre><code class="language-applescript">
+
+    set theFruitChoices to {&quot;Apple&quot;, &quot;Banana&quot;, &quot;Orange&quot;}
+    set theFavoriteFruit to choose from list theFruitChoices with prompt &quot;Select your favorite fruit:&quot; default items {&quot;Apple&quot;}
+    theFavoriteFruit
+    --&gt; Result: {&quot;Apple&quot;}
+</code></pre>
+<h2 id="references_1">References</h2>
+<ul>
+<li><code>man osascript</code></li>
+<li><a href="https://www.techradar.com/how-to/computing/apple/terminal-101-running-applescripts-from-the-terminal-1305736">techradar.com</a></li>
+</ul>
+<pre><code class="language-sh">osascript -e 'tell application &quot;Terminal&quot; to quit'
+
+osascript -e 'tell app &quot;Finder&quot; to make new Finder window'
+
+osascript -e &quot;set volume 0&quot;
+</code></pre>
+<pre><code class="language-sh">#!/usr/bin/osascript
+osascript /example/path/to/AppleScript.scpt
+</code></pre>
+<h1 id="launching-terminal-with-applescript">Launching Terminal with AppleScript</h1>
+<pre><code class="language-sh">osascript -e 'tell app &quot;Terminal&quot;
+    do script &quot;echo hello&quot;
+end tell'
+</code></pre>
+<h1 id="examples">Examples</h1>
+<h2 id="inspecting-properties-of-an-object">Inspecting properties of an object</h2>
+<p>Document in this case</p>
+<pre><code class="language-applescript">tell application &quot;Xcode&quot; to get properties of document 1 whose name ends with (word -1 of (get name of  window 1))
+
+class:text document, 
+modified:false, 
+name:HexString+Primitives.swift, 
+notifies when closing:true, 
+text://  HexString+Primitives.swift...,
+file:file Macintosh HD:Users:zakkhoyt:Library:Developer:Xcode:DerivedData:HatchTerminal-cjeenqfyvaitvxemximkxngrznzt:SourcePackages:checkouts:VWWUtility:Sources:BaseUtility:HexString:HexString+Primitives.swift, 
+path:/Users/zakkhoyt/Library/Developer/Xcode/DerivedData/HatchTerminal-cjeenqfyvaitvxemximkxngrznzt/SourcePackages/checkouts/VWWUtility/Sources/BaseUtility/HexString/HexString+Primitives.swift, 
+selected character range:443, 442, 
+selected paragraph range:21, 21
+
+-- To just get file path
+tell application &quot;Xcode&quot; to get path of (get properties of document 1 whose name ends with (word -1 of (get name of   window 1)))
+</code></pre>
+<p>Get path of document file</p>
+<pre><code class="language-sh">$ osascript shell/applescript/xcode_active_file.applescript
+/Users/zakkhoyt/Library/Developer/Xcode/DerivedData/HatchTerminal-cjeenqfyvaitvxemximkxngrznzt/SourcePackages/checkouts/VWWUtility/Sources/BaseUtility/HexString/HexString+Primitives.swift
+</code></pre>
+<pre><code class="language-sh">osascript -e 'tell application &quot;Xcode&quot; to get path of (get properties of document 1 whose name ends with (word -1 of (get name of window 1)))'
+
+</code></pre>
+<pre><code class="language-sh">osascript -e 'tell app &quot;Terminal&quot; to do script &quot;say 'launched'&quot;'
+</code></pre>
+<pre><code class="language-sh"># Run some commands
+# Important: The script must be wrapped in quotes (not optional)
+osascript -e &quot;tell app \&quot;Terminal\&quot; to do script \&quot;cd ${XCODE_DIR}\nsay 'code'\nls -al\&quot;&quot;
+
+# Or long
+osascript -e &quot;tell app \&quot;Terminal\&quot; 
+    do script \&quot;${LOG_COMMAND}\&quot;
+    activate
+end tell&quot;
+</code></pre>
+<pre><code class="language-sh"># Bring terminal to front (&quot;reopen&quot; if no windows)
+osascript -e &quot;tell app \&quot;Terminal\&quot; to activate&quot;
+</code></pre>
+<pre><code class="language-sh"># Bring running application to front 
+osascript -e &quot;tell application \&quot;System Events\&quot; to tell application process \&quot;Terminal\&quot;
+    set frontmost to true
+end tell&quot;
+</code></pre>
+<pre><code class="language-applescript">tell application &quot;Music&quot; to get properties of file track 1
+
+class:application, 
+name:Music, 
+player state:paused, 
+version:1.5, 
+frontmost:false, 
+sound volume:83, 
+mute:false, 
+shuffle enabled:false, 
+shuffle mode:songs, 
+song repeat:off, 
+visuals enabled:false, 
+full screen:true, 
+EQ enabled:false, 
+fixed indexing:false, 
+player position:8.567000389099, 
+converting:false, 
+AirPlay enabled:false, 
+current AirPlay devices:AirPlay device id 33
+</code></pre>
+<h1 id="inspecting-system-settings-preference-panes">Inspecting System Settings preference panes</h1>
+<p>See <a href="https://github.com/zakkhoyt/VWWUtility/tree/main/Sources/BaseUtility/SystemSettings/README.md">VWWUtility</a> for a detailed overview</p>
+<pre><code class="language-applescript">-- First: open System Settings.app and navigate the a pane/setting. 
+-- Then: run this script to find out name (Pane ID) and any anchors.
+on mapAnchors(prefix, anchors)
+    set newList to {}
+    repeat with i from 1 to count of anchors
+        set anchor to item i of anchors
+        set newAnchor to &quot;case &quot; &amp; anchor &amp; &quot; = &quot; &amp; &quot;\&quot;&quot; &amp; prefix &amp; &quot;&amp;&quot; &amp; anchor &amp; &quot;\&quot;&quot;
+        set end of newList to newAnchor
+    end repeat
+    return newList
+end mapAnchors
+
+tell application &quot;System Settings&quot;
+    set AppleScript's text item delimiters to &quot;, &quot;
+    set CurrentPane to the id of the current pane
+    display dialog CurrentPane
+    -- log (CurrentPane)
+    -- do shell script &quot;echo The value: &quot; &amp; CurrentPane
+    get the name of every anchor of pane id CurrentPane
+    set CurrentAnchors to get the name of every anchor of pane id CurrentPane
+    set prefix to &quot;x-apple.systempreferences:&quot; &amp; CurrentPane
+    set CurrentAnchors to my mapAnchors(prefix, CurrentAnchors)
+    set the clipboard to prefix &amp; &quot;
+&quot; &amp; CurrentAnchors
+    display dialog &quot;Current Pane ID: &quot; &amp; CurrentPane &amp; return &amp; return &amp; &quot;Pane ID has been copied to the clipboard.&quot; &amp; return &amp; return &amp; &quot;Current Anchors: &quot; &amp; return &amp; (CurrentAnchors as string)
+end tell
+</code></pre>
+<h2 id="errors">Errors</h2>
+<pre><code class="language-applescript">on SumIntegerList from itemList
+    try
+        -- Initialize return value.
+        set integerSum to 0
+        -- Before doing sum, check that all items in list are integers.
+        if ((count items in itemList) is not equal to ¬¨
+            (count integers in itemList)) then
+            -- If all items aren‚Äôt integers, signal an error.
+            error number 750
+        end if
+        -- Use a repeat statement to sum the integers in the list.
+        repeat with currentItem in itemList
+            set integerSum to integerSum + currentItem
+        end repeat
+        return integerSum -- Successful completion of handler.
+    on error errStr number errorNumber
+        -- If our own error number, warn about bad data.
+        if the errorNumber is equal to 750 then
+            -- display dialog &quot;All items in the list must be integers.&quot;
+            log &quot;All items in the list must be integers.&quot;
+            error number 750
+            return integerSum -- Return the default value (0).
+        else
+            -- An unknown error occurred. Resignal, so the caller
+            -- can handle it, or AppleScript can display the number.
+            error errStr number errorNumber
+        end if
+    end try
+end SumIntegerList
+
+set sumList to {750, 10}
+set listTotal to SumIntegerList from sumList
+
+try
+    set sumList to {1, 3, 5, &quot;A&quot;}
+    set listTotal to SumIntegerList from sumList
+on error errMsg number errorNumber
+    display dialog &quot;An unknown error occurred:  &quot; &amp; errorNumber as text
+end try
+
+</code></pre>
+<h1 id="inspecting-built-in-applescript-support">Inspecting Built in AppleScript Support</h1>
+<p><a href="https://apple.stackexchange.com/questions/339088/list-of-all-applescript-commands-for-terminal-application">Reference Article</a>
+* Open Script Editor
+* File -&gt; New
+* File -&gt; Open Dictionary (browse to app you have in mind)
+* Browse the API</p>
+<p>Also 3rd party tool, <a href="https://latenightsw.com/sd8/download/">Script Debugger</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../js/base.js"></script>
+        <script src="../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

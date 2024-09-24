@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/URLService/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>URLService - Zakk's Notes</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#urlservice" class="nav-link">URLService</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#application-sandbox" class="nav-link">Application Sandbox</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#app-group-shared" class="nav-link">App Group (Shared)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="urlservice">URLService</h1>
+<p>An application and application extensions can write files in 2 places:
+* Application Sandbox
+* A Shared App Group</p>
+<h2 id="application-sandbox">Application Sandbox</h2>
+<p>An application stores its files in a directory known as the <strong><em>application sandbox</em></strong>. This is a directory which is private to the app itself.</p>
+<pre><code>.
+├── Documents/ # Log files, any other files you might want to write directly (json, xml, yaml, etc...)
+├── Library/ # Caches, Preferences, etc... UserDefaults are stored under here
+├── StoreKit/ # system
+├── SystemData/ # system
+└── tmp/ # system
+</code></pre>
+<h3 id="directories-by-platform">Directories by Platform</h3>
+<p>The directory path for <strong><em>application sandbox</em></strong> varies by platform. Here are some examples:
+* iOS Hardware: <code>/var/mobile/Containers/Data/Application/92A2A191-465D-4640-9F50-A86B9E45A943</code>
+* iOS Simulator: <code>~/Library/Developer/CoreSimulator/Devices/7F8D5007-8C44-4192-BE81-140B8C99A96D/data/Containers/Data/Application/C9D72599-04FF-454F-9419-EC92A4F87115</code>
+* Mac (iOS App): <code>~/Library/Containers/B3B0F27D-691F-4F5B-A24B-17F1C01DB6F7/Data</code></p>
+<h3 id="files">Files</h3>
+<p>A few examples of files stored in the <strong><em>application sandbox</em></strong>:
+* <code>UserDefaults.standard</code> data is stored in the <strong><em>application sandbox</em></strong> under <code>\(appSandboxURL)/Library/Preferences/com.hatchbaby.NightlightDevelopment.plist</code>
+* <code>Logger</code> log files are stored in the <strong><em>application sandbox</em></strong> under: <code>\(appSandboxURL)/Documents/\(dateStamp).log</code></p>
+<h2 id="app-group-shared">App Group (Shared)</h2>
+<p>Sometimes it may be useful for apps/extensions to share data. Apps cannot read data each others sandboxes but they <em>can</em> read from a shared <code>App Group</code>. This is a directory which is similar to an application sandbox with more open permission.</p>
+<h3 id="directories-by-platform_1">Directories by Platform</h3>
+<p>Again, the directory path for an <strong><em>app group</em></strong> varies by platform. Here are some examples:
+* iOS Hardware: <code>/private/var/mobile/Containers/Shared/AppGroup/D0D0B7AA-ECE6-40F6-B2BE-FC18E9265C84</code>
+* iOS Simulator: <code>~/Library/Developer/CoreSimulator/Devices/7F8D5007-8C44-4192-BE81-140B8C99A96D/data/Containers/Shared/AppGroup/31884957-9C29-493A-8C63-081AA30C4BDD</code>
+* Mac iOS App: <code>~/Library/GroupContainersAlias/group.com.hatchbaby.NightlightDevelopment</code></p>
+<h3 id="files_1">Files</h3>
+<p>A few examples of files stored in the <strong><em>app group</em></strong>:
+* <code>UserDefaults.appGroup</code> stores data in a shared <strong><em>app group</em></strong> under <code>\(appGroupURL)/Library/Preferences/group.com.hatchbaby.NightlightDevelopment.plist</code>
+* <code>CoreDataService</code> stores its data in a shared <strong><em>app group</em></strong> under: <code>\(appGroupURL)/Nightlight.sqlite</code></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

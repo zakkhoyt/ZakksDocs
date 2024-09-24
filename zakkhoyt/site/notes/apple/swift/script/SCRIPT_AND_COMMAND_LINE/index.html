@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/script/SCRIPT_AND_COMMAND_LINE/">
+        <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+        <title>Table of Contents - Zakk's Notes</title>
+        <link href="../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#arguments" class="nav-link">Arguments</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#arguments-via-commandline" class="nav-link">Arguments via CommandLine</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#arguments-via-processinfo" class="nav-link">Arguments via ProcessInfo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#environment-via-processinfo" class="nav-link">Environment via ProcessInfo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#parsing-arguments" class="nav-link">Parsing Arguments</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#argumentparser-package" class="nav-link">ArgumentParser Package</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#exiting-a-script" class="nav-link">Exiting a script</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#using-argumentparser" class="nav-link">Using ArgumentParser</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#running-asynchronous" class="nav-link">Running Asynchronous</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#using-argumentparser_1" class="nav-link">Using ArgumentParser</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#references" class="nav-link">References</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#ansi-colors-menus-collecting-input" class="nav-link">ANSI colors, menus, collecting input</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#arguments">Arguments</a></li>
+<li><a href="#arguments-via-commandline">Arguments via CommandLine</a></li>
+<li><a href="#arguments-via-processinfo">Arguments via ProcessInfo</a></li>
+<li><a href="#environment-via-processinfo">Environment via ProcessInfo</a></li>
+<li><a href="#parsing-arguments">Parsing Arguments</a></li>
+<li><a href="#argumentparser-package">ArgumentParser Package</a><ul>
+<li><a href="#multiple-names">Multiple names</a></li>
+<li><a href="#help">Help</a></li>
+</ul>
+</li>
+<li><a href="#exiting-a-script">Exiting a script</a></li>
+<li><a href="#using-argumentparser">Using ArgumentParser</a></li>
+<li><a href="#running-asynchronous">Running Asynchronous</a></li>
+<li><a href="#using-argumentparser-1">Using ArgumentParser</a></li>
+<li><a href="#references">References</a></li>
+<li><a href="#ansi-colors--menus-collecting-input">ANSI colors,  menus, collecting input</a></li>
+</ul>
+<h1 id="arguments">Arguments</h1>
+<h2 id="arguments-via-commandline">Arguments via CommandLine</h2>
+<p><code>CommandLine.arguments</code> provides only the args that you passed in. </p>
+<pre><code class="language-swift">import Foundation
+print(&quot;Print arguments: \(CommandLine.arguments)&quot;)
+print(&quot;Number of arguments:\(CommandLine.argc)&quot;)
+print(&quot;Enumerate arguments:\(CommandLine.argc)&quot;)
+for (index, arg) in CommandLine.arguments.enumerated() {
+    print(&quot;index: \(index) arg: \(arg)&quot;)
+}
+</code></pre>
+<h2 id="arguments-via-processinfo">Arguments via ProcessInfo</h2>
+<p><code>ProcessInfo.processInfo.arguments</code> includes the args that you passed in, but sometimes additional context. </p>
+<pre><code class="language-swift">import Foundation
+print(&quot;ProcessInfo.processInfo.arguments: \(ProcessInfo.processInfo.arguments)&quot;)
+</code></pre>
+<h2 id="environment-via-processinfo">Environment via ProcessInfo</h2>
+<p>You can access the shell environment using <code>ProcessInfo.processInfo.environment</code>. </p>
+<pre><code class="language-swift">import Foundation
+print(&quot;ProcessInfo.processInfo.environment: \(ProcessInfo.processInfo.environment)&quot;)
+</code></pre>
+<h1 id="parsing-arguments">Parsing Arguments</h1>
+<h2 id="argumentparser-package">ArgumentParser Package</h2>
+<ul>
+<li><a href="https://apple.github.io/swift-argument-parser/documentation/argumentparser/">Github Docs</a></li>
+<li><a href="https://swiftinit.org/docs/swift-argument-parser/argumentparser">swiftinit.org</a></li>
+<li><a href="https://swiftinit.org/docs/swift-argument-parser/argumentparser/commandsandsubcommands">Commands and Subcommands</a></li>
+<li><a href="https://github.com/apple/swift-argument-parser/tree/main/Examples">SeveralExamples</a></li>
+</ul>
+<p>A 3rd party package <code>ArgumentParser</code> is a great tool, but only suitable for compiled projects, not scripts. </p>
+<ul>
+<li>@Flag - A flag is a defaulted Boolean or integer value that can be changed by specifying the flag on the command line</li>
+<li>@Argument - Positional arguments are specified without a label and must appear in the command-line arguments in declaration order, not necessarily first or last.</li>
+<li>@Option - An option is a value that can be specified as a named value on the command line.</li>
+<li>SingleValueParsingStrategy - The strategy to use when parsing a single thing (string, int, etc...)</li>
+<li>ArrayParsingStrategy - The strategy to use when parsing multiple values from @Option arguments into an array.</li>
+<li>@OptionGroup - Use an option group to include a group of options, flags, or arguments declared in a parsable type.</li>
+</ul>
+<pre><code class="language-swift">struct IIconParser: ParsableCommand {
+    @Option(
+        name: .customLong(&quot;inputFile&quot;, withSingleDash: false),
+        parsing: .next,
+        help: &quot;Path to the input image file (relative or absolute). This should be large such as 1024x1024.&quot;,
+        completion: nil
+    ) var inputFilePath: String
+
+    @Option(
+        name: .customLong(&quot;devices&quot;, withSingleDash: false),
+        parsing: .upToNextOption,
+        help: &quot;The devices to generated icons for. [\(AppIcon.Device.allCases.map{$0.rawValue}.joined(separator: &quot;, &quot;))]&quot;
+    ) var deviceStrings: [String]
+
+    func run() throws {
+        // Map/inspect values here. Throw errors to exit
+    }
+}
+</code></pre>
+<h3 id="multiple-names">Multiple names</h3>
+<pre><code class="language-swift">@Flag(name: [.customLong(&quot;hex-output&quot;), .customShort(&quot;x&quot;)],
+      help: &quot;Use hexadecimal notation for the result.&quot;)
+var hexadecimalOutput = false
+</code></pre>
+<h3 id="help">Help</h3>
+<p>ArgumentParser can help produce a help page as well. </p>
+<pre><code class="language-swift">struct EchoSwiftParser: ParsableCommand {
+    /// This changes the name that appear in `help`.
+    /// Without this it will be called `EchoSwiftApp`
+    /// Also lets us customize more help information.
+    static var configuration: CommandConfiguration {
+        CommandConfiguration(
+            commandName: &quot;echo_swift&quot;,
+            abstract: &quot;A wrapper around echo which includes ANSI color support.&quot;,
+            discussion: &quot;Makes it easy to add color to existing echo code.&quot;
+        )
+    }
+
+    func run() throws {
+    }
+}
+</code></pre>
+<h1 id="exiting-a-script">Exiting a script</h1>
+<p>At any time, call <code>os.exit(UInt8)</code>
+* <code>$ echo $? # 255</code>
+* prints nothing to <code>stderr</code></p>
+<h2 id="using-argumentparser">Using ArgumentParser</h2>
+<p>At any time, call <code>ParsableCommand.exit(withError: Error?)</code></p>
+<ul>
+<li>When passed <code>enum Error: Swift.Error</code></li>
+<li>Prints to stderr: <code>Error: someError(message: "my message")</code></li>
+<li><code>$ echo $? # 1</code></li>
+<li>When passed <code>enum Error: LocalizedError)</code>. </li>
+<li>Prints to stderr: <code>LocalizedError</code> -&gt; <code>var errorDescription: String?</code> (if implemented.)</li>
+<li>Prints to stderr: <code>Error: Failed cause reason A</code></li>
+<li><code>$ echo $? # 1</code></li>
+</ul>
+<h1 id="running-asynchronous">Running Asynchronous</h1>
+<p>Normally a Swift script exits at the end of the code. We can keep execution going if we want to wait for async tasks to finish such as HTTP calls. </p>
+<pre><code class="language-swift">Task {
+    await MyClass.myAsyncTask
+}
+
+// This keeps the script open so asyncronous code can be executed.
+RunLoop.main.run()
+</code></pre>
+<h2 id="using-argumentparser_1">Using ArgumentParser</h2>
+<pre><code class="language-swift">struct EchoSwiftParser: ParsableCommand {
+    func run() throws {
+        Task {
+            await MyClass.myAsyncTask
+        }
+    }
+}
+
+// Entry point into our code
+EchoSwiftParser.main()
+
+// This keeps the script open so asyncronous code can be executed.
+RunLoop.main.run()
+</code></pre>
+<h1 id="references">References</h1>
+<h2 id="ansi-colors-menus-collecting-input">ANSI colors,  menus, collecting input</h2>
+<p><a href="https://www.polpiella.dev/how-to-make-an-interactive-picker-for-a-swift-command-line-tool">link</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../js/base.js"></script>
+        <script src="../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

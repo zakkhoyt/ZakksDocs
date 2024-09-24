@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/script/SCRIPT_DEBUGGING/">
+        <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+        <title>Table of Contents - Zakk's Notes</title>
+        <link href="../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#table-of-contents" class="nav-link">Table of Contents</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#about" class="nav-link">About</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#running-a-swift-file-as-a-shell-script" class="nav-link">Running a Swift file as a Shell Script</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#create-a-swift-file" class="nav-link">Create a Swift file</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#add-shebang" class="nav-link">Add Shebang</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#add-executable-permissions" class="nav-link">Add Executable Permissions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#execute-script-in-terminalapp" class="nav-link">Execute Script in Terminal.app</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#execute-script-in-vscode" class="nav-link">Execute Script in VSCode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#execute-script-in-xcode" class="nav-link">Execute Script in Xcode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#debugging-a-swift-script" class="nav-link">Debugging a Swift Script</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#create-executable-package" class="nav-link">Create Executable Package</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#move-your-script" class="nav-link">Move your Script</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#change-the-script-name" class="nav-link">Change the script name</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#configure-add-shebang" class="nav-link">Configure (Add Shebang)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#configure-add-executable-permissions" class="nav-link">Configure (Add Executable Permissions)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#debugging-on-command-line" class="nav-link">Debugging on Command Line</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#debugging-in-vscode" class="nav-link">Debugging in VSCode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#debugging-in-xcode" class="nav-link">Debugging in Xcode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#compile-a-swift-script-to-binary" class="nav-link">Compile a Swift Script to Binary</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#inspecting-a-compiled-swift-script-binary" class="nav-link">Inspecting a compiled Swift Script Binary</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#swift-script-as-run-script-phase-in-xcode" class="nav-link">Swift Script as Run Script Phase in Xcode</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#env-vars" class="nav-link">Env Vars</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#importing-3rd-party-packages-in-a-swift-script" class="nav-link">Importing 3rd Party Packages in a Swift Script</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#swift-sh" class="nav-link">swift-sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#running-a-swift-file-as-a-shell-script">Running a Swift file as a Shell Script</a></li>
+<li><a href="#create-a-swift-file">Create a Swift file</a></li>
+<li><a href="#add-shebang">Add Shebang</a></li>
+<li><a href="#add-executable-permissions">Add Executable Permissions</a></li>
+<li><a href="#execute-script-in-terminalapp">Execute Script in Terminal.app</a></li>
+<li><a href="#execute-script-in-vscode">Execute Script in VSCode</a></li>
+<li><a href="#execute-script-in-xcode">Execute Script in Xcode</a></li>
+<li><a href="#debugging-a-swift-script">Debugging a Swift Script</a></li>
+<li><a href="#create-executable-package">Create Executable Package</a></li>
+<li><a href="#move-your-script">Move your Script</a></li>
+<li><a href="#change-the-script-name">Change the script name</a></li>
+<li><a href="#configure-add-shebang">Configure (Add Shebang)</a></li>
+<li><a href="#configure-add-executable-permissions">Configure (Add Executable Permissions)</a></li>
+<li><a href="#debugging-on-command-line">Debugging on Command Line</a></li>
+<li><a href="#debugging-in-vscode">Debugging in VSCode</a><ul>
+<li><a href="#breakpoints">Breakpoints</a></li>
+<li><a href="#injecting-arguments">Injecting Arguments</a></li>
+<li><a href="#injecting-environment">Injecting Environment</a></li>
+</ul>
+</li>
+<li><a href="#debugging-in-xcode">Debugging in Xcode</a><ul>
+<li><a href="#breakpoints-1">Breakpoints</a></li>
+<li><a href="#injecting-arguments-1">Injecting Arguments</a></li>
+<li><a href="#injecting-environment-1">Injecting Environment</a></li>
+</ul>
+</li>
+<li><a href="#compile-a-swift-script-to-binary">Compile a Swift Script to Binary</a></li>
+<li><a href="#inspecting-a-compiled-swift-script-binary">Inspecting a compiled Swift Script Binary</a></li>
+<li><a href="#swift-script-as-run-script-phase-in-xcode">Swift Script as Run Script Phase in Xcode</a></li>
+<li><a href="#env-vars">Env Vars</a></li>
+<li><a href="#importing-3rd-party-packages-in-a-swift-script">Importing 3rd Party Packages in a Swift Script</a></li>
+<li><a href="#swift-sh">swift-sh</a></li>
+</ul>
+<h1 id="about">About</h1>
+<p>This document is focused on running a single Swift file a shell script within a shell environment like <code>bash</code> or <code>zshell</code>. </p>
+<p>This opens Swift as a scripting tool on the command line, but does bring some limitations. For example the Swift code must be a single file and cannot easily import 3rd party packages. </p>
+<p>Swift scripts are going to be much slower than their bash counterparts, so there is a need to balance speed vs the right tool for the job. </p>
+<h1 id="running-a-swift-file-as-a-shell-script">Running a Swift file as a Shell Script</h1>
+<ul>
+<li>Here is a good <a href="https://rderik.com/blog/using-swift-for-scripting/#our-first-swift-script">reference article</a> on the subject. </li>
+</ul>
+<h2 id="create-a-swift-file">Create a Swift file</h2>
+<p>First create new file <code>MyScript.swift</code> with the following contents:</p>
+<pre><code class="language-swift">import Foundation
+print(&quot;Hello world (from Swift)&quot;)
+</code></pre>
+<h2 id="add-shebang">Add Shebang</h2>
+<p>Add a shebang as the first line in the script. </p>
+<pre><code class="language-swift">#!/usr/bin/env -S swift
+</code></pre>
+<p>Note: <em>Adding a shebang used to cause problems while running from Xcode, but this no longer seems to be the case.</em></p>
+<p>Question: Why use <code>#!/usr/bin/env -S swift</code>, instead of  <code>#!/usr/bin/swift</code>?</p>
+<p>The <code>man env</code> page has terrific information about this. TLDR is <code>env</code> will treat everything after <code>-S</code> as a single string input then pass it in tokens to what ever binary is specified. More stable/compaible, esp if you add more params.</p>
+<h2 id="add-executable-permissions">Add Executable Permissions</h2>
+<p>Make your script executable just like you would for a shell script:</p>
+<pre><code class="language-sh">chmod +x ./MyScript.swift
+</code></pre>
+<h2 id="execute-script-in-terminalapp">Execute Script in Terminal.app</h2>
+<p>Using command line, navigate to your script's directory</p>
+<pre><code class="language-sh">./MyScript.swift
+# Hello world (from Swift)
+</code></pre>
+<h2 id="execute-script-in-vscode">Execute Script in VSCode</h2>
+<p>To run a Swift script in VSCode without any sort of debugging:
+* On command line, navigate to the script dir: <code>code MyScript.swift</code>
+* In VSCode Command Pallette (<code>cmd</code>+<code>shift</code>+<code>P</code>) -&gt; <code>Swift: Run Swift Script:</code>
+* Or, right click in the script: <code>Swift</code> -&gt; <code>Run Swift Script</code></p>
+<h2 id="execute-script-in-xcode">Execute Script in Xcode</h2>
+<p>To my knowledge Xcode cannot be used to run a standalone Swift file as a script. It requires some sort of xcodeproj, xcworkspace, or swift package which all allow debugging, code completion, and more (covered below).</p>
+<h1 id="debugging-a-swift-script">Debugging a Swift Script</h1>
+<p>Now that you have a working Swift script you'll want to be able to debug. This is possible to do with several tools like Xcode, VSCode, and Terminal.app w/lldb. </p>
+<h2 id="create-executable-package">Create Executable Package</h2>
+<p>The easiest way to allow debug support is to wrap your script in a Swift Package (executable type for macOS). Let's do that now. </p>
+<pre><code class="language-sh">mkdir MySwiftScript
+cd MySwiftScript
+swift package init --type executable
+</code></pre>
+<p>Optional: Limit your package to macOS. Add the following to Package.swift</p>
+<pre><code class="language-swift">`platforms: [.macOS(.v14)],`
+</code></pre>
+<h2 id="move-your-script">Move your Script</h2>
+<p>To follow file/folder convention for the vast majority of Swift packages (the library type), we'll need to move script into new subdirectory under <code>Sources/</code></p>
+<pre><code class="language-sh"># create new subdir
+mkdir -p Sources/MySwiftScript
+# move our script into the new subdir
+mv Sources/main.swift Sources/MySwiftScript/main.swift
+</code></pre>
+<h2 id="change-the-script-name">Change the script name</h2>
+<p>TODO: @zakkhoyt - can we rename our script from main.swift to arbitrary? How does this impact VScode, Xcode? For now do not rename. </p>
+<h2 id="configure-add-shebang">Configure (Add Shebang)</h2>
+<p>Add a shebang as the first line in the script. </p>
+<pre><code class="language-swift">#!/usr/bin/env -S swift
+</code></pre>
+<p>Note: <em>Adding a shebang used to cause problems while running from Xcode, but this no longer seems to be the case.</em></p>
+<p>Question: Why use <code>#!/usr/bin/env -S swift</code>, instead of  <code>#!/usr/bin/swift</code>?</p>
+<p>The <code>man env</code> page has terrific information about this. TLDR is <code>env</code> will treat everything after <code>-S</code> as a single string input then pass it in tokens to what ever binary is specified. More stable/compaible, esp if you add more params.</p>
+<h2 id="configure-add-executable-permissions">Configure (Add Executable Permissions)</h2>
+<p>Make your script executable just like you would for a shell script:</p>
+<pre><code class="language-sh">chmod +x Sources/main.swift
+</code></pre>
+<h2 id="debugging-on-command-line">Debugging on Command Line</h2>
+<p>Now run the script</p>
+<pre><code class="language-sh">Sources/main.swift
+</code></pre>
+<p>or</p>
+<pre><code class="language-sh">cd Sources
+./main.swift
+</code></pre>
+<h2 id="debugging-in-vscode">Debugging in VSCode</h2>
+<p>TODO: zakkhoyt - List recommended VSCode extensions</p>
+<p>Open your Swift Package in VSCode:</p>
+<pre><code class="language-sh">cd MySwiftScript
+code .
+</code></pre>
+<p>When you open a Swift Package folder in VSCode, two <code>lldb</code> launch configurations for you. A debug variant and a release variant. Select the debug variant:
+* Switch to the <code>Run and Debug</code> panel: <code>cmd</code>+<code>shift</code>+<code>D</code>
+* At the top of the panel, find a drop list. Select the debug variant. 
+* Click the play button to run a debugging session.</p>
+<p>This will run your script in VSCode's debugging environment. Observer the following locations in VSCode:
+* The <code>Problems</code> panel (<code>cmd</code>+<code>shift</code>+<code>M</code>) will list any issues found resolving/compiling/launching
+* The <code>Debug Console</code> panel (<code>cmd</code>+<code>shift</code>+<code>Y</code>) will give details on what's being executed
+* The <code>Temrinal</code> (<code>cmd</code>+<code>T</code>, <code>cmd</code>+<code>T</code>) -&gt; <code>Debug MySwiftScript</code> will show your stdout, stderr, and stdin.
+  * You should see your <code>Hello World</code> output</p>
+<h3 id="breakpoints">Breakpoints</h3>
+<p>VSCode supports breakpoints as it is simply using <code>lldb</code> under the hood. To add a breakpoint:
+* Navigate to <code>Sources/main.swift</code>
+* Add a breakpoint to <code>print("Hello, world!")</code> by clicking in the gutter (like <code>Xcode</code>).
+* Run another debug session. Execution will hault at your breakpoint. </p>
+<h3 id="injecting-arguments">Injecting Arguments</h3>
+<p>VSCode can launch your script with predefined Arguments. 
+* Navigate to <code>.vscode/launch.json</code>. This is where those two <code>lldb</code> launch configurations are defined. 
+* Under the debug variant, locate <code>"args": [],</code> 
+* Add your arguments here as valid JSON string array. EX:</p>
+<pre><code class="language-json">&quot;args&quot;: [
+    &quot;--red&quot;, &quot;Here is some red text.&quot;, &quot;--default&quot;, &quot; And some default text.&quot;
+],
+</code></pre>
+<ul>
+<li>Run another debug session. Execution will hault at your breakpoint. Verify your Arguments in the <code>Run and Debug</code> pane under <code>variables</code> -&gt; <code>global</code> -&gt; <code>arguments</code></li>
+<li>Use <code>lldb</code> to print the arguments. Navigate to the <code>Debug Console</code> panel (<code>cmd</code>+<code>shift</code>+<code>Y</code>). Then enter:</li>
+</ul>
+<pre><code class="language-sh">po CommandLine.arguments
+po ProcessInfo.processInfo.arguments
+</code></pre>
+<h3 id="injecting-environment">Injecting Environment</h3>
+<p>VSCode can launch your script in different environments (see <code>ProcessInfo.processInfo.environment</code>). Your script will be passed the environment that is inherited from terminal, but you can further modify key/value pairs in your build configuration.
+* Navigate to <code>.vscode/launch.json</code>. This is where those two <code>lldb</code> launch configurations are defined. 
+* Under the debug variant of your build configuration, append (if not present) <code>"env": {},</code> 
+* Add your environment key/value pairs here as valid JSON dictionary. EX:</p>
+<pre><code class="language-json">&quot;env&quot;: {
+    &quot;MY_KEY&quot;: &quot;MY_VALUE&quot;
+},
+</code></pre>
+<ul>
+<li>Run another debug session. Execution will hault at your breakpoint. Verify that your custom key/value pair exists in the <code>environment</code>. Unlike <code>arguments</code>, the <code>Run and Debug</code> pane does not display <code>environment</code> so we will need to use other means.</li>
+<li>Use <code>lldb</code> to print the arguments. Navigate to the <code>Debug Console</code> panel (<code>cmd</code>+<code>shift</code>+<code>Y</code>). Then enter:</li>
+</ul>
+<pre><code class="language-sh"># Print number of key/value pairs in environment
+po ProcessInfo.processInfo.environment.count
+# print all environment key/value pairs
+po ProcessInfo.processInfo.environment
+# Filter environment key/value pairs down to &quot;MY_KEY&quot; only
+po ProcessInfo.processInfo.environment.filter { $0.key == &quot;MY_KEY&quot; }
+</code></pre>
+<h2 id="debugging-in-xcode">Debugging in Xcode</h2>
+<p>Open your Swift Package in Xcode:</p>
+<pre><code class="language-sh">cd MySwiftScript
+xed .
+</code></pre>
+<!-- When you open a Swift Package folder in VSCode, two `lldb` launch configurations for you. A debug variant and a release variant. Select the debug variant:
+* Switch to the `Run and Debug` panel: `cmd`+`shift`+`D`
+* At the top of the panel, find a drop list. Select the debug variant. 
+* Click the play button to run a debugging session. -->
+
+<p>Xcode will offer several destinations from the drop menu even if your package is narrowed to macOS only. 
+* Select the destination: <code>My Mac</code>
+* To output to <code>Terminal.app</code> instead of Xcode's console: Open Scheme Settings (<code>cmd</code>+<code>shift</code>+<code>,</code>) then select <code>Run</code> (left menu) -&gt; <code>Options</code> (top tabs) -&gt; <code>Console</code> -&gt; <code>Terminal</code>
+* Begin a debugging session: <code>cmd</code>+<code>R</code>
+* A terminal window will open with some xcode business output then eventually the output from your script</p>
+<pre><code class="language-json">test
+</code></pre>
+<h3 id="breakpoints_1">Breakpoints</h3>
+<ul>
+<li>Navigate to <code>Sources/main.swift</code></li>
+<li>Add a breakpoint to <code>print("Hello, world!")</code> by clicking in the gutter.</li>
+<li>Run another debug session. Execution will hault at your breakpoint.</li>
+</ul>
+<h3 id="injecting-arguments_1">Injecting Arguments</h3>
+<p>Xcode can launch your script with predefined Arguments. 
+* Open Scheme Settings (<code>cmd</code>+<code>shift</code>+<code>,</code>) then select <code>Run</code> (left menu) -&gt; <code>Arguments</code> (top tabs) -&gt; <code>Arguments passed on Launch</code>
+* Add your arguments here as valid plist string array. Note it is valid to add many strings to one entry, or you can do one per line. EX:</p>
+<pre><code class="language-json">&quot;--red&quot; &quot;Here is some red text.&quot; &quot;--default&quot; &quot; And some default text.&quot;
+</code></pre>
+<ul>
+<li>Run another debug session. Execution will hault at your breakpoint. Verify your Arguments in the <code>Variables View</code> under <code>arguments</code></li>
+<li>Use <code>lldb</code> to print the arguments: </li>
+</ul>
+<pre><code class="language-sh">po CommandLine.arguments
+</code></pre>
+<h3 id="injecting-environment_1">Injecting Environment</h3>
+<p>Xcode can launch your script in different environments (see <code>ProcessInfo.processInfo.environment</code>). Your script will be passed the environment that is inherited from terminal, but you can further modify key/value pairs in your build configuration.
+* Open Scheme Settings (<code>cmd</code>+<code>shift</code>+<code>,</code>) then select <code>Run</code> (left menu) -&gt; <code>Environment</code> (top tabs) -&gt; <code>Environment Variables</code>
+* Add your environment key/value pairs here as valid Plist dictionary. EX:</p>
+<pre><code class="language-json">&quot;env&quot;: {
+    &quot;MY_KEY&quot;: &quot;MY_VALUE&quot;
+},
+</code></pre>
+<ul>
+<li>Run another debug session. Execution will hault at your breakpoint. Verify that your custom key/value pair exists in the <code>environment</code>. Unlike <code>arguments</code>, the <code>Variables View</code>  does not display <code>environment</code> so we will need to use other means.</li>
+<li>Use <code>lldb</code> to print the your environment. Navigate to the <code>Debug Console</code> panel (<code>cmd</code>+<code>shift</code>+<code>Y</code>). Then enter:</li>
+</ul>
+<pre><code class="language-sh"># Print number of key/value pairs in environment
+po ProcessInfo.processInfo.environment.count
+# print all environment key/value pairs
+po ProcessInfo.processInfo.environment
+# Filter environment key/value pairs down to &quot;MY_KEY&quot; only
+po ProcessInfo.processInfo.environment.filter { $0.key == &quot;MY_KEY&quot; }
+</code></pre>
+<h1 id="compile-a-swift-script-to-binary">Compile a Swift Script to Binary</h1>
+<ul>
+<li><a href="https://www.kodeco.com/25816315-using-swift-scripts-with-xcode">kodeco</a></li>
+</ul>
+<pre><code class="language-sh">xcrun swiftc -parse-as-library File.swift
+
+# Compiled for mac with a new binary name
+xcrun --sdk macosx swiftc -parse-as-library HelloXcode.swift -o CompiledScript
+</code></pre>
+<p>Compile multiple scripts in one go. </p>
+<pre><code class="language-sh">xcrun --sdk macosx swiftc \
+  -parse-as-library $SCRIPT_INPUT_FILE_0 Scripts/Shell.swift \
+  Scripts/OverlayLabel.swift Scripts/ImageOverlay.swift -o CompiledScript ./CompiledScript
+</code></pre>
+<h2 id="inspecting-a-compiled-swift-script-binary">Inspecting a compiled Swift Script Binary</h2>
+<p>You can see what has been packaged into your binary (release configuration too). Locate your binary then use the <code>nm</code> tool</p>
+<pre><code class="language-sh"># list all symbol names (raw)
+nm ./echo_pretty 
+nm ./echo_pretty | wc -l
+
+# only global symbols, just names, Add path name. 
+nm ./echo_pretty -gjA
+</code></pre>
+<h1 id="swift-script-as-run-script-phase-in-xcode">Swift Script as Run Script Phase in Xcode</h1>
+<h2 id="env-vars">Env Vars</h2>
+<p>Access environment properties in Run Script (checkbox there)
+<a href="https://help.apple.com/xcode/mac/11.4/index.html?localePath=en.lproj#/itcaec37c2a6">Apple Docs</a></p>
+<pre><code class="language-sh"># In Xcode project settings: `RunScript -&gt; Input File` the files are accessed as env vars with index suffix
+$SCRIPT_INPUT_FILE_0
+$SCRIPT_INPUT_FILE_1
+</code></pre>
+<h1 id="importing-3rd-party-packages-in-a-swift-script">Importing 3rd Party Packages in a Swift Script</h1>
+<p>When using Swift in a scripting environment, it is not normally possible to import 3rd party packages. However there are some 3rd party tools available to facilitate just that. </p>
+<h2 id="swift-sh">swift-sh</h2>
+<p><a href="https://github.com/mxcl/swift-sh">swift-sh</a> is IMO the best of the currently available tools. </p>
+<ul>
+<li>Install using homebrew</li>
+<li>Modify your <code>shebang</code> </li>
+<li>Add your <code>import</code> statements along with a trailing comment to direct <code>swift-sh</code> where to find the source code. </li>
+<li>Run your script on command line as normal. </li>
+<li><em>Note</em>: <code>swift-sh</code> these modifications do not interfere with normal Swift compilation (you can mix the Scripting syntax into a Package environment).</li>
+</ul>
+<p>Example syntax:</p>
+<pre><code class="language-swift">#!/usr/bin/env -S swift-sh
+import ArgumentParser // git@github.com:apple/swift-argument-parser ~&gt; 1.3
+// Use arg parser as normal
+</code></pre>
+<p>Example header:</p>
+<pre><code class="language-swift">#!/usr/bin/env -S swift-sh
+/// When using Swift in a scripting environment, it is not normally possible to import
+/// 3rd party packages. That's where [swift-sh](https://github.com/mxcl/swift-sh)
+/// comes in. Notice the shebang above and the comments on come of the `import` statements
+/// below. Together these trigger `swift-sh` to download/build/cache a copy when run as a script.
+/// Also this does not interfere if you choose to compile this swift code to binary.
+/// Try `swift-sh --clean-cache` if you find yourself in a jam
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../js/base.js"></script>
+        <script src="../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

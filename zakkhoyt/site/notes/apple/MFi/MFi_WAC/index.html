@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/MFi/MFi_WAC/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>WAC - Zakk's Notes</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#wac" class="nav-link">WAC</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#accessory-configuration-requirements" class="nav-link">Accessory Configuration Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#accessory-behavioral-requirements" class="nav-link">Accessory Behavioral Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#wi-fi-accessory-configuration-network-requirements" class="nav-link">Wi-Fi Accessory Configuration Network Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#wi-fi-accessory-configuration-implementation-requirements" class="nav-link">Wi-Fi Accessory Configuration Implementation Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#wi-fi-certification-requirements" class="nav-link">Wi-Fi Certification Requirements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="wac">WAC</h1>
+<p>Content below was taken from <code>Wi-Fi Accessory Configuration Specification R2.pdf</code></p>
+<h2 id="accessory-configuration-requirements">Accessory Configuration Requirements</h2>
+<ul>
+<li>Wi-Fi Accessory Configuration accessories must include an 802.11b/g, 802.11n, or 802.11ac radio module and a status indicator to indicate when the accessory is in Wi-Fi Accessory Configuration mode. Apple recommends that this status indicator only be used for indicating when the accessory is in Wi-Fi Accessory Configuration mode, and not be used for any other purpose.</li>
+<li>The accessory must support the ability for the user to manually enter Wi-Fi Accessory Configuration mode as well as perform a factory reset of the accessory. All user-specific information must be erased when performing a factory reset. This includes (see doc for more)</li>
+<li>The accessory must be able to act as both a software Access Point (AP) and as a station (STA) device. </li>
+</ul>
+<h2 id="accessory-behavioral-requirements">Accessory Behavioral Requirements</h2>
+<ul>
+<li>The accessory must automatically enter Wi-Fi Accessory Configuration mode when it is in a non-configured state.</li>
+<li>The accessory must exit Wi-Fi Accessory Configuration mode when it has been idle for more than 15 minutes.</li>
+<li>The accessory may offer a mechanism for exiting Wi-Fi Accessory Configuration mode in response to a direct user action.</li>
+<li>The software Access Point (AP) must use a unique SSID when entering Wi-Fi Accessory Configuration mode.</li>
+<li>The accessory must enter a non-configured state when the accessory's network credentials have been reset to factory setting.</li>
+<li>Configured accessories must not enter Wi-Fi Accessory Configuration mode automatically upon disconnecting from a network.</li>
+<li>Accessories should support alternative methods of configuration for devices that do not support the Wi-Fi Accessory Configuration feature.</li>
+</ul>
+<h2 id="wi-fi-accessory-configuration-network-requirements">Wi-Fi Accessory Configuration Network Requirements</h2>
+<ul>
+<li>
+<p>All Wi-Fi Accessory Configuration accessories must support a wireless network connection and Bonjour, Apple's service discovery protocol. Accessories must also support changing the Bonjour name to a user defined value. The default name of all accessories must be unique out of the box.</p>
+</li>
+<li>
+<p>When in Software AP mode, the accessory must have a DHCP server as well as an HTTP server that supports persistent connections, i.e. multiple HTTP requests sent through the came TCP connection. When in STA mode, the accessory must support link-local IPv4 addressing as specified in RFC 3927.</p>
+</li>
+</ul>
+<h2 id="wi-fi-accessory-configuration-implementation-requirements">Wi-Fi Accessory Configuration Implementation Requirements</h2>
+<ul>
+<li>All Wi-Fi Accessory Configuration accessories must meet all applicable requirements in this specification and must incorporate the Apple Authentication Coprocessor, see Apple Authentication 3.0 Coprocessor in the. (see page 26 in <code>Accessory Interface Specification R41.pdf</code>)</li>
+<li>[ ] Review with Stuart as a litmus test</li>
+<li>[ ] packaging (16 pin)</li>
+<li>[ ] i2c</li>
+<li>[ ] electrical requirements</li>
+<li>[ ] firmware requirements</li>
+<li>[ ] factory requirements</li>
+<li>[ ] Obtain pricing</li>
+<li>[ ] $1.20 for 20 or 6 cents (small batch for dev)</li>
+<li>[ ] $1.00 ror 100 (in bulk)</li>
+</ul>
+<h2 id="wi-fi-certification-requirements">Wi-Fi Certification Requirements</h2>
+<p>Wi-Fi Accessory Configuration accessories must complete the following certification requirements:
+• Wi-Fi CERTIFIED™ (http://www.wi-fi.org/certification)
+• MFi certification (https://mfi.apple.com/)</p>
+<hr />
+<p>Sofware Token Auth</p>
+<ul>
+<li>Set up Server which talke with apple to put software token on our acccessories</li>
+<li>Supports</li>
+<li>airplay</li>
+<li>homekit</li>
+<li>find my</li>
+<li>Install token either</li>
+<li>in factory</li>
+<li>in field using iOS app (with entitlement)</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

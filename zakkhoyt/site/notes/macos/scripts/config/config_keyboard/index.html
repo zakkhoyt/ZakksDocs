@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/macos/scripts/config/config_keyboard/">
+        <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+        <title>Disable opt+letter typing unicode chars - Zakk's Notes</title>
+        <link href="../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#disable-optletter-typing-unicode-chars" class="nav-link">Disable opt+letter typing unicode chars</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#no_opt_bindingkeylayout" class="nav-link">no_opt_binding.keylayout</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="disable-optletter-typing-unicode-chars">Disable opt+letter typing unicode chars</h1>
+<ul>
+<li>
+<p><a href="https://stackoverflow.com/a/16019737/9096525">SO</a></p>
+</li>
+<li>
+<p>Save the key mapping file (below) <code>no_opt_binding.keylayout</code>.</p>
+</li>
+<li>Move it to ~/Library/Keyboard\ Layouts/</li>
+<li>Open System Preferences -&gt; Language Input Methods (or Keyboard -&gt; Input Sources)</li>
+<li>Go to Input Sources -&gt; (hit +) -&gt; Select Others</li>
+</ul>
+<h1 id="no_opt_bindingkeylayout">no_opt_binding.keylayout</h1>
+<p>Save this as "$HOME/Library/Keyboard Layouts/no_opt_binding.keylayout"</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.1&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE keyboard SYSTEM &quot;file://localhost/System/Library/DTDs/KeyboardLayout.dtd&quot;&gt;
+&lt;!--
+    Data generated Wed Mar 23 01:35:41 2022
+    Generated by kluchrtoxml_64 build 203
+--&gt;
+&lt;!--Last edited by Ukelele version 351 on 2022-03-23 at 01:45 (GMT+8)--&gt;
+&lt;keyboard group=&quot;0&quot; id=&quot;11682&quot; name=&quot;x_layout&quot; maxout=&quot;2&quot;&gt;
+    &lt;layouts&gt;
+        &lt;layout first=&quot;0&quot; last=&quot;17&quot; mapSet=&quot;16c&quot; modifiers=&quot;f4&quot;/&gt;
+        &lt;layout first=&quot;18&quot; last=&quot;18&quot; mapSet=&quot;984&quot; modifiers=&quot;f4&quot;/&gt;
+        &lt;layout first=&quot;21&quot; last=&quot;23&quot; mapSet=&quot;984&quot; modifiers=&quot;f4&quot;/&gt;
+        &lt;layout first=&quot;30&quot; last=&quot;30&quot; mapSet=&quot;984&quot; modifiers=&quot;f4&quot;/&gt;
+        &lt;layout first=&quot;194&quot; last=&quot;194&quot; mapSet=&quot;984&quot; modifiers=&quot;f4&quot;/&gt;
+        &lt;layout first=&quot;197&quot; last=&quot;197&quot; mapSet=&quot;984&quot; modifiers=&quot;f4&quot;/&gt;
+        &lt;layout first=&quot;200&quot; last=&quot;201&quot; mapSet=&quot;984&quot; modifiers=&quot;f4&quot;/&gt;
+        &lt;layout first=&quot;206&quot; last=&quot;207&quot; mapSet=&quot;984&quot; modifiers=&quot;f4&quot;/&gt;
+    &lt;/layouts&gt;
+    &lt;modifierMap id=&quot;f4&quot; defaultIndex=&quot;3&quot;&gt;
+        &lt;keyMapSelect mapIndex=&quot;0&quot;&gt;
+            &lt;modifier keys=&quot;command?&quot;/&gt;
+            &lt;modifier keys=&quot;anyShift? caps? command&quot;/&gt;
+        &lt;/keyMapSelect&gt;
+        &lt;keyMapSelect mapIndex=&quot;1&quot;&gt;
+            &lt;modifier keys=&quot;anyShift caps?&quot;/&gt;
+        &lt;/keyMapSelect&gt;
+        &lt;keyMapSelect mapIndex=&quot;2&quot;&gt;
+            &lt;modifier keys=&quot;caps&quot;/&gt;
+        &lt;/keyMapSelect&gt;
+        &lt;keyMapSelect mapIndex=&quot;3&quot;&gt;
+            &lt;modifier keys=&quot;anyShift caps? option? command? control&quot;/&gt;
+        &lt;/keyMapSelect&gt;
+    &lt;/modifierMap&gt;
+    &lt;keyMapSet id=&quot;16c&quot;&gt;
+        &lt;keyMap index=&quot;0&quot;&gt;
+            &lt;key code=&quot;0&quot; action=&quot;a14&quot;/&gt;
+            &lt;key code=&quot;1&quot; output=&quot;s&quot;/&gt;
+            &lt;key code=&quot;2&quot; output=&quot;d&quot;/&gt;
+            &lt;key code=&quot;3&quot; output=&quot;f&quot;/&gt;
+            &lt;key code=&quot;4&quot; output=&quot;h&quot;/&gt;
+            &lt;key code=&quot;5&quot; output=&quot;g&quot;/&gt;
+            &lt;key code=&quot;6&quot; output=&quot;z&quot;/&gt;
+            &lt;key code=&quot;7&quot; output=&quot;x&quot;/&gt;
+            &lt;key code=&quot;8&quot; output=&quot;c&quot;/&gt;
+            &lt;key code=&quot;9&quot; output=&quot;v&quot;/&gt;
+            &lt;key code=&quot;10&quot; output=&quot;§&quot;/&gt;
+            &lt;key code=&quot;11&quot; output=&quot;b&quot;/&gt;
+            &lt;key code=&quot;12&quot; output=&quot;q&quot;/&gt;
+            &lt;key code=&quot;13&quot; output=&quot;w&quot;/&gt;
+            &lt;key code=&quot;14&quot; action=&quot;a15&quot;/&gt;
+            &lt;key code=&quot;15&quot; output=&quot;r&quot;/&gt;
+            &lt;key code=&quot;16&quot; action=&quot;a20&quot;/&gt;
+            &lt;key code=&quot;17&quot; output=&quot;t&quot;/&gt;
+            &lt;key code=&quot;18&quot; output=&quot;1&quot;/&gt;
+            &lt;key code=&quot;19&quot; output=&quot;2&quot;/&gt;
+            &lt;key code=&quot;20&quot; output=&quot;3&quot;/&gt;
+            &lt;key code=&quot;21&quot; output=&quot;4&quot;/&gt;
+            &lt;key code=&quot;22&quot; output=&quot;6&quot;/&gt;
+            &lt;key code=&quot;23&quot; output=&quot;5&quot;/&gt;
+            &lt;key code=&quot;24&quot; output=&quot;=&quot;/&gt;
+            &lt;key code=&quot;25&quot; output=&quot;9&quot;/&gt;
+            &lt;key code=&quot;26&quot; output=&quot;7&quot;/&gt;
+            &lt;key code=&quot;27&quot; output=&quot;-&quot;/&gt;
+            &lt;key code=&quot;28&quot; output=&quot;8&quot;/&gt;
+            &lt;key code=&quot;29&quot; output=&quot;0&quot;/&gt;
+            &lt;key code=&quot;30&quot; output=&quot;]&quot;/&gt;
+            &lt;key code=&quot;31&quot; action=&quot;a18&quot;/&gt;
+            &lt;key code=&quot;32&quot; action=&quot;a19&quot;/&gt;
+            &lt;key code=&quot;33&quot; output=&quot;[&quot;/&gt;
+            &lt;key code=&quot;34&quot; action=&quot;a16&quot;/&gt;
+            &lt;key code=&quot;35&quot; output=&quot;p&quot;/&gt;
+            &lt;key code=&quot;36&quot; output=&quot;&amp;#x000D;&quot;/&gt;
+            &lt;key code=&quot;37&quot; output=&quot;l&quot;/&gt;
+            &lt;key code=&quot;38&quot; action=&quot;a21&quot;/&gt;
+            &lt;key code=&quot;39&quot; output=&quot;&amp;#x0027;&quot;/&gt;
+            &lt;key code=&quot;40&quot; output=&quot;k&quot;/&gt;
+            &lt;key code=&quot;41&quot; output=&quot;;&quot;/&gt;
+            &lt;key code=&quot;42&quot; output=&quot;\&quot;/&gt;
+            &lt;key code=&quot;43&quot; output=&quot;,&quot;/&gt;
+            &lt;key code=&quot;44&quot; output=&quot;/&quot;/&gt;
+            &lt;key code=&quot;45&quot; action=&quot;a17&quot;/&gt;
+            &lt;key code=&quot;46&quot; output=&quot;m&quot;/&gt;
+            &lt;key code=&quot;47&quot; output=&quot;.&quot;/&gt;
+            &lt;key code=&quot;48&quot; output=&quot;&amp;#x0009;&quot;/&gt;
+            &lt;key code=&quot;49&quot; action=&quot;a5&quot;/&gt;
+            &lt;key code=&quot;50&quot; output=&quot;`&quot;/&gt;
+            &lt;key code=&quot;51&quot; output=&quot;&amp;#x0008;&quot;/&gt;
+            &lt;key code=&quot;52&quot; output=&quot;&amp;#x0003;&quot;/&gt;
+            &lt;key code=&quot;53&quot; output=&quot;&amp;#x001B;&quot;/&gt;
+            &lt;key code=&quot;65&quot; output=&quot;.&quot;/&gt;
+            &lt;key code=&quot;66&quot; output=&quot;&amp;#x001D;&quot;/&gt;
+            &lt;key code=&quot;67&quot; output=&quot;*&quot;/&gt;
+            &lt;key code=&quot;69&quot; output=&quot;+&quot;/&gt;
+            &lt;key code=&quot;70&quot; output=&quot;&amp;#x001C;&quot;/&gt;
+            &lt;key code=&quot;71&quot; output=&quot;&amp;#x001B;&quot;/&gt;
+            &lt;key code=&quot;72&quot; output=&quot;&amp;#x001F;&quot;/&gt;
+            &lt;key code=&quot;75&quot; output=&quot;/&quot;/&gt;
+            &lt;key code=&quot;76&quot; output=&quot;&amp;#x0003;&quot;/&gt;
+            &lt;key code=&quot;77&quot; output=&quot;&amp;#x001E;&quot;/&gt;
+            &lt;key code=&quot;78&quot; output=&quot;-&quot;/&gt;
+            &lt;key code=&quot;81&quot; output=&quot;=&quot;/&gt;
+            &lt;key code=&quot;82&quot; output=&quot;0&quot;/&gt;
+            &lt;key code=&quot;83&quot; output=&quot;1&quot;/&gt;
+            &lt;key code=&quot;84&quot; output=&quot;2&quot;/&gt;
+            &lt;key code=&quot;85&quot; output=&quot;3&quot;/&gt;
+            &lt;key code=&quot;86&quot; output=&quot;4&quot;/&gt;
+            &lt;key code=&quot;87&quot; output=&quot;5&quot;/&gt;
+            &lt;key code=&quot;88&quot; output=&quot;6&quot;/&gt;
+            &lt;key code=&quot;89&quot; output=&quot;7&quot;/&gt;
+            &lt;key code=&quot;91&quot; output=&quot;8&quot;/&gt;
+            &lt;key code=&quot;92&quot; output=&quot;9&quot;/&gt;
+            &lt;key code=&quot;96&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;97&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;98&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;99&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;100&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;101&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;102&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;103&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;104&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;105&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;106&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;107&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;108&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;109&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;110&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;111&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;112&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;113&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;114&quot; output=&quot;&amp;#x0005;&quot;/&gt;
+            &lt;key code=&quot;115&quot; output=&quot;&amp;#x0001;&quot;/&gt;
+            &lt;key code=&quot;116&quot; output=&quot;&amp;#x000B;&quot;/&gt;
+            &lt;key code=&quot;117&quot; output=&quot;&amp;#x007F;&quot;/&gt;
+            &lt;key code=&quot;118&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;119&quot; output=&quot;&amp;#x0004;&quot;/&gt;
+            &lt;key code=&quot;120&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;121&quot; output=&quot;&amp;#x000C;&quot;/&gt;
+            &lt;key code=&quot;122&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;123&quot; output=&quot;&amp;#x001C;&quot;/&gt;
+            &lt;key code=&quot;124&quot; output=&quot;&amp;#x001D;&quot;/&gt;
+            &lt;key code=&quot;125&quot; output=&quot;&amp;#x001F;&quot;/&gt;
+            &lt;key code=&quot;126&quot; output=&quot;&amp;#x001E;&quot;/&gt;
+        &lt;/keyMap&gt;
+        &lt;keyMap index=&quot;1&quot;&gt;
+            &lt;key code=&quot;0&quot; action=&quot;a6&quot;/&gt;
+            &lt;key code=&quot;1&quot; output=&quot;S&quot;/&gt;
+            &lt;key code=&quot;2&quot; output=&quot;D&quot;/&gt;
+            &lt;key code=&quot;3&quot; output=&quot;F&quot;/&gt;
+            &lt;key code=&quot;4&quot; output=&quot;H&quot;/&gt;
+            &lt;key code=&quot;5&quot; output=&quot;G&quot;/&gt;
+            &lt;key code=&quot;6&quot; output=&quot;Z&quot;/&gt;
+            &lt;key code=&quot;7&quot; output=&quot;X&quot;/&gt;
+            &lt;key code=&quot;8&quot; output=&quot;C&quot;/&gt;
+            &lt;key code=&quot;9&quot; output=&quot;V&quot;/&gt;
+            &lt;key code=&quot;10&quot; output=&quot;±&quot;/&gt;
+            &lt;key code=&quot;11&quot; output=&quot;B&quot;/&gt;
+            &lt;key code=&quot;12&quot; output=&quot;Q&quot;/&gt;
+            &lt;key code=&quot;13&quot; output=&quot;W&quot;/&gt;
+            &lt;key code=&quot;14&quot; action=&quot;a7&quot;/&gt;
+            &lt;key code=&quot;15&quot; output=&quot;R&quot;/&gt;
+            &lt;key code=&quot;16&quot; action=&quot;a12&quot;/&gt;
+            &lt;key code=&quot;17&quot; output=&quot;T&quot;/&gt;
+            &lt;key code=&quot;18&quot; output=&quot;!&quot;/&gt;
+            &lt;key code=&quot;19&quot; output=&quot;@&quot;/&gt;
+            &lt;key code=&quot;20&quot; output=&quot;#&quot;/&gt;
+            &lt;key code=&quot;21&quot; output=&quot;$&quot;/&gt;
+            &lt;key code=&quot;22&quot; output=&quot;^&quot;/&gt;
+            &lt;key code=&quot;23&quot; output=&quot;%&quot;/&gt;
+            &lt;key code=&quot;24&quot; output=&quot;+&quot;/&gt;
+            &lt;key code=&quot;25&quot; output=&quot;(&quot;/&gt;
+            &lt;key code=&quot;26&quot; output=&quot;&amp;#x0026;&quot;/&gt;
+            &lt;key code=&quot;27&quot; output=&quot;_&quot;/&gt;
+            &lt;key code=&quot;28&quot; output=&quot;*&quot;/&gt;
+            &lt;key code=&quot;29&quot; output=&quot;)&quot;/&gt;
+            &lt;key code=&quot;30&quot; output=&quot;}&quot;/&gt;
+            &lt;key code=&quot;31&quot; action=&quot;a10&quot;/&gt;
+            &lt;key code=&quot;32&quot; action=&quot;a11&quot;/&gt;
+            &lt;key code=&quot;33&quot; output=&quot;{&quot;/&gt;
+            &lt;key code=&quot;34&quot; action=&quot;a8&quot;/&gt;
+            &lt;key code=&quot;35&quot; output=&quot;P&quot;/&gt;
+            &lt;key code=&quot;36&quot; output=&quot;&amp;#x000D;&quot;/&gt;
+            &lt;key code=&quot;37&quot; output=&quot;L&quot;/&gt;
+            &lt;key code=&quot;38&quot; action=&quot;a13&quot;/&gt;
+            &lt;key code=&quot;39&quot; output=&quot;&amp;#x0022;&quot;/&gt;
+            &lt;key code=&quot;40&quot; output=&quot;K&quot;/&gt;
+            &lt;key code=&quot;41&quot; output=&quot;:&quot;/&gt;
+            &lt;key code=&quot;42&quot; output=&quot;|&quot;/&gt;
+            &lt;key code=&quot;43&quot; output=&quot;&amp;#x003C;&quot;/&gt;
+            &lt;key code=&quot;44&quot; output=&quot;?&quot;/&gt;
+            &lt;key code=&quot;45&quot; action=&quot;a9&quot;/&gt;
+            &lt;key code=&quot;46&quot; output=&quot;M&quot;/&gt;
+            &lt;key code=&quot;47&quot; output=&quot;&amp;#x003E;&quot;/&gt;
+            &lt;key code=&quot;48&quot; output=&quot;&amp;#x0009;&quot;/&gt;
+            &lt;key code=&quot;49&quot; action=&quot;a5&quot;/&gt;
+            &lt;key code=&quot;50&quot; output=&quot;~&quot;/&gt;
+            &lt;key code=&quot;51&quot; output=&quot;&amp;#x0008;&quot;/&gt;
+            &lt;key code=&quot;52&quot; output=&quot;&amp;#x0003;&quot;/&gt;
+            &lt;key code=&quot;53&quot; output=&quot;&amp;#x001B;&quot;/&gt;
+            &lt;key code=&quot;65&quot; output=&quot;.&quot;/&gt;
+            &lt;key code=&quot;66&quot; output=&quot;*&quot;/&gt;
+            &lt;key code=&quot;67&quot; output=&quot;*&quot;/&gt;
+            &lt;key code=&quot;69&quot; output=&quot;+&quot;/&gt;
+            &lt;key code=&quot;70&quot; output=&quot;+&quot;/&gt;
+            &lt;key code=&quot;71&quot; output=&quot;&amp;#x001B;&quot;/&gt;
+            &lt;key code=&quot;72&quot; output=&quot;=&quot;/&gt;
+            &lt;key code=&quot;75&quot; output=&quot;/&quot;/&gt;
+            &lt;key code=&quot;76&quot; output=&quot;&amp;#x0003;&quot;/&gt;
+            &lt;key code=&quot;77&quot; output=&quot;/&quot;/&gt;
+            &lt;key code=&quot;78&quot; output=&quot;-&quot;/&gt;
+            &lt;key code=&quot;81&quot; output=&quot;=&quot;/&gt;
+            &lt;key code=&quot;82&quot; output=&quot;0&quot;/&gt;
+            &lt;key code=&quot;83&quot; output=&quot;1&quot;/&gt;
+            &lt;key code=&quot;84&quot; output=&quot;2&quot;/&gt;
+            &lt;key code=&quot;85&quot; output=&quot;3&quot;/&gt;
+            &lt;key code=&quot;86&quot; output=&quot;4&quot;/&gt;
+            &lt;key code=&quot;87&quot; output=&quot;5&quot;/&gt;
+            &lt;key code=&quot;88&quot; output=&quot;6&quot;/&gt;
+            &lt;key code=&quot;89&quot; output=&quot;7&quot;/&gt;
+            &lt;key code=&quot;91&quot; output=&quot;8&quot;/&gt;
+            &lt;key code=&quot;92&quot; output=&quot;9&quot;/&gt;
+            &lt;key code=&quot;96&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;97&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;98&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;99&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;100&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;101&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;102&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;103&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;104&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;105&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;106&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;107&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;108&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;109&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;110&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;111&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;112&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;113&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;114&quot; output=&quot;&amp;#x0005;&quot;/&gt;
+            &lt;key code=&quot;115&quot; output=&quot;&amp;#x0001;&quot;/&gt;
+            &lt;key code=&quot;116&quot; output=&quot;&amp;#x000B;&quot;/&gt;
+            &lt;key code=&quot;117&quot; output=&quot;&amp;#x007F;&quot;/&gt;
+            &lt;key code=&quot;118&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;119&quot; output=&quot;&amp;#x0004;&quot;/&gt;
+            &lt;key code=&quot;120&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;121&quot; output=&quot;&amp;#x000C;&quot;/&gt;
+            &lt;key code=&quot;122&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;123&quot; output=&quot;&amp;#x001C;&quot;/&gt;
+            &lt;key code=&quot;124&quot; output=&quot;&amp;#x001D;&quot;/&gt;
+            &lt;key code=&quot;125&quot; output=&quot;&amp;#x001F;&quot;/&gt;
+            &lt;key code=&quot;126&quot; output=&quot;&amp;#x001E;&quot;/&gt;
+        &lt;/keyMap&gt;
+        &lt;keyMap index=&quot;2&quot;&gt;
+            &lt;key code=&quot;0&quot; action=&quot;a6&quot;/&gt;
+            &lt;key code=&quot;1&quot; output=&quot;S&quot;/&gt;
+            &lt;key code=&quot;2&quot; output=&quot;D&quot;/&gt;
+            &lt;key code=&quot;3&quot; output=&quot;F&quot;/&gt;
+            &lt;key code=&quot;4&quot; output=&quot;H&quot;/&gt;
+            &lt;key code=&quot;5&quot; output=&quot;G&quot;/&gt;
+            &lt;key code=&quot;6&quot; output=&quot;Z&quot;/&gt;
+            &lt;key code=&quot;7&quot; output=&quot;X&quot;/&gt;
+            &lt;key code=&quot;8&quot; output=&quot;C&quot;/&gt;
+            &lt;key code=&quot;9&quot; output=&quot;V&quot;/&gt;
+            &lt;key code=&quot;10&quot; output=&quot;§&quot;/&gt;
+            &lt;key code=&quot;11&quot; output=&quot;B&quot;/&gt;
+            &lt;key code=&quot;12&quot; output=&quot;Q&quot;/&gt;
+            &lt;key code=&quot;13&quot; output=&quot;W&quot;/&gt;
+            &lt;key code=&quot;14&quot; action=&quot;a7&quot;/&gt;
+            &lt;key code=&quot;15&quot; output=&quot;R&quot;/&gt;
+            &lt;key code=&quot;16&quot; action=&quot;a12&quot;/&gt;
+            &lt;key code=&quot;17&quot; output=&quot;T&quot;/&gt;
+            &lt;key code=&quot;18&quot; output=&quot;1&quot;/&gt;
+            &lt;key code=&quot;19&quot; output=&quot;2&quot;/&gt;
+            &lt;key code=&quot;20&quot; output=&quot;3&quot;/&gt;
+            &lt;key code=&quot;21&quot; output=&quot;4&quot;/&gt;
+            &lt;key code=&quot;22&quot; output=&quot;6&quot;/&gt;
+            &lt;key code=&quot;23&quot; output=&quot;5&quot;/&gt;
+            &lt;key code=&quot;24&quot; output=&quot;=&quot;/&gt;
+            &lt;key code=&quot;25&quot; output=&quot;9&quot;/&gt;
+            &lt;key code=&quot;26&quot; output=&quot;7&quot;/&gt;
+            &lt;key code=&quot;27&quot; output=&quot;-&quot;/&gt;
+            &lt;key code=&quot;28&quot; output=&quot;8&quot;/&gt;
+            &lt;key code=&quot;29&quot; output=&quot;0&quot;/&gt;
+            &lt;key code=&quot;30&quot; output=&quot;]&quot;/&gt;
+            &lt;key code=&quot;31&quot; action=&quot;a10&quot;/&gt;
+            &lt;key code=&quot;32&quot; action=&quot;a11&quot;/&gt;
+            &lt;key code=&quot;33&quot; output=&quot;[&quot;/&gt;
+            &lt;key code=&quot;34&quot; action=&quot;a8&quot;/&gt;
+            &lt;key code=&quot;35&quot; output=&quot;P&quot;/&gt;
+            &lt;key code=&quot;36&quot; output=&quot;&amp;#x000D;&quot;/&gt;
+            &lt;key code=&quot;37&quot; output=&quot;L&quot;/&gt;
+            &lt;key code=&quot;38&quot; output=&quot;J&quot;/&gt;
+            &lt;key code=&quot;39&quot; output=&quot;&amp;#x0027;&quot;/&gt;
+            &lt;key code=&quot;40&quot; output=&quot;K&quot;/&gt;
+            &lt;key code=&quot;41&quot; output=&quot;;&quot;/&gt;
+            &lt;key code=&quot;42&quot; output=&quot;\&quot;/&gt;
+            &lt;key code=&quot;43&quot; output=&quot;,&quot;/&gt;
+            &lt;key code=&quot;44&quot; output=&quot;/&quot;/&gt;
+            &lt;key code=&quot;45&quot; action=&quot;a9&quot;/&gt;
+            &lt;key code=&quot;46&quot; output=&quot;M&quot;/&gt;
+            &lt;key code=&quot;47&quot; output=&quot;.&quot;/&gt;
+            &lt;key code=&quot;48&quot; output=&quot;&amp;#x0009;&quot;/&gt;
+            &lt;key code=&quot;49&quot; action=&quot;a5&quot;/&gt;
+            &lt;key code=&quot;50&quot; output=&quot;`&quot;/&gt;
+            &lt;key code=&quot;51&quot; output=&quot;&amp;#x0008;&quot;/&gt;
+            &lt;key code=&quot;52&quot; output=&quot;&amp;#x0003;&quot;/&gt;
+            &lt;key code=&quot;53&quot; output=&quot;&amp;#x001B;&quot;/&gt;
+            &lt;key code=&quot;65&quot; output=&quot;.&quot;/&gt;
+            &lt;key code=&quot;66&quot; output=&quot;&amp;#x001D;&quot;/&gt;
+            &lt;key code=&quot;67&quot; output=&quot;*&quot;/&gt;
+            &lt;key code=&quot;69&quot; output=&quot;+&quot;/&gt;
+            &lt;key code=&quot;70&quot; output=&quot;&amp;#x001C;&quot;/&gt;
+            &lt;key code=&quot;71&quot; output=&quot;&amp;#x001B;&quot;/&gt;
+            &lt;key code=&quot;72&quot; output=&quot;&amp;#x001F;&quot;/&gt;
+            &lt;key code=&quot;75&quot; output=&quot;/&quot;/&gt;
+            &lt;key code=&quot;76&quot; output=&quot;&amp;#x0003;&quot;/&gt;
+            &lt;key code=&quot;77&quot; output=&quot;&amp;#x001E;&quot;/&gt;
+            &lt;key code=&quot;78&quot; output=&quot;-&quot;/&gt;
+            &lt;key code=&quot;81&quot; output=&quot;=&quot;/&gt;
+            &lt;key code=&quot;82&quot; output=&quot;0&quot;/&gt;
+            &lt;key code=&quot;83&quot; output=&quot;1&quot;/&gt;
+            &lt;key code=&quot;84&quot; output=&quot;2&quot;/&gt;
+            &lt;key code=&quot;85&quot; output=&quot;3&quot;/&gt;
+            &lt;key code=&quot;86&quot; output=&quot;4&quot;/&gt;
+            &lt;key code=&quot;87&quot; output=&quot;5&quot;/&gt;
+            &lt;key code=&quot;88&quot; output=&quot;6&quot;/&gt;
+            &lt;key code=&quot;89&quot; output=&quot;7&quot;/&gt;
+            &lt;key code=&quot;91&quot; output=&quot;8&quot;/&gt;
+            &lt;key code=&quot;92&quot; output=&quot;9&quot;/&gt;
+            &lt;key code=&quot;96&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;97&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;98&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;99&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;100&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;101&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;102&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;103&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;104&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;105&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;106&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;107&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;108&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;109&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;110&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;111&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;112&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;113&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;114&quot; output=&quot;&amp;#x0005;&quot;/&gt;
+            &lt;key code=&quot;115&quot; output=&quot;&amp;#x0001;&quot;/&gt;
+            &lt;key code=&quot;116&quot; output=&quot;&amp;#x000B;&quot;/&gt;
+            &lt;key code=&quot;117&quot; output=&quot;&amp;#x007F;&quot;/&gt;
+            &lt;key code=&quot;118&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;119&quot; output=&quot;&amp;#x0004;&quot;/&gt;
+            &lt;key code=&quot;120&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;121&quot; output=&quot;&amp;#x000C;&quot;/&gt;
+            &lt;key code=&quot;122&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;123&quot; output=&quot;&amp;#x001C;&quot;/&gt;
+            &lt;key code=&quot;124&quot; output=&quot;&amp;#x001D;&quot;/&gt;
+            &lt;key code=&quot;125&quot; output=&quot;&amp;#x001F;&quot;/&gt;
+            &lt;key code=&quot;126&quot; output=&quot;&amp;#x001E;&quot;/&gt;
+        &lt;/keyMap&gt;
+        &lt;keyMap index=&quot;3&quot;&gt;
+            &lt;key code=&quot;0&quot; output=&quot;&amp;#x0001;&quot;/&gt;
+            &lt;key code=&quot;1&quot; output=&quot;&amp;#x0013;&quot;/&gt;
+            &lt;key code=&quot;2&quot; output=&quot;&amp;#x0004;&quot;/&gt;
+            &lt;key code=&quot;3&quot; output=&quot;&amp;#x0006;&quot;/&gt;
+            &lt;key code=&quot;4&quot; output=&quot;&amp;#x0008;&quot;/&gt;
+            &lt;key code=&quot;5&quot; output=&quot;&amp;#x0007;&quot;/&gt;
+            &lt;key code=&quot;6&quot; output=&quot;&amp;#x001A;&quot;/&gt;
+            &lt;key code=&quot;7&quot; output=&quot;&amp;#x0018;&quot;/&gt;
+            &lt;key code=&quot;8&quot; output=&quot;&amp;#x0003;&quot;/&gt;
+            &lt;key code=&quot;9&quot; output=&quot;&amp;#x0016;&quot;/&gt;
+            &lt;key code=&quot;10&quot; output=&quot;0&quot;/&gt;
+            &lt;key code=&quot;11&quot; output=&quot;&amp;#x0002;&quot;/&gt;
+            &lt;key code=&quot;12&quot; output=&quot;&amp;#x0011;&quot;/&gt;
+            &lt;key code=&quot;13&quot; output=&quot;&amp;#x0017;&quot;/&gt;
+            &lt;key code=&quot;14&quot; output=&quot;&amp;#x0005;&quot;/&gt;
+            &lt;key code=&quot;15&quot; output=&quot;&amp;#x0012;&quot;/&gt;
+            &lt;key code=&quot;16&quot; output=&quot;&amp;#x0019;&quot;/&gt;
+            &lt;key code=&quot;17&quot; output=&quot;&amp;#x0014;&quot;/&gt;
+            &lt;key code=&quot;18&quot; output=&quot;1&quot;/&gt;
+            &lt;key code=&quot;19&quot; output=&quot;2&quot;/&gt;
+            &lt;key code=&quot;20&quot; output=&quot;3&quot;/&gt;
+            &lt;key code=&quot;21&quot; output=&quot;4&quot;/&gt;
+            &lt;key code=&quot;22&quot; output=&quot;6&quot;/&gt;
+            &lt;key code=&quot;23&quot; output=&quot;5&quot;/&gt;
+            &lt;key code=&quot;24&quot; output=&quot;=&quot;/&gt;
+            &lt;key code=&quot;25&quot; output=&quot;9&quot;/&gt;
+            &lt;key code=&quot;26&quot; output=&quot;7&quot;/&gt;
+            &lt;key code=&quot;27&quot; output=&quot;&amp;#x001F;&quot;/&gt;
+            &lt;key code=&quot;28&quot; output=&quot;8&quot;/&gt;
+            &lt;key code=&quot;29&quot; output=&quot;0&quot;/&gt;
+            &lt;key code=&quot;30&quot; output=&quot;&amp;#x001D;&quot;/&gt;
+            &lt;key code=&quot;31&quot; output=&quot;&amp;#x000F;&quot;/&gt;
+            &lt;key code=&quot;32&quot; output=&quot;&amp;#x0015;&quot;/&gt;
+            &lt;key code=&quot;33&quot; output=&quot;&amp;#x001B;&quot;/&gt;
+            &lt;key code=&quot;34&quot; output=&quot;&amp;#x0009;&quot;/&gt;
+            &lt;key code=&quot;35&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;36&quot; output=&quot;&amp;#x000D;&quot;/&gt;
+            &lt;key code=&quot;37&quot; output=&quot;&amp;#x000C;&quot;/&gt;
+            &lt;key code=&quot;38&quot; output=&quot;&amp;#x000A;&quot;/&gt;
+            &lt;key code=&quot;39&quot; output=&quot;&amp;#x0027;&quot;/&gt;
+            &lt;key code=&quot;40&quot; output=&quot;&amp;#x000B;&quot;/&gt;
+            &lt;key code=&quot;41&quot; output=&quot;;&quot;/&gt;
+            &lt;key code=&quot;42&quot; output=&quot;&amp;#x001C;&quot;/&gt;
+            &lt;key code=&quot;43&quot; output=&quot;,&quot;/&gt;
+            &lt;key code=&quot;44&quot; output=&quot;/&quot;/&gt;
+            &lt;key code=&quot;45&quot; output=&quot;&amp;#x000E;&quot;/&gt;
+            &lt;key code=&quot;46&quot; output=&quot;&amp;#x000D;&quot;/&gt;
+            &lt;key code=&quot;47&quot; output=&quot;.&quot;/&gt;
+            &lt;key code=&quot;48&quot; output=&quot;&amp;#x0009;&quot;/&gt;
+            &lt;key code=&quot;49&quot; action=&quot;a5&quot;/&gt;
+            &lt;key code=&quot;50&quot; output=&quot;`&quot;/&gt;
+            &lt;key code=&quot;51&quot; output=&quot;&amp;#x0008;&quot;/&gt;
+            &lt;key code=&quot;52&quot; output=&quot;&amp;#x0003;&quot;/&gt;
+            &lt;key code=&quot;53&quot; output=&quot;&amp;#x001B;&quot;/&gt;
+            &lt;key code=&quot;65&quot; output=&quot;.&quot;/&gt;
+            &lt;key code=&quot;66&quot; output=&quot;&amp;#x001D;&quot;/&gt;
+            &lt;key code=&quot;67&quot; output=&quot;*&quot;/&gt;
+            &lt;key code=&quot;69&quot; output=&quot;+&quot;/&gt;
+            &lt;key code=&quot;70&quot; output=&quot;&amp;#x001C;&quot;/&gt;
+            &lt;key code=&quot;71&quot; output=&quot;&amp;#x001B;&quot;/&gt;
+            &lt;key code=&quot;72&quot; output=&quot;&amp;#x001F;&quot;/&gt;
+            &lt;key code=&quot;75&quot; output=&quot;/&quot;/&gt;
+            &lt;key code=&quot;76&quot; output=&quot;&amp;#x0003;&quot;/&gt;
+            &lt;key code=&quot;77&quot; output=&quot;&amp;#x001E;&quot;/&gt;
+            &lt;key code=&quot;78&quot; output=&quot;-&quot;/&gt;
+            &lt;key code=&quot;81&quot; output=&quot;=&quot;/&gt;
+            &lt;key code=&quot;82&quot; output=&quot;0&quot;/&gt;
+            &lt;key code=&quot;83&quot; output=&quot;1&quot;/&gt;
+            &lt;key code=&quot;84&quot; output=&quot;2&quot;/&gt;
+            &lt;key code=&quot;85&quot; output=&quot;3&quot;/&gt;
+            &lt;key code=&quot;86&quot; output=&quot;4&quot;/&gt;
+            &lt;key code=&quot;87&quot; output=&quot;5&quot;/&gt;
+            &lt;key code=&quot;88&quot; output=&quot;6&quot;/&gt;
+            &lt;key code=&quot;89&quot; output=&quot;7&quot;/&gt;
+            &lt;key code=&quot;91&quot; output=&quot;8&quot;/&gt;
+            &lt;key code=&quot;92&quot; output=&quot;9&quot;/&gt;
+            &lt;key code=&quot;96&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;97&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;98&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;99&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;100&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;101&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;102&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;103&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;104&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;105&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;106&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;107&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;108&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;109&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;110&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;111&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;112&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;113&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;114&quot; output=&quot;&amp;#x0005;&quot;/&gt;
+            &lt;key code=&quot;115&quot; output=&quot;&amp;#x0001;&quot;/&gt;
+            &lt;key code=&quot;116&quot; output=&quot;&amp;#x000B;&quot;/&gt;
+            &lt;key code=&quot;117&quot; output=&quot;&amp;#x007F;&quot;/&gt;
+            &lt;key code=&quot;118&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;119&quot; output=&quot;&amp;#x0004;&quot;/&gt;
+            &lt;key code=&quot;120&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;121&quot; output=&quot;&amp;#x000C;&quot;/&gt;
+            &lt;key code=&quot;122&quot; output=&quot;&amp;#x0010;&quot;/&gt;
+            &lt;key code=&quot;123&quot; output=&quot;&amp;#x001C;&quot;/&gt;
+            &lt;key code=&quot;124&quot; output=&quot;&amp;#x001D;&quot;/&gt;
+            &lt;key code=&quot;125&quot; output=&quot;&amp;#x001F;&quot;/&gt;
+            &lt;key code=&quot;126&quot; output=&quot;&amp;#x001E;&quot;/&gt;
+        &lt;/keyMap&gt;
+    &lt;/keyMapSet&gt;
+    &lt;keyMapSet id=&quot;984&quot;&gt;
+        &lt;keyMap index=&quot;0&quot; baseMapSet=&quot;16c&quot; baseIndex=&quot;0&quot;&gt;
+            &lt;key code=&quot;24&quot; output=&quot;^&quot;/&gt;
+            &lt;key code=&quot;30&quot; output=&quot;[&quot;/&gt;
+            &lt;key code=&quot;33&quot; output=&quot;@&quot;/&gt;
+            &lt;key code=&quot;39&quot; output=&quot;:&quot;/&gt;
+            &lt;key code=&quot;42&quot; output=&quot;]&quot;/&gt;
+            &lt;key code=&quot;93&quot; output=&quot;¥&quot;/&gt;
+            &lt;key code=&quot;94&quot; output=&quot;_&quot;/&gt;
+            &lt;key code=&quot;95&quot; output=&quot;,&quot;/&gt;
+            &lt;key code=&quot;102&quot; action=&quot;a5&quot;/&gt;
+            &lt;key code=&quot;104&quot; action=&quot;a5&quot;/&gt;
+        &lt;/keyMap&gt;
+        &lt;keyMap index=&quot;1&quot; baseMapSet=&quot;16c&quot; baseIndex=&quot;1&quot;&gt;
+            &lt;key code=&quot;19&quot; output=&quot;&amp;#x0022;&quot;/&gt;
+            &lt;key code=&quot;22&quot; output=&quot;&amp;#x0026;&quot;/&gt;
+            &lt;key code=&quot;24&quot; output=&quot;~&quot;/&gt;
+            &lt;key code=&quot;25&quot; output=&quot;)&quot;/&gt;
+            &lt;key code=&quot;26&quot; output=&quot;&amp;#x0027;&quot;/&gt;
+            &lt;key code=&quot;27&quot; output=&quot;=&quot;/&gt;
+            &lt;key code=&quot;28&quot; output=&quot;(&quot;/&gt;
+            &lt;key code=&quot;29&quot; output=&quot;0&quot;/&gt;
+            &lt;key code=&quot;30&quot; output=&quot;{&quot;/&gt;
+            &lt;key code=&quot;33&quot; output=&quot;`&quot;/&gt;
+            &lt;key code=&quot;39&quot; output=&quot;*&quot;/&gt;
+            &lt;key code=&quot;41&quot; output=&quot;+&quot;/&gt;
+            &lt;key code=&quot;42&quot; output=&quot;}&quot;/&gt;
+            &lt;key code=&quot;93&quot; output=&quot;|&quot;/&gt;
+            &lt;key code=&quot;94&quot; output=&quot;_&quot;/&gt;
+            &lt;key code=&quot;95&quot; output=&quot;,&quot;/&gt;
+            &lt;key code=&quot;102&quot; action=&quot;a5&quot;/&gt;
+            &lt;key code=&quot;104&quot; action=&quot;a5&quot;/&gt;
+        &lt;/keyMap&gt;
+        &lt;keyMap index=&quot;2&quot; baseMapSet=&quot;16c&quot; baseIndex=&quot;2&quot;&gt;
+            &lt;key code=&quot;24&quot; output=&quot;^&quot;/&gt;
+            &lt;key code=&quot;30&quot; output=&quot;[&quot;/&gt;
+            &lt;key code=&quot;33&quot; output=&quot;@&quot;/&gt;
+            &lt;key code=&quot;39&quot; output=&quot;:&quot;/&gt;
+            &lt;key code=&quot;42&quot; output=&quot;]&quot;/&gt;
+            &lt;key code=&quot;93&quot; output=&quot;¥&quot;/&gt;
+            &lt;key code=&quot;94&quot; output=&quot;_&quot;/&gt;
+            &lt;key code=&quot;95&quot; output=&quot;,&quot;/&gt;
+            &lt;key code=&quot;102&quot; action=&quot;a5&quot;/&gt;
+            &lt;key code=&quot;104&quot; action=&quot;a5&quot;/&gt;
+        &lt;/keyMap&gt;
+        &lt;keyMap index=&quot;3&quot; baseMapSet=&quot;16c&quot; baseIndex=&quot;3&quot;&gt;
+            &lt;key code=&quot;93&quot; output=&quot;|&quot;/&gt;
+            &lt;key code=&quot;94&quot; output=&quot;_&quot;/&gt;
+            &lt;key code=&quot;95&quot; output=&quot;,&quot;/&gt;
+            &lt;key code=&quot;102&quot; action=&quot;a5&quot;/&gt;
+            &lt;key code=&quot;104&quot; action=&quot;a5&quot;/&gt;
+        &lt;/keyMap&gt;
+    &lt;/keyMapSet&gt;
+    &lt;actions&gt;
+        &lt;action id=&quot;a0&quot;&gt;
+            &lt;when state=&quot;none&quot; next=&quot;1&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a1&quot;&gt;
+            &lt;when state=&quot;none&quot; next=&quot;2&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a10&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;O&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;Ó&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;Ò&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;Ô&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;Ö&quot;/&gt;
+            &lt;when state=&quot;5&quot; output=&quot;Õ&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a11&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;U&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;Ú&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;Ù&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;Û&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;Ü&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a12&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;Y&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;Ÿ&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a13&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;J&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;J́&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a14&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;a&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;á&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;à&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;â&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;ä&quot;/&gt;
+            &lt;when state=&quot;5&quot; output=&quot;ã&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a15&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;e&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;é&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;è&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;ê&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;ë&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a16&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;i&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;í&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;ì&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;î&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;ï&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a17&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;n&quot;/&gt;
+            &lt;when state=&quot;5&quot; output=&quot;ñ&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a18&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;o&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;ó&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;ò&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;ô&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;ö&quot;/&gt;
+            &lt;when state=&quot;5&quot; output=&quot;õ&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a19&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;u&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;ú&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;ù&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;û&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;ü&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a2&quot;&gt;
+            &lt;when state=&quot;none&quot; next=&quot;3&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a20&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;y&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;ÿ&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a21&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;j&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;j́&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a3&quot;&gt;
+            &lt;when state=&quot;none&quot; next=&quot;4&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a4&quot;&gt;
+            &lt;when state=&quot;none&quot; next=&quot;5&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a5&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot; &quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;´&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;`&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;ˆ&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;¨&quot;/&gt;
+            &lt;when state=&quot;5&quot; output=&quot;˜&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a6&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;A&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;Á&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;À&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;Â&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;Ä&quot;/&gt;
+            &lt;when state=&quot;5&quot; output=&quot;Ã&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a7&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;E&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;É&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;È&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;Ê&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;Ë&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a8&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;I&quot;/&gt;
+            &lt;when state=&quot;1&quot; output=&quot;Í&quot;/&gt;
+            &lt;when state=&quot;2&quot; output=&quot;Ì&quot;/&gt;
+            &lt;when state=&quot;3&quot; output=&quot;Î&quot;/&gt;
+            &lt;when state=&quot;4&quot; output=&quot;Ï&quot;/&gt;
+        &lt;/action&gt;
+        &lt;action id=&quot;a9&quot;&gt;
+            &lt;when state=&quot;none&quot; output=&quot;N&quot;/&gt;
+            &lt;when state=&quot;5&quot; output=&quot;Ñ&quot;/&gt;
+        &lt;/action&gt;
+    &lt;/actions&gt;
+    &lt;terminators&gt;
+        &lt;when state=&quot;1&quot; output=&quot;´&quot;/&gt;
+        &lt;when state=&quot;2&quot; output=&quot;`&quot;/&gt;
+        &lt;when state=&quot;3&quot; output=&quot;ˆ&quot;/&gt;
+        &lt;when state=&quot;4&quot; output=&quot;¨&quot;/&gt;
+        &lt;when state=&quot;5&quot; output=&quot;˜&quot;/&gt;
+    &lt;/terminators&gt;
+&lt;/keyboard&gt;
+
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../js/base.js"></script>
+        <script src="../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

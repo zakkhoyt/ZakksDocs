@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/firefox/AddOns/ContextSearch/CONTEXT_SEARCH/">
+        <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+        <title>ChatGPT convo - Zakk's Notes</title>
+        <link href="../../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#chatgpt-convo" class="nav-link">ChatGPT convo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="chatgpt-convo">ChatGPT convo</h1>
+<pre><code class="language-sh">curl 'https://chat.openai.com/backend-api/moderations' \
+    -X POST \
+    --data-raw '{&quot;input&quot;:&quot;how many people are named Johnson ever?&quot;,&quot;model&quot;:&quot;text-moderation-playground&quot;,&quot;conversation_id&quot;:&quot;648312b7-209d-46af-ac68-2c860dfb51fd&quot;,&quot;message_id&quot;:&quot;7ab89c8c-2b0c-4304-a548-093b4c496d1f&quot;}' \
+    -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/111.0' \
+    -H 'Accept: */*' \
+    -H 'Accept-Language: en-US,en;q=0.5' \
+    -H 'Accept-Encoding: gzip, deflate, br' \
+    -H 'Referer: https://chat.openai.com/chat?model=gpt-4&amp;text=poem' \
+    -H 'Content-Type: application/json' \
+    -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1UaEVOVUpHTkVNMVFURTRNMEZCTWpkQ05UZzVNRFUxUlRVd1FVSkRNRU13UmtGRVFrRXpSZyJ9.eyJodHRwczovL2FwaS5vcGVuYWkuY29tL3Byb2ZpbGUiOnsiZW1haWwiOiJ6YWtraG95dEBoYXRjaC5jbyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlfSwiaHR0cHM6Ly9hcGkub3BlbmFpLmNvbS9hdXRoIjp7InVzZXJfaWQiOiJ1c2VyLUhPUjVIQmZKWnZjbmxCc1J5SFUydTdvMCJ9LCJpc3MiOiJodHRwczovL2F1dGgwLm9wZW5haS5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMTAyMTYwNTIyMzcyMTUwOTcxNjEiLCJhdWQiOlsiaHR0cHM6Ly9hcGkub3BlbmFpLmNvbS92MSIsImh0dHBzOi8vb3BlbmFpLm9wZW5haS5hdXRoMGFwcC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjc5OTQxNTI0LCJleHAiOjE2ODExNTExMjQsImF6cCI6IlRkSkljYmUxNldvVEh0Tjk1bnl5d2g1RTR5T282SXRHIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCBtb2RlbC5yZWFkIG1vZGVsLnJlcXVlc3Qgb3JnYW5pemF0aW9uLnJlYWQgb2ZmbGluZV9hY2Nlc3MifQ.PHJ-foYc1PYSFc_8FAwcCL6eqLFNViFPpAoeZO7CkvYXw9O2DqPRtGzfmGjn-43whtfBWKTdQyeSxiCH054RfOhj42kUBqQl3hEXoeD8s3WK62tvpaphajeZXS9Nn_xBg_cdEGcwkzSBldM5m5HtcJXXQ_bqHSvs_nu_FRdxo4MBcVbmS5DCt7xukPntCrCsmM1OSVFgL78EzVmzqmrH2ngsTc86DNN7v-XItpCe31r6eELRH1v_n-W7Fdad_NOeBRwNfkBrDAamRzI5LHvZ9oRKTcNo7HHO0W3bFf7vgoN-yeN6-OJ83BysWydR1DYKVw3QH9BD5BE0u6tW2K3Chw' \
+    -H 'Origin: https://chat.openai.com' \
+    -H 'DNT: 1' \
+    -H 'Alt-Used: chat.openai.com' \
+    -H 'Connection: keep-alive' \
+    -H 'Cookie: cf_clearance=1bipv7fDveZUE8k2kTtYnBJwSJTi7sgxaaoIEdGZv1M-1679501256-0-1-7ee8820e.fcc80a8e.d4494faf-160; cf_clearance=BqLG2Bc7DGRB.4CpwSMr_RLdqjYl0Hq7T1u4fCfnAd4-1679941659-0-1-7ee8820e.fcc80a8e.d4494faf-160; _puid=user-HOR5HBfJZvcnlBsRyHU2u7o0:1679956705-p5nwLy90IinVpuywxp95S9WOC9dTjnHtiEFn1cbDKNY%3D; _cfuvid=qiF2whgYxUj4FR4bE_Q_kEawmuHzp1b8iQ_ZnzSEfbE-1679501256932-0-604800000; __Host-next-auth.csrf-token=cccf902255de5e558a01925e3c0e03e35b1b9b5ca13eed00b910d250ea9d4bb5%7Cb071f2a16a4aeeca29b2ff893bad6c1cff61f72d82f46aec29ec7e28d043481d; __Secure-next-auth.callback-url=https%3A%2F%2Fchat.openai.com%2Fchat; __Secure-next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..sbb1qWw9HBosmTuh.bcTlJ-O0uhqmui-QBrPGMpU7zpSOO0ajVvTvVeEQpztXf7Z-072y1qhrhuHG78n32lbqxMviAYTf2cQbvwMoP2wgWTv-DeRIGYfa8ULpYxBxPswIMZgGj3bpoG-cdPriiB01uq4MLrW9vVDoVCQUg3CFuwuEt8u3Kz9pKrlJgetbSRCAVUvkwTQU1U_1o_FE-uLt3uPgAGZGmmsg-YlO5odiLVIUSxevVY9TAM-0GDaBV7YwdCo3l1FJwCxtrEnj1m1d-xsgG7cAroVUNVUzLZyB2qZyXB6zcp8NsGs6IPtCw0Hk-znM-t67kwiOFC6BGvB3NWZZkXbDoHphkFP8dIvHDEDZE0qZRop4yYPsajynL41vZErgNnte5_eDz1wedQCVGoYJXR0cJ50vrplXya_rdq2EVF5OCLQf3iT_WpD5Y2CEkTYJIQeSpR9rfDXHaeAXv_LrthEIIgXKop7QHp37scDdDxNI17YGGwbLZETaZ7AUOqRzvq7swsySitOYfktK5Lt63gOGh3zlnQbPGwUhvIF9lZgrhOqKWSsMhrMOoNzXaQsjNg2GlXwKYdfQnUlvaSrwufiDlJu6VVxOYEwOXtL10so4x5QImRktOYljpX_T3m4Z9c7f25T-IZsBC8LcLEf8lz0xnZsOg7aXH43GADRO2AFSTuqTKmwLOXvZVtDcQ6Hrv1r_sIp0hAAsxww7HBBNX-_TvNrpYnOx5FhETSggA_P8ig10Q1Xt0DZ3OzYJt9Xy2HMxkY0bJyaP_RPTVM-WmByLvRao5SE4zozb9fy1dKAf-Saiz_Ha3II9RrVrpWTiium_L7NYX8rZQc2ZWrvJVhpU90qYIY00_roKWFB4U5sSp7uFe6-s1EhFw68uIvdTfvG3IrvAu9E3RSRhQ_fe_rkJVfYc4UOuKVxYiUZoJ9Sv5jK3HLRGwUWUQ0zaAQA7J-4zXopQCCUSeRDertOItlv5rJjLdCIigHMkwwMeryM-EeVJuv4bdnvPZ6At3QRq58xCOIjY6ajEQK1ycIAUTY_y0Gg5qquG4bfzJUABS8jXZQ-fGoSJgXWjOSLciegzt93QDVuYZ_hw5X-yc3dFupyZG86bviNyFJw5JhL7uITWjE2rRod453tB9Yn6rfKpJbpTYP7FEWY9Hiv3sk_yg_I0ykvRUR34JK71kAnQcOpR7bAsm00mYJO88iKDSnIH5YPqh-ecLDbis_ArCTGxz2FGr3k6A_rTUJSFKfjliDV4YDVUamhrLivxHe0fdCt4vy3axnmWr7u0Q8ED_WLkC6n3b-2JorQ03vBsrCOA2aOtBfZiNBQH1BSugF0sBB53DXf-nD1RHk82h3DrKmls9gryTLGZZOmVsiIsZsNwMb0GnZTY9rERKSAOot2zy37XtkdDpAayFOb76NpKzYXoCRmtlj69aWGN4tMDxyuT-0gpxLm9nJYMT0U7-OsS0avlZICWpL_97pixKeKd6kmlC-8KPUcc9dOabbnxGJGK6uCzGk4L4p7QhSDSz3YDRcYyPlo9XBZi71p7mwIRfToGYE180dEw2-OKloClIGgJ4NS0hINnGp9tL9GWl18WcPbjM4EXoizpYnaNg54_EAaqiDBQvv0OYdbI0JgpeqUz33yyR3CnHUNSwMJkepBN_xWwA491VosfHF447lgyoTGQNG0rlqA0_yR9h73ypfFxLGCDsyMCCOLd_E6qAY6fChJt14swPxjaTPOp2nOLVBuw8L54H4FEB0422OvVMNQRENN323tmsTfWtnWZ1WvAnYCz9W1KJG7CO8nSfBRVW9YcZvGQHC9rAhBZlz_SPB7eZ4zhb1hSTLjDUVpHEQ6-ZJb1NbVQmPVjg-a3ADTUQf7SAcBEvAMif8ySO4SwI9kSGYz12a7RXctEe4IOlSlDXMsUJLwh48gefldT3sxBB7ZK6xEZxUUOQTvQDJP26ymhQ1D8xYBJj7M1KHhAEcFXMUOvDBNMpvzCpSGfOd6mfiiAmA-GfRULxIe1IEKdjcD1w6_xmnhyTzTjA7W1l91bjnCxRnSUyWb_0wzqdPK2b_Fl-D0Y0cngReFYjvKPIczMDoRreB3mQQphw8zX03-B0t_fHyQzPknwVdNmOhlHcTaFxGSNox_Qlep3QFZZ30DZYJ3bBk0qTdDf-5eqbszPW3FVEn10BaJ6_ObJIKVIpAZZtufK_g8ixkuONwNQ8q_CtQdeKfn0_urnBbrl7srBLjJ5ENo0fFA6aV-AU3ZYh2XtLUprvl7UwgN93y2rQmUNKZYq7VolELVV2qApuf2_l2aa1gF4SJKSg2C6LnrNSZNiye539DSzXQwrJto80g9nWoeMqpm10ykCp-4bFmlof9g6fIK626xTPDKPvKjiJjef29TRvbU4O8SzBDU1Pc4uwlGTB5OUODMq2r9B-dI-2UgL1QEPkno6a9o4lqtC1mODse1FVqZxAhOhl3bOF3VNCgXnTozhmnw59VPbsg.Ige87fEtF5vIjR7CkU_fDg; intercom-session-dgkjq2bp=c1pkZ2VCZlhjckdKRDhGT1N5eE9ycDZEUlFWL2dCdEU0S05tMnppMGszSTZPd0lVZXhLbkdMMHVBdWFSdUxRcS0tYWJwZFRjSUkxTnUySjJaNVd1WFVQZz09--9ab5ad5bcc74e3ad19bd17d5297ccf6f63de9c09; intercom-device-id-dgkjq2bp=3475af28-6519-4efc-b456-428e1f7c7940; __cf_bm=zu_bbKpPEwVJQRhswHcmSTpHQqFn3ulXfe9mYELQ.80-1679956670-0-ASI84r38RxDKt9Q1Kk9NqT01Fz46QPw2swRaXybQx5u2h5UqDBNFDToLUZdqzru25OxHCLDsd2MMqRs0TETj+wgkxlG8rUabwnVW9r+BgjFMO9jNgRIkCEDpMR4Kz9SN3J4YA4AYvbHo2i9vFx4o4tl0Y9/XsIhAaV3Ay77Q9zqh' \
+    -H 'Sec-Fetch-Dest: empty' \
+    -H 'Sec-Fetch-Mode: cors' \
+    -H 'Sec-Fetch-Site: same-origin' \
+    -H 'TE: trailers' \
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../../js/base.js"></script>
+        <script src="../../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

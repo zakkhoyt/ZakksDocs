@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/SWIFTUI/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>SwiftUI - Zakk's Notes</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#swiftui" class="nav-link">SwiftUI</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#property-wrappers" class="nav-link">Property Wrappers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#environment" class="nav-link">@Environment</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#contribute" class="nav-link">Contribute</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#consume" class="nav-link">Consume</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#create-your-own-environment-keyvalue-with-entry" class="nav-link">Create your own Environment key/value with @Entry</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#menubarextra" class="nav-link">MenuBarExtra</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#multiple-windows" class="nav-link">Multiple Windows</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#termiating-app" class="nav-link">Termiating App</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#questions-learning" class="nav-link">Questions / Learning</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#navigationstack-navigationlink-navigationdestination" class="nav-link">NavigationStack / NavigationLink / .navigationDestination</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#built-in-hashable" class="nav-link">Built in Hashable</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#custom-hashable" class="nav-link">Custom Hashable</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#nested-push" class="nav-link">Nested Push</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="swiftui">SwiftUI</h1>
+<h1 id="property-wrappers">Property Wrappers</h1>
+<ul>
+<li><a href="https://www.hackingwithswift.com/quick-start/swiftui/all-swiftui-property-wrappers-explained-and-compared">Hacking With Swift: All property wrappers</a></li>
+</ul>
+<p><img src="images/swiftUI_wrappers.png" width="50%"> </p>
+<!-- ![swiftUI_wrappers][my_image] -->
+<!-- ![swiftUI_wrappers](my_image) -->
+<p><img alt="swiftUI_wrappers" src="../images/swiftUI_wrappers_observable.png" /></p>
+<!-- [swiftUI_wrappers][my_image]
+[swiftUI_wrappers](my_image) -->
+
+<h1 id="environment">@Environment</h1>
+<h2 id="contribute">Contribute</h2>
+<p>Use the <code>.environment(...)</code> function on any <code>View</code></p>
+<pre><code class="language-swift">@main
+struct hotkeyTestApp: App {
+    private let viewModel = ViewModel()   
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .environment(viewModel)
+        }
+    }
+}
+</code></pre>
+<h2 id="consume">Consume</h2>
+<p>In order to keep your object private, I found it necessary to use <code>@Environment(ViewModel.self)</code> as plain <code>@Environment</code> did not work for me. </p>
+<pre><code class="language-swift">struct ContentView: View {
+    @Environment(ViewModel.self)
+    private var viewModel: ViewModel
+    // ...
+}
+
+</code></pre>
+<h2 id="create-your-own-environment-keyvalue-with-entry">Create your own Environment key/value with @Entry</h2>
+<p><a href="https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-and-use-custom-environment-values">Hacking with Swift</a></p>
+<pre><code class="language-swift">extension EnvironmentValues {
+    @Entry var iconColor: Color = .red
+}
+
+struct ContentView: View {
+    var body: some View {
+        HStack {
+            BubblesView()
+                .environment(\.iconColor, .blue)
+
+            BubblesView()
+                .environment(\.iconColor, .red)
+        }
+    }
+}
+</code></pre>
+<h2 id="menubarextra">MenuBarExtra</h2>
+<p>Articles:
+* <a href="https://blog.schurigeln.com/menu-bar-apps-swift-ui/">blog.schurigeln.com</a>
+* <a href="https://sarunw.com/posts/swiftui-menu-bar-app/#add-a-menu-bar-extra">sarunw.com</a></p>
+<p>Apple Docs
+* <a href="https://developer.apple.com/design/human-interface-guidelines/the-menu-bar#menu-bar-extras">MenuBar</a>
+* <a href="https://developer.apple.com/documentation/swiftui/menubarextra">MenuBarExtra</a> </p>
+<h2 id="multiple-windows">Multiple Windows</h2>
+<p>Apple Docs:
+* <a href="https://developer.apple.com/videos/play/wwdc2022/10061/">Multiple Windows</a>
+* <a href="https://developer.apple.com/documentation/swiftui/openwindowaction">OpenWindowAction</a>
+* <a href="https://developer.apple.com/documentation/swiftui/dismisswindowaction">DismissWindowAction</a>
+* <a href="https://developer.apple.com/documentation/swiftui/dismissaction">Dismiss</a>
+  * <a href="https://macdevtutorials.com/how-to-close-window-in-macos-swiftui/">macdevtutorials.com</a></p>
+<pre><code class="language-swift">for window in NSApp.windows {
+    // window.close()
+}
+</code></pre>
+<h2 id="termiating-app">Termiating App</h2>
+<pre><code class="language-swift">NSApplication.shared.terminate(nil)
+</code></pre>
+<h1 id="questions-learning">Questions / Learning</h1>
+<ul>
+<li>[ ] <a href="https://developer.apple.com/documentation/swiftui/equatableview">EquatableView</a></li>
+<li>[ ] <a href="https://developer.apple.com/documentation/swiftui/subscriptionview">SubscriptionView</a></li>
+<li>[ ] <a href="https://developer.apple.com/documentation/swiftui/tupleview">TupleView</a></li>
+</ul>
+<h1 id="navigationstack-navigationlink-navigationdestination">NavigationStack / NavigationLink / .navigationDestination</h1>
+<ul>
+<li><a href="https://www.hackingwithswift.com/books/ios-swiftui/handling-navigation-the-smart-way-with-navigationdestination">Article</a></li>
+</ul>
+<h2 id="built-in-hashable">Built in Hashable</h2>
+<pre><code class="language-swift">NavigationStack {
+    List(0..&lt;100) { i in
+        NavigationLink(&quot;Select \(i)&quot;, value: i)
+    }
+    .navigationDestination(for: Int.self) { selection in
+        Text(&quot;You selected \(selection)&quot;)
+    }
+}
+</code></pre>
+<h2 id="custom-hashable">Custom Hashable</h2>
+<pre><code class="language-swift">struct Item: Hashable, Identifiable {
+    static let batch: [Item] = (0..&lt;20).map { Item(i: $0) }
+    var id: Int { i }
+    let i: Int
+    let name: String
+
+    init(i: Int) {
+        self.i = i
+        self.name = &quot;Item \(i)&quot;
+    }
+}
+</code></pre>
+<pre><code class="language-swift">NavigationStack {
+    List(Item.batch) { item in
+        NavigationLink(&quot;Item \(item.i)&quot;, value: item)
+    }
+    .navigationDestination(for: Item.self) { selection in
+        Text(&quot;You selected \(selection)&quot;)
+    }
+}
+</code></pre>
+<h3 id="custom-list-ui">Custom List UI</h3>
+<pre><code class="language-swift">NavigationStack {
+    List(Item.batch) { item in
+        NavigationLink(value: item) {
+            HStack {
+                Text(&quot;Item: \(item.i)&quot;)
+                Spacer()
+                Button {
+                    print(&quot;share tapped&quot;)
+                } label: {
+                    Image(systemName: &quot;square.and.arrow.up&quot;)
+                }
+            }
+
+        }
+    }
+    .navigationDestination(for: Item.self) { selection in
+        Text(&quot;You selected \(selection)&quot;)
+    }
+}
+</code></pre>
+<h2 id="nested-push">Nested Push</h2>
+<pre><code class="language-swift">struct Item: Hashable, Identifiable {
+    static let batch: [Item] = (0..&lt;20).map { Item(i: $0) }
+    var id: Int { i }
+    let i: Int
+    let name: String
+
+    init(i: Int) {
+        self.i = i
+        self.name = &quot;Item \(i)&quot;
+    }
+}
+
+struct SubItem: Hashable, Identifiable {
+    static let batch: [SubItem] = (0..&lt;20).map { SubItem(j: $0) }
+    var id: Int { j }
+    let j: Int
+    let name: String
+
+    init(j: Int) {
+        self.j = j
+        self.name = &quot;SubItem \(j)&quot;
+    }
+}
+
+struct ItemsView: View {
+    var body: some View {
+        NavigationStack {
+            List(Item.batch) { item in
+                NavigationLink(&quot;Item \(item.i)&quot;, value: item)
+            }
+            .navigationDestination(for: Item.self) { item in
+                SubItemsView(item: item)
+            }
+        }
+    }
+}
+
+struct SubItemsView: View {
+    @State var item: Item
+    var body: some View {
+            List(SubItem.batch) { subitem in
+                NavigationLink(&quot;SubItem \(subitem.j)&quot;, value: subitem)
+            }
+            .navigationDestination(for: SubItem.self) { subitem in
+                VStack {
+                    Text(&quot;Item.i: \(item.i)&quot;)
+                    Text(&quot;Item.name: \(item.name)&quot;)
+                    Text(&quot;SubItem.i: \(subitem.j)&quot;)
+                    Text(&quot;SubItem.name: \(subitem.name)&quot;)
+                }
+            }
+    }
+}
+
+#Preview {
+    ItemsView()
+}
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

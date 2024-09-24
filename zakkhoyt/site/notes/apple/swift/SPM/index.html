@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/SPM/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>References - Zakk's Notes</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#references" class="nav-link">References</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#editing-a-package" class="nav-link">Editing a Package</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#create-a-package-on-command-line" class="nav-link">Create a package on command line</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#command-line" class="nav-link">Command Line</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#target" class="nav-link">Target</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#build-mac" class="nav-link">Build (mac)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#resolve-ios" class="nav-link">Resolve (iOS)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#build-ios-argument-prep-tools" class="nav-link">Build (iOS argument prep &amp; tools)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#building-ios" class="nav-link">Building (iOS)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#test-ios" class="nav-link">Test (iOS)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#tests-on-command-line" class="nav-link">Tests on command line</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#platforms" class="nav-link">Platforms</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#arguments" class="nav-link">Arguments</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#expanded-package-buildingq" class="nav-link">Expanded Package Buildingq</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#plugins" class="nav-link">Plugins</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#modulealiasing" class="nav-link">ModuleAliasing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#walking-dependency-graphs" class="nav-link">Walking dependency graphs</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#dependency-cases" class="nav-link">Dependency Cases</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#dump-packageswift-as-js" class="nav-link">Dump Package.swift as JS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#shows-nested-outward-dependencies" class="nav-link">Shows nested outward dependencies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#shows-inward-targetproduct-dependencies" class="nav-link">Shows inward target/product dependencies</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#set-tools-version" class="nav-link">Set tools version</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#bug" class="nav-link">Bug</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://github.com/apple/swift-package-manager/blob/main/Documentation">Apple SPM documentation (GitHub)</a></li>
+</ul>
+<h1 id="editing-a-package">Editing a Package</h1>
+<ul>
+<li><a href="https://github.com/apple/swift-package-manager/blob/main/Documentation/Usage.md#editing-a-package">link</a></li>
+</ul>
+<pre><code class="language-sh"># This will create a branch called bugFix from the currently resolved version and put the dependency Foo in the Packages/ directory.
+swift package edit &lt;package name&gt; --branch &lt;branch name&gt;&gt;
+# The command to attach (or create) a local checkout is:
+swift package edit &lt;package name&gt; --path &lt;path/to/dependency&gt;
+</code></pre>
+<pre><code class="language-sh"># This command fails if there are uncommitted changes or changes which are not pushed to the remote repository
+swift package unedit &lt;package name&gt;
+# Force like so:
+swift package unedit &lt;package name&gt; --force
+</code></pre>
+<h1 id="create-a-package-on-command-line">Create a package on command line</h1>
+<pre><code class="language-swift">// Create a library type. Infert name from pwd. 
+swift package init
+// ├── .build
+// │  ├── artifacts
+// │  ├── checkouts
+// │  ├── repositories
+// │  └── workspace-state.json
+// ├── .gitignore
+// ├── Package.swift
+// ├── Sources
+// │  └── .sandbox
+// │     └── _sandbox.swift
+// └── Tests
+//    └── .sandboxTests
+//       └── _sandboxTests.swift
+</code></pre>
+<pre><code class="language-swift">// Specify name. Make a cmd tool instead of a library
+swift package init --name dynamicMemberExperiment --type tool 
+
+</code></pre>
+<pre><code class="language-sh"># https://github.com/realm/SwiftLint/releases
+# Realm/SwiftLint@0.52.2
+#
+# grep &quot;Realm/SwiftLint&quot; Mintfile | sed -E &quot;s/(.*@)()//g&quot;
+#
+# Search in all Swift Packages for SwiftLint
+\u{001B}[0;31m
+grep &quot;Realm/SwiftLint@&quot; Mintfile | cut -d &quot;@&quot; -f 2 | xargs -I {} echo -n &quot;{}&quot; | tee &gt;(pbcopy);
+grep &quot;Realm/SwiftLint@&quot; Mintfile | cut -d &quot;@&quot; -f 2 | xargs -I {} echo -n &quot;{}&quot; | tee &gt;(pbcopy) | xargs -I {} echo &quot;Current SwiftLint version: {}&quot;;
+echo &quot;&quot;:
+fastlane/scripts/packages/iterate_swift_package.sh . list | \
+  xargs -I {} echo {}&quot;/Package.swift&quot; | \
+  xargs -I {} grep -r &quot;github.com/realm/SwiftLint&quot; {} 2&gt; /dev/null;
+
+
+# https://github.com/nicklockwood/SwiftFormat/releases
+# nicklockwood/SwiftFormat@0.51.10
+#
+# grep &quot;nicklockwood/SwiftFormat&quot; Mintfile | sed -E &quot;s/(.*@)()//g&quot;
+#
+# Search in all Swift Packages for SwiftFormat
+grep &quot;nicklockwood/SwiftFormat@&quot; Mintfile | cut -d &quot;@&quot; -f 2 | xargs -I {} echo -n &quot;{}&quot; | tee &gt;(pbcopy);
+echo &quot;&quot;;
+fastlane/scripts/packages/iterate_swift_package.sh . list | \
+  xargs -I {} echo {}&quot;/Package.swift&quot; | \
+  xargs -I {} grep -r &quot;github.com/nicklockwood/SwiftFormat&quot; {} 2&gt; /dev/null
+
+</code></pre>
+<h1 id="command-line">Command Line</h1>
+<h2 id="target">Target</h2>
+<p>List values for <code>-target</code>
+<a href="https://forums.swift.org/t/use-swiftpm-to-build-ios-target/25436/28">link</a></p>
+<pre><code class="language-sh">$(xcode-select -p)/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/SDKSettings.json
+</code></pre>
+<p><a href="https://github.com/apple/swift-package-manager/blob/main/Documentation/Usage.md#testing">Reference</a></p>
+<h2 id="build-mac">Build (mac)</h2>
+<pre><code class="language-sh">swift build --product HatchTerminalApp 
+swift build --product WaveSynthKitTestApp 
+
+swift build -c debug --product HatchTerminalApp 
+</code></pre>
+<p>swift package resolve \
+  --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios17.2</p>
+<h2 id="resolve-ios">Resolve (iOS)</h2>
+<pre><code class="language-sh"># Resolve
+swift package resolve \
+  --sdk /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios17.5 \
+  -Xswiftc --platform \
+  -Xswiftc ios 
+</code></pre>
+<h2 id="build-ios-argument-prep-tools">Build (iOS argument prep &amp; tools)</h2>
+<p>Finding the right params can be a challenge. Here are some helpful tools and tips</p>
+<pre><code class="language-sh"># Shows ${PLATFORM_SDK}${OS_VERSION} for all platforms
+$ xcodebuild -showsdks
+    iOS 17.5                        -sdk iphoneos17.5
+    iOS Simulator - iOS 17.5            -sdk iphonesimulator17.5
+    macOS 14.5                      -sdk macosx14.5
+
+# Feed is a PLATFORM_SDK
+# appletvos appletvsimulator driverkit iphoneos iphonesimulator macosx watchos watchsimulator xros xrsimulator
+$ xcrun --sdk $PLATFORM_SDK --show-sdk-path
+/Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk
+
+$ xcode-select -p
+/Applications/Xcode-15.4.0.app/Contents/Developer
+
+# Prints current target/triple
+$ swiftc -print-target-info # defaults to macosx
+    &quot;triple&quot;: &quot;arm64-apple-macosx15.0&quot;,
+    &quot;unversionedTriple&quot;: &quot;arm64-apple-macosx&quot;,
+    &quot;moduleTriple&quot;: &quot;arm64-apple-macos&quot;,
+$ swiftc -target arm64-apple-ios17.5 -print-target-info
+# 
+# Prints info about xcode project and settings
+$ xcodebuild -list
+
+# Get scheme names
+$ xcodebuild -list
+
+# Retain scheme name and enter below
+$ xcodebuild -scheme HatchServiceAppStateUserDefaults -destination 'platform=iOS Simulator,name=iPhone 14' test
+</code></pre>
+<h3 id="shell">Shell</h3>
+<p>For a working copy of this script, see: 
+<code>/Users/zakkhoyt/code/repositories/hatch/hatch_sleep/scripts/shell/swift/swift_args.sh</code></p>
+<pre><code class="language-sh">#!/bin/bash
+
+DEPLOYMENT_TARGET=&quot;16.0&quot;
+if [[ $1 == &quot;--deployment&quot; ]]; then
+    DEPLOYMENT_TARGET=&quot;$2&quot;
+    shift
+    shift
+fi
+
+SP_SUBCOMMAND=$1
+
+$APPLE=&quot;apple&quot;
+$ARCHITECTURE=&quot;arm64&quot; # arm64 arm64_32 arm64e armv7k i386 x86_64
+$PLATFORM_SDK=&quot;iphoneos&quot; # appletvos appletvsimulator driverkit iphoneos iphonesimulator macosx watchos watchsimulator xros xrsimulator
+$PLATFORM_NAME=&quot;ios&quot; # driverkit (??) ios macosx tvos watchos xros
+
+# $PLATFORM_SDK, $PLATFORM_NAME 
+# appletvos, tvos
+# appletvsimulator, tvos
+# driverkit, driverkit (??)
+# iphoneos, ios
+# iphonesimulator, ios
+# macosx, macosx
+# watchos, watchos
+# watchsimulator, watchos
+# xros, xros
+# xrsimulator, xros
+
+# TARGET=&quot;arm64-apple-ios$DEPLOYMENT&quot;
+# arm64-apple-ios17.5
+# arm64-apple-macosx15.0
+TARGET=&quot;${ARCHITECTURE}-apple-${PLATFORM}${DEPLOYMENT_TARGET}&quot;
+
+SDK_PATH=&quot;$(xcrun --sdk $PLATFORM_SDK --show-sdk-path)&quot;
+# /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk
+
+
+echo &quot;TARGET: ${TARGET}&quot;
+
+
+
+# $ swift build \
+#   --sdk /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+#   -Xswiftc -target \
+#   -Xswiftc arm64-apple-ios17.5
+
+# -Xswiftc is are swiftc arguments (swiftc --helP)
+# swift &quot;$SP_SUBCOMMAND&quot; \
+#   --arch &quot;$ARCHITECTURE&quot; \
+#   -Xswiftc -sdk print(&quot;-Xswiftc -target \(target)&quot;)P&quot;$SDK&quot; \
+#   -Xswiftc -target -Xswiftc &quot;$TARGET&quot; \
+#   --scratch-path &quot;./.build/$TARGET&quot; \
+#   &quot;$@&quot;
+
+# Only use this if SP_SUBCOMMAND == 'build'
+BUILD_DIR=&quot;--scratch-path \&quot;./.build/$TARGET\&quot;&quot;
+
+swift &quot;$SP_SUBCOMMAND&quot; \
+  --sdk &quot;${SDK_PATH}&quot; \
+  --arch &quot;$ARCHITECTURE&quot; \
+  -Xswiftc -target -Xswiftc &quot;$TARGET&quot; \
+  &quot;$@&quot;
+</code></pre>
+<h2 id="building-ios">Building (iOS)</h2>
+<p>Works for VWWUtility SPM</p>
+<pre><code class="language-sh">$ swift build \
+  --sdk /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios17.5 \
+</code></pre>
+<pre><code class="language-sh">swift build \
+  --sdk /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios17.5 \
+  -Xswiftc --platform \
+  -Xswiftc ios \
+  --product WaveSynthKitTestApp 
+
+
+swift build \
+  --sdk /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios17.5 \
+  -Xswiftc --platform \
+  -Xswiftc ios \
+  --product WaveSynthKitTestApp 
+
+
+
+swift build \
+  --sdk /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios17.5 \
+  --product zing
+  -Xswiftc --platform \
+  -Xswiftc ios \
+</code></pre>
+<pre><code class="language-sh">swift build -v \
+  --sdk /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios17.5 \
+  -Xswiftc &quot;-sdk&quot; \
+  -Xswiftc &quot;$(xcrun --sdk iphonesimulator --show-sdk-path)&quot; 
+</code></pre>
+<pre><code class="language-sh">swift build -v \
+  --sdk &quot;$(xcrun --sdk iphonesimulator --show-sdk-path)&quot; \
+  -Xswiftc -target \
+  -Xswiftc spm6 \
+
+
+# swift build -v \
+#     -Xswiftc &quot;-sdk&quot; \
+#     -Xswiftc &quot;`xcrun --sdk iphonesimulator --show-sdk-path`&quot; \
+#     -Xswiftc &quot;-target&quot; \
+#     -Xswiftc &quot;x86_64-apple-ios13.0-simulator&quot;
+swift build --verbose \          
+  --sdk /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk \
+  --target arm64-apple-ios17.5
+
+swift package resolve --verbose \
+  --sdk /Applications/Xcode-15.4.0.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.5.sdk
+</code></pre>
+<h2 id="test-ios">Test (iOS)</h2>
+<pre><code class="language-sh">swift test --list-tests
+
+swift test list \
+  --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.4.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios16.4 \
+
+swift test \
+  --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.4.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios16.4
+
+swift build \
+  --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.4.sdk \
+  -Xswiftc -target \
+  -Xswiftc arm64-apple-ios16.4 \
+  --build-tests
+  --product HatchServiceAppStateUserDefaults \
+
+</code></pre>
+<h1 id="tests-on-command-line">Tests on command line</h1>
+<pre><code># *  Executing task: 
+swift package resolve \
+--sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS17.0.sdk \
+-Xswiftc -target \
+-Xswiftc arm64-apple-ios17.0 
+
+warning: 'argumentkit': ld: warning: search path '/usr/local/lib' not found
+ *  Terminal will be reused by tasks, press any key to close it. 
+
+ *  Executing task: swift build --build-tests 
+</code></pre>
+<h1 id="platforms">Platforms</h1>
+<pre><code class="language-swift">platforms: [
+    .macOS(.v14),
+    .iOS(.v17),
+    .tvOS(.v17),
+    .watchOS(.v10),
+    .macCatalyst(.v17),
+    .visionOS(.v1),
+    .driverKit,
+    .linux
+],
+</code></pre>
+<h1 id="arguments">Arguments</h1>
+<p><a href="https://apple.github.io/swift-argument-parser/documentation/argumentparser/declaringarguments/">Apple Docs</a></p>
+<pre><code class="language-swift">    // A positional argument
+    // Xcode argument string:
+    // &quot;someType&quot;
+    @Argument 
+    var type: String
+
+    // A named argument
+    // Xcode argument string:
+    // --mode=&quot;advertiser&quot;
+    @Option
+//    var mode: String
+    var mode: Mode
+
+    // Presence of the named flag or not
+    // Skewer case: --is-verbose unless specified
+    // @Flag(name: .customLong(&quot;verbs&quot;), help: nil)
+    @Flag(
+        name: [.long, .customLong(&quot;verbose&quot;)],
+        help: &quot;Verbose logging to stderr&quot;
+    )
+    var isVerbose = false
+
+</code></pre>
+<pre><code class="language-swift">/// ## Example Help
+///
+/// ```sh
+/// $ ./zing append --help
+/// USAGE: hatch-module --name &lt;name&gt; [&lt;test-types&gt; ...]
+///
+/// ARGUMENTS:
+///   &lt;test-types&gt;            Type of test targets to include (values: unit, integration, ui)
+/// ```
+///
+/// ## Example Usage:
+/// ```sh
+/// $ ./zing append --name &quot;NyMod&quot; unit ui
+/// ```
+///
+/// ## Cons
+/// * unnamed params on commands line
+/// * Defining multiple is unintiuitive
+@Argument(
+    help: &quot;Type of test targets to include&quot;
+) var testTypes: [TestType] = []
+
+
+/// ## Example Help
+///
+/// ```sh
+/// $ ./zing append --help
+/// USAGE: hatch-module append --name &lt;name&gt; --test-types &lt;test-types&gt;
+///
+/// OPTIONS:
+///   --test-types &lt;test-types&gt;
+///                           Type of test targets to include (values: unit, integration, ui)        /// ```
+/// ```
+///
+/// ## Example Usage
+///
+/// ```sh
+/// $ ./zing append --name &quot;MyMod&quot; --test-types ui unit
+/// ```
+///
+/// ## Cons
+/// * Defining multiple is unintiuitive
+@Option(
+    name: .long,
+    parsing: .upToNextOption,
+    help: &quot;Type of test targets to include&quot;
+)
+var testTypes: [TestType]
+
+
+/// ## Example Help
+///
+/// ```sh
+/// $ ./zing append --help
+/// $ ./zing append --help
+/// USAGE: hatch-module append --name &lt;name&gt; [--include-unit-tests] [--include-integration-tests] [--include-ui-tests]
+///
+/// OPTIONS:
+///   --include-unit-tests/--include-integration-tests/--include-ui-tests
+///                           Include unit tests
+/// ```
+///
+/// ## Example Usage
+///
+/// ```sh
+/// $ ./zing append --name &quot;MyMod&quot; --test-types ui unit
+/// ```
+///
+/// ## Pros
+/// * Syntax is clear
+///
+/// ## Cons
+/// * Syntax is verbose
+@Flag(
+    help: ArgumentHelp(
+        &quot;Include unit tests&quot;
+    )
+) var testTypes: [TestType] = []
+
+/// $ ./zing append --help
+/// USAGE: hatch-module append --name &lt;name&gt; [--include-unit-tests] [--include-integration-tests] [--include-ui-tests]
+///
+/// OPTIONS:
+///   --name &lt;name&gt;           The name of the Module. EX: HatchFeatureThing
+///   --include-unit-tests    Include unit tests
+///   --include-integration-tests
+///                           Include unit tests
+///   --include-ui-tests      Include unit tests
+///
+/// ## Pros
+/// * Syntax is clear
+///
+/// ## Cons
+/// * Syntax is verbose
+/// * Code is too messy
+@Flag(
+    help: ArgumentHelp(
+        &quot;Include unit tests&quot;
+    )
+) var includeUnitTests = false
+@Flag(
+    help: ArgumentHelp(
+        &quot;Include unit tests&quot;
+    )
+) var includeIntegrationTests = false
+@Flag(
+    help: ArgumentHelp(
+        &quot;Include unit tests&quot;
+    )
+) var includeUITests = false
+</code></pre>
+<h1 id="expanded-package-buildingq">Expanded Package Buildingq</h1>
+<ul>
+<li><a href="https://www.rambo.codes/posts/2021-12-28-a-document-based-app-in-swift-playgrounds-for-ipad">Link</a></li>
+<li><a href="https://github.com/insidegui/DocumentBasedSwiftPlaygroundsApp">See repo here</a></li>
+</ul>
+<h1 id="plugins">Plugins</h1>
+<ul>
+<li><a href="https://github.com/apple/swift-package-manager/blob/main/Documentation/Plugins.md">link</a></li>
+</ul>
+<h1 id="modulealiasing">ModuleAliasing</h1>
+<ul>
+<li><a href="https://github.com/apple/swift-package-manager/blob/main/Documentation/ModuleAliasing.md">link</a></li>
+</ul>
+<p>ConformanceMacro</p>
+<h1 id="walking-dependency-graphs">Walking dependency graphs</h1>
+<p>For packages that have multiple targets, you may have to walk the trees
+yourself using both of the following commands as well as running those commands
+on external dependencies' Package.swift after they are resolved locally. </p>
+<h2 id="dependency-cases">Dependency Cases</h2>
+<!-- TODO: zakkhoyt - think of different
+* product types: 
+* target types: library, binary, executable
+
+-->
+
+<ul>
+<li>local packages (meaning another Package.swift already on disk as part of your source code)</li>
+<li>remote packages (similar to above, but must be resolved first)</li>
+<li>local targets (meaning multiple targets in a single Package.swift)</li>
+<li>remote targets (similar to above, but must be resolved first)</li>
+</ul>
+<p>Perhaps 2 iterations. 
+* one to build your own table of dep items (an array of dep items). 
+* second pass to walk/build your own tree</p>
+<h2 id="dump-packageswift-as-js">Dump Package.swift as JS</h2>
+<pre><code class="language-sh">swift package dump-package \
+--package-path &quot;$1&quot;
+</code></pre>
+<h2 id="shows-nested-outward-dependencies">Shows nested outward dependencies</h2>
+<pre><code class="language-sh">swift package show-dependencies \
+--package-path &quot;$1&quot; \
+--format json 
+</code></pre>
+<h2 id="shows-inward-targetproduct-dependencies">Shows inward target/product dependencies</h2>
+<pre><code class="language-sh">swift package describe \
+--package-path &quot;$1&quot; \
+--type json \
+| jq '. | .targets[] | select(.type == &quot;library&quot;)'
+</code></pre>
+<h2 id="set-tools-version">Set tools version</h2>
+<h1 id="bug">Bug</h1>
+<pre><code class="language-sh"># Show package
+$ cat Package.swift
+
+# show dirs
+$ exa -T
+.
+├── Modules
+│  └── spm6Test
+│     ├── Sources
+│     │  └── spm6Test.swift
+│     └── Tests
+│        └── spm6TestTests.swift
+└── Package.swift
+
+# show build
+$ /Applications/Xcode-16.0.0-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-build  
+
+# add product
+$ /Applications/Xcode-16.0.0-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-package add-product &quot;RestfulAPI&quot; --type library --targets &quot;RestfulAPI&quot;              
+Updating package manifest at Package.swift... done.
+
+# show dirs
+$ exa -T
+.
+├── Modules
+│  └── spm6Test
+│     ├── Sources
+│     │  └── spm6Test.swift
+│     └── Tests
+│        └── spm6TestTests.swift
+└── Package.swift
+
+# add target (note the output is even wrong)
+
+$ /Applications/Xcode-16.0.0-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-package add-target &quot;RestfulAPI&quot; --type &quot;library&quot; --path &quot;Modules/RestfulAPI/Sources&quot;
+Updating package manifest at Package.swift... done.
+Creating directory Sources/RestfulAPI... done.
+Writing Sources/RestfulAPI/RestfulAPI.swift... done.
+
+# show dirs
+$ exa -T
+.
+├── Modules
+│  └── spm6Test
+│     ├── Sources
+│     │  └── spm6Test.swift
+│     └── Tests
+│        └── spm6TestTests.swift
+├── Package.swift
+└── Sources
+   └── RestfulAPI
+      └── RestfulAPI.swift
+
+# show build
+~/temp/spm6Test on  main! ⌚ 21:52:51
+$ /Applications/Xcode-16.0.0-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-build
+
+error: 'spm6test': invalid custom path 'Modules/RestfulAPI/Sources' for target 'RestfulAPI'
+error: ExitCode(rawValue: 1)
+error: 'spm6test': invalid custom path 'Modules/RestfulAPI/Sources' for target 'RestfulAPI'
+
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

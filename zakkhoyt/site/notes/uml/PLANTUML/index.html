@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/uml/PLANTUML/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>About - Zakk's Notes</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#about" class="nav-link">About</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#example" class="nav-link">Example</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#vscode-extensions" class="nav-link">VSCode Extensions</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#exportpreview" class="nav-link">Export/Preview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#markdown-code-fence-support" class="nav-link">Markdown Code Fence Support</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#references" class="nav-link">References</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#themes_1" class="nav-link">Themes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#skin" class="nav-link">Skin</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#examples" class="nav-link">Examples</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#structure" class="nav-link">Structure</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#participants" class="nav-link">Participants</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#markup" class="nav-link">Markup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#note" class="nav-link">Note</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#divider" class="nav-link">Divider</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#reference" class="nav-link">Reference</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="about">About</h1>
+<p>This document is a quick guide / tutorial / reference to using <a href="https://plantuml.com/">PlantUML</a>. </p>
+<p>PlantUML is a component that allows to programmatically write Sequence, Usecase, Class, Object, Activity, Component, Deployment, State, Timing diagrams. </p>
+<h2 id="example">Example</h2>
+<h3 id="code">Code</h3>
+<pre><code>
+@startuml
+participant &quot;This Thing&quot; as this
+participant &quot;That Thing&quot; as that
+
+this -&gt; that: looks at
+this &lt;-- that: glares back at
+
+@enduml
+</code></pre>
+<h3 id="diagram">Diagram</h3>
+<p>(Rendered with PlantUML)</p>
+<pre><code class="language-plantuml">
+@startuml
+participant &quot;This Thing&quot; as this
+participant &quot;That Thing&quot; as that
+
+this -&gt; that: looks at
+this &lt;-- that: glares back at
+
+@enduml
+</code></pre>
+<h3 id="themes">Themes</h3>
+<pre><code class="language-plantuml">' Use custom Hatch themeOptions (requires &quot;puml-themeOptions-hatch.puml&quot;)
+!theme hatch
+
+' normal puml code here
+</code></pre>
+<h1 id="vscode-extensions">VSCode Extensions</h1>
+<p>IMO, the best tool for the job is <a href="https://code.visualstudio.com/">VSCode</a>, which has wonderful open source 3rd party extensions (including PlantUML). </p>
+<p>Here are some recommended extensions:</p>
+<h2 id="exportpreview">Export/Preview</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">Marketplace</a></p>
+<p>To render a preview in VSCode's Secondary Editor:
+<code>cmd</code> + <code>shift</code> + <code>p</code> -&gt; <code>PlantUML: Preview Current Diagram</code></p>
+<p>Similar, to render the graph out to png, pdf, etc..:
+<code>cmd</code> + <code>shift</code> + <code>p</code> -&gt; <code>PlantUML: Export Current Diagram</code>
+(Then answer the questions)</p>
+<h2 id="markdown-code-fence-support">Markdown Code Fence Support</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=myml.vscode-markdown-plantuml-preview">Marketplace</a></p>
+<p>This extentsion adds PlantUML rendering to markdown files / previews. </p>
+<p>To preview a markdown file (regardless of this plugin): 
+<code>cmd</code> + <code>shift</code> + <code>p</code> -&gt; <code>Markdown: Open preview to the side</code></p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://pdf.plantuml.net/1.2020.22/PlantUML_Language_Reference_Guide_en.pdf">PlantUML Language Reference</a></li>
+<li><a href="https://plantuml-documentation.readthedocs.io/en/latest/diagrams/sequence.html">PlantUML Syntax</a></li>
+<li><a href="https://crashedmind.github.io/PlantUMLHitchhikersGuide/">Hitchhiker's guide</a> This is a terrific starting point:</li>
+<li>Several diagram examples </li>
+<li>Standard Library</li>
+<li>Functions / Keywords</li>
+<li>Colors / Themes</li>
+<li>
+<p>Layouts</p>
+</li>
+<li>
+<p><a href="https://crashedmind.github.io/PlantUMLHitchhikersGuide/PlantUMLSpriteLibraries/plantuml_sprites.html#deployment-diagram-elements">Diagram Elements</a> EX: actor, participant, node, database, etc...</p>
+</li>
+<li><a href="https://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000">Online Server</a> Write/develop your code using this online interface.</li>
+<li><a href="https://forum.plantuml.net/1608/is-it-possible-to-only-use-straight-lines-in-a-class-diagram">Ortho-lines</a> Use different line types other than the default (curved). <code>Ortho</code> and <code>polyline</code> are now suppoted.</li>
+</ul>
+<h2 id="themes_1">Themes</h2>
+<ul>
+<li><a href="https://plantuml.com/theme">Themes</a></li>
+<li><a href="https://the-lum.github.io/puml-themes-gallery/">Theme Gallery</a></li>
+<li><a href="https://github.com/plantuml/plantuml/tree/master/themes">GitHub</a>w</li>
+</ul>
+<h2 id="skin">Skin</h2>
+<ul>
+<li><a href="https://plantuml.com/skinparam">skin parameters</a></li>
+<li><a href="https://plantuml-documentation.readthedocs.io/en/latest/formatting/all-skin-params.html">all skin params</a></li>
+<li><a href="https://github.com/plantuml/plantuml/blob/master/skin/plantuml.skin">css skin files</a></li>
+</ul>
+<h1 id="examples">Examples</h1>
+<h2 id="structure">Structure</h2>
+<pre><code class="language-puml">@startuml
+title: Some Title
+header: Some Header
+footer: Some Footer
+legend
+    Some Key 1
+    Some Key 2
+end legend
+
+caption Some Caption
+@enduml
+</code></pre>
+<h2 id="participants">Participants</h2>
+<pre><code class="language-puml">@startuml
+
+participant Foo0
+actor Foo1
+boundary Foo2
+control Foo3
+entity Foo4
+database Foo5
+collections Foo6
+
+Foo0 -&gt; Foo1 : To actor
+Foo1 -&gt; Foo2 : To boundary
+Foo1 -&gt; Foo3 : To control
+Foo1 -&gt; Foo4 : To entity
+Foo1 -&gt; Foo5 : To database
+Foo1 -&gt; Foo6 : To collections
+@enduml
+</code></pre>
+<h2 id="markup">Markup</h2>
+<h3 id="html">HTML</h3>
+<p>It is also possible to use few html tags like:</p>
+<pre><code class="language-html">&lt;b&gt;
+&lt;u&gt;
+&lt;i&gt;
+&lt;s&gt;, &lt;del&gt;, &lt;strike&gt;
+&lt;font color=&quot;#AAAAAA&quot;&gt; or &lt;font color=&quot;colorName&quot;&gt;
+&lt;color:#AAAAAA&gt; or &lt;color:colorName&gt;
+&lt;size:nn&gt; to change font size
+&lt;img src=&quot;file&quot;&gt; or &lt;img:file&gt;: the file must be accessible by the filesystem
+</code></pre>
+<pre><code class="language-puml">@startuml
+note over app,rest
+    This is an example note
+    &lt;font color=red&gt;&lt;b&gt;html&lt;/b&gt;&lt;/font&gt;
+    &lt;img:mango.jpg&gt;
+    &lt;img src=&quot;mango.jpg&quot;&gt;
+end note
+@enduml
+</code></pre>
+<h3 id="markdown-creole">Markdown (Creole)</h3>
+<pre><code class="language-puml">@startuml
+' BG color
+note over Alice, Bob #FFAAAA
+  This is displayed\n over Bob and Alice
+end note
+
+' Font formats color
+note left
+  This is **bold**
+  This is //italics//
+  This is &quot;&quot;monospaced&quot;&quot;
+  This is --stroked--
+  This is __underlined__
+  This is ~~waved~~
+end note
+@enduml
+</code></pre>
+<h2 id="note">Note</h2>
+<h3 id="fonts">Fonts</h3>
+<h3 id="html_1">HTML</h3>
+<pre><code class="language-puml">@startuml
+Alice -&gt; Bob : A //well formatted// message
+note right of Alice
+  This is &lt;back:cadetblue&gt;&lt;size:18&gt;displayed&lt;/size&gt;&lt;/back&gt;
+  __left of__ Alice.
+end note
+note left of Bob
+  &lt;u:red&gt;This&lt;/u&gt; is &lt;color #118888&gt;displayed&lt;/color&gt;
+  **&lt;color purple&gt;left of&lt;/color&gt; &lt;s:red&gt;Alice&lt;/strike&gt; Bob**.
+end note
+note over Alice, Bob
+  &lt;w:#FF33FF&gt;This is hosted&lt;/w&gt; by &lt;img sourceforge.jpg&gt;
+end note
+@enduml
+</code></pre>
+<h3 id="shapes">Shapes</h3>
+<p><code>rnote</code> and <code>hnote</code> (rect, hexagon)</p>
+<pre><code class="language-puml">@startuml
+caller -&gt; server : conReq
+hnote over caller : idle
+caller &lt;- server : conConf
+rnote over server
+&quot;r&quot; as rectangle
+&quot;h&quot; as hexagon
+endrnote
+@enduml
+</code></pre>
+<h3 id="code-blocks">Code Blocks</h3>
+<pre><code class="language-puml">' https://stackoverflow.com/a/65733853/803882
+note right of app
+    This text with default color.
+    &lt;code&gt;
+    println(&quot;Hello Alice&quot;)
+    println(&quot;Welcome to Wonderland!&quot;)
+    &lt;/code&gt;
+end note
+</code></pre>
+<pre><code class="language-puml">' https://stackoverflow.com/a/73467037/803882
+@startuml
+!function $format_code($fgcolor, $bgcolor)
+!return &quot;&lt;color:&quot;+$fgcolor+&quot;&gt;&lt;back:&quot;+$bgcolor+&quot;&gt;&lt;size:14&gt;&lt;b&gt;&lt;font:monospaced&gt;&quot;
+!endfunction
+
+note right of app
+    This text with default color.
+    $format_code(white, black)println(&quot;Hello Alice&quot;)
+    $format_code(yellow, blue)println(&quot;Welcome to Wonderland!&quot;)
+end note
+@enduml
+</code></pre>
+<h2 id="divider">Divider</h2>
+<pre><code class="language-puml">@startuml
+== My Divider ==
+@enduml
+</code></pre>
+<h2 id="reference">Reference</h2>
+<pre><code class="language-puml">@startuml
+ref over app, lamp
+    init
+end ref
+@enduml
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

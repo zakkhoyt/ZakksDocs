@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/LEARNING/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Downloads(all) - Zakk's Notes</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#downloadsall" class="nav-link">Downloads(all)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#ipad-on-m1" class="nav-link">iPad on M1</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#on-demand-resources" class="nav-link">On Demand Resources</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#matter" class="nav-link">Matter</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#comments-local-code" class="nav-link">Comments (local code)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#designed-for-ipad-vs-catalyst" class="nav-link">Designed for iPad vs Catalyst</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#ipad-stuff" class="nav-link">iPad stuff</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#new-swiftui-clas" class="nav-link">New SwiftUI clas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#sf-symbols" class="nav-link">SF Symbols</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#m1-designed-for-ipad" class="nav-link">M1 / Designed for iPad</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#async-await" class="nav-link">Async Await</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#actors" class="nav-link">Actors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#debugquicklookobject" class="nav-link">debugQuickLookObject()</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#shell-scripting" class="nav-link">Shell Scripting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#docc" class="nav-link">DocC</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#hatchhomework" class="nav-link">HatchHomework</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#measurement-units" class="nav-link">Measurement / Units</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#mkdistanceformatter" class="nav-link">MKDistanceFormatter</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#iana-standard" class="nav-link">IANA Standard</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#danger-github-actions-plugin" class="nav-link">Danger (GitHub Actions Plugin)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#tasksleep" class="nav-link">Task.sleep</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#x-callback-url" class="nav-link">x-callback-url</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#tabular-data" class="nav-link">Tabular Data</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="downloadsall">Downloads(all)</h1>
+<ul>
+<li>https://developer.apple.com/download/all/</li>
+</ul>
+<h1 id="ipad-on-m1">iPad on M1</h1>
+<ul>
+<li>settings bundle (visible as about window)</li>
+<li><a href="https://developer.apple.com/documentation/uikit/mac_catalyst/displaying_a_preferences_window">Aboud/Settings Docs</a></li>
+<li><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/UserDefaults/Preferences/Preferences.html#//apple_ref/doc/uid/10000059i-CH6">Legacy Settings Docs</a></li>
+<li>Child Panes in Settings<ul>
+<li>Refactor our Settings bundle to Configuration/Arguments</li>
+</ul>
+</li>
+<li>slider/textField dont' work, textView does</li>
+<li>UserDefaults work here?</li>
+<li>how to show keyboard shortcuts window like on iPad (hold cmd key). Apple docs call it "discoverability heads-up display (HUD)"</li>
+<li><a href="https://developer.apple.com/documentation/uikit/uicommand/adding_menus_and_shortcuts_to_the_menu_bar_and_user_interface">Menu shortcut docs</a></li>
+<li><a href="https://developer.apple.com/documentation/uikit/mac_catalyst/optimizing_your_ipad_app_for_mac">make app macOS like</a> </li>
+</ul>
+<h1 id="on-demand-resources">On Demand Resources</h1>
+<p>https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/On_Demand_Resources_Guide/EnablingODR.html#//apple_ref/doc/uid/TP40015083-CH8-SW1</p>
+<h1 id="matter">Matter</h1>
+<p>https://developer.apple.com/videos/play/wwdc2021/10298/</p>
+<h1 id="comments-local-code">Comments (local code)</h1>
+<p>https://developer.apple.com/documentation/xcode/formatting-your-documentation-content#Link-to-Symbols-and-Other-Content</p>
+<h1 id="designed-for-ipad-vs-catalyst">Designed for iPad vs Catalyst</h1>
+<p>https://developer.apple.com/videos/play/wwdc2020/10114/
+https://developer.apple.com/videos/play/wwdc2020/10206/</p>
+<h1 id="ipad-stuff">iPad stuff</h1>
+<p>Multi columns, etc...
+https://developer.apple.com/videos/play/wwdc2020/10105/</p>
+<p>Keyboard shortcuts
+https://developer.apple.com/videos/play/wwdc2021/10057/</p>
+<h1 id="new-swiftui-clas">New SwiftUI clas</h1>
+<p>https://developer.apple.com/tutorials/app-dev-training</p>
+<h1 id="sf-symbols">SF Symbols</h1>
+<p>https://developer.apple.com/documentation/uikit/uiimage/creating_custom_symbol_images_for_your_app</p>
+<h1 id="m1-designed-for-ipad">M1 / Designed for iPad</h1>
+<ul>
+<li>Delete app bundle/sandbox:</li>
+</ul>
+<pre><code>cd ~/Library/Containers
+# This will make the location obvious. It will be a UDID. 
+find . | grep com.hatchbaby.NightlightDevelopment
+</code></pre>
+<h1 id="async-await">Async Await</h1>
+<p><a href="https://www.biteinteractive.com/swift-5-5-asynchronous-looping-with-async-await/">Reference</a></p>
+<ul>
+<li><code>async let</code> lets you declare now, await later. It's a compiler promise. </li>
+</ul>
+<h2 id="actors">Actors</h2>
+<ul>
+<li>can read actor properties, but not write (from non-isolated context)</li>
+<li>Run code on the main actor with <code>MainActor.run {}</code>. </li>
+<li>Annotate function that should only run on MainActor with <code>@MainActor</code>.</li>
+</ul>
+<!-- * `Sendable`, `@Sendable`, `nonisolated`.  -->
+<ul>
+<li><code>Sendable</code> is a protocol that indicates that a given value is safe to use in concurrent code</li>
+<li>You use the <code>@Sendable</code> attribute to require thread-safe values in your code</li>
+<li>Use <code>nonisolated</code> to opt an actor method out of confienment. </li>
+<li><code>let item = XCTUnwrap(items["\(i)"])</code></li>
+<li><code>GlobalActor</code> is a single, shared actor that’s accessible from anywhere.</li>
+<li><code>@globalActor actor MyActor {}</code></li>
+<li>Confine another class to MyActor with annotation: <code>@MyActor class MyClass {...}</code> </li>
+</ul>
+<h2 id="debugquicklookobject">debugQuickLookObject()</h2>
+<pre><code>    @objc func debugQuickLookObject() -&gt; Any? {
+        return &quot;My name is \(name) and I'm \(age).&quot;
+    }
+</code></pre>
+<h1 id="shell-scripting">Shell Scripting</h1>
+<p>https://developer.apple.com/library/archive/documentation/OpenSource/Conceptual/ShellScripting/BeforeYouBegin/BeforeYouBegin.html</p>
+<h1 id="docc">DocC</h1>
+<ul>
+<li><a href="https://useyourloaf.com/blog/xcode-docc-getting-started/">Refs</a></li>
+</ul>
+<h1 id="hatchhomework">HatchHomework</h1>
+<p>Things I learned while reviewing candidate's homework:</p>
+<h1 id="measurement-units">Measurement / Units</h1>
+<h2 id="mkdistanceformatter">MKDistanceFormatter</h2>
+<pre><code class="language-swift">private func distanceFormatter(
+  distance: Double
+) -&gt; String {
+    let measurement = Measurement(value: distance, unit: UnitLength.meters)
+    let formatter = MeasurementFormatter()    
+    formatter.unitStyle = .long
+    formatter.numberFormatter.maximumFractionDigits = 2
+    return formatter.string(from: measurement.converted(to: .miles))
+}
+</code></pre>
+<pre><code class="language-swift">let formattedDistance = MeasurementFormatter().string(from: Measurement(value: distance, unit: UnitLength.meters))
+
+</code></pre>
+<h2 id="iana-standard">IANA Standard</h2>
+<p><a href="https://www.iana.org/">Reference</a></p>
+<h2 id="danger-github-actions-plugin">Danger (GitHub Actions Plugin)</h2>
+<p><a href="https://danger.systems/ruby/">Ruby Version</a></p>
+<h2 id="tasksleep">Task.sleep</h2>
+<pre><code class="language-swift">try await Task.sleep(for: .seconds(60))
+</code></pre>
+<h2 id="x-callback-url">x-callback-url</h2>
+<ul>
+<li><a href="https://x-callback-url.com/specification/">specification</a></li>
+</ul>
+<h3 id="apps-who-use">Apps who use</h3>
+<ul>
+<li><a href="https://apps.apple.com/us/app/homecontrol-menu-for-homekit/id1547121417?mt=12">home-control</a></li>
+<li><a href="https://github.com/waydabber/BetterDisplay/wiki/Integration-features,-CLI">BetterDisplay</a></li>
+</ul>
+<h1 id="tabular-data">Tabular Data</h1>
+<p>This is a Pandas like tool for Swift (csv, json, DataFrame, columns, rows, files)
+* <a href="https://developer.apple.com/documentation/tabulardata">Apple Docs</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

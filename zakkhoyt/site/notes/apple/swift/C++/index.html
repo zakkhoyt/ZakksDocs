@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Zakk Hoyt">
+        <link rel="canonical" href="https://zakkhoyt.github.io/notes/apple/swift/C%2B%2B/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>C++ / Swift interoperability (Xcode 15+) - Zakk's Notes</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Zakk's Notes</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../" class="nav-link">Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#c-swift-interoperability-xcode-15" class="nav-link">C++ / Swift interoperability (Xcode 15+)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#using-c-types-and-functions-in-swift" class="nav-link">Using C++ Types and Functions in Swift</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#project-settings" class="nav-link">Project Settings:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#notes" class="nav-link">Notes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#using-swift-types-and-functions-from-c" class="nav-link">Using Swift Types and Functions from C++</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#project-settings_1" class="nav-link">Project Settings:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#notes_1" class="nav-link">Notes:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#c-references" class="nav-link">C++ References</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#smart-pointers" class="nav-link">Smart Pointers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#general-c-questions" class="nav-link">General C++ Questions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#swift-packages-mixed-languages" class="nav-link">Swift Packages (mixed languages)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="c-swift-interoperability-xcode-15">C++ / Swift interoperability (Xcode 15+)</h1>
+<ul>
+<li><a href="https://www.swift.org/documentation/cxx-interop/#enabling-c-interoperability">Swift/C++ Interoperability</a></li>
+</ul>
+<h1 id="using-c-types-and-functions-in-swift">Using C++ Types and Functions in Swift</h1>
+<p><a href="https://www.swift.org/documentation/cxx-interop/#using-c-types-and-functions-in-swift">Reference</a></p>
+<h2 id="project-settings">Project Settings:</h2>
+<ul>
+<li><code>bridging header</code> support</li>
+<li><code>C++ and Objective-C Interoperability</code> -&gt; <code>C++ / Objective-C++</code></li>
+<li><code>Enable C++ Exceptions</code> -&gt; <code>true</code></li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Instantiated C++ classes/structs in Swift are treated as Swift structs (C++ class is a Swift Struct)</li>
+<li>This can be overridden using C++ annotations. <a href="https://www.swift.org/documentation/cxx-interop/#mapping-c-types-to-swift-reference-types">See here</a></li>
+<li>C++ enums appear in Swift as <code>Int32</code> enums  </li>
+</ul>
+<h1 id="using-swift-types-and-functions-from-c">Using Swift Types and Functions from C++</h1>
+<p><a href="https://www.swift.org/documentation/cxx-interop/#using-swift-types-and-functions-from-c">Using Swift Types and Functions from C++</a></p>
+<h2 id="project-settings_1">Project Settings:</h2>
+<p>Similar to Swift/Obj-C, the C++ file must include a single file of the Swift module
+* <code>#include "\(module.name)-Swift.h"</code>
+* <code>#include "CPPSwift-Swift.h"</code></p>
+<h2 id="notes_1">Notes:</h2>
+<ul>
+<li>Swift objects are explosed through a C++ namespace (the module name)</li>
+<li><code>CPPSwift::SomeSwiftStruct swiftStruct;</code></li>
+<li>A swift initializer is exposed in C++ as a function named <code>init</code></li>
+<li><code>auto ss = CPPSwift::SomeSwiftStruct::init("MyName", 101);</code></li>
+</ul>
+<h1 id="c-references">C++ References</h1>
+<h2 id="smart-pointers">Smart Pointers</h2>
+<ul>
+<li>https://www.geeksforgeeks.org/smart-pointers-cpp/</li>
+<li>https://learn.microsoft.com/en-us/cpp/cpp/smart-pointers-modern-cpp?view=msvc-170#kinds-of-smart-pointers</li>
+</ul>
+<h2 id="general-c-questions">General C++ Questions</h2>
+<h3 id="allocating-class-member-vars-on-the-stack">Allocating class member vars on the stack</h3>
+<p>Suppose we are writing some class, <code>class MyConsumer{...};</code>. We want <code>MyConsumer</code> to contain a member variable of a type which comes from some bulky <code>.hpp</code> file. For the sake of example, suppose we want <code>MyConsumer</code> to contain a member variable of type <code>MySwiftClass</code> which is defined in <code>SomeSwiftPackage-Swift.hpp</code> (along with several other non-relevant classes):</p>
+<pre><code class="language-cpp">#include &quot;SomeSwiftPackage-Swift.hpp&quot; // &lt;-- we don't want to force consumers to import all of SomeSwiftPackage-Swift
+class MyConsumer{
+public: 
+  SomeSwiftPackage::MySwiftClass sc;
+  // ...
+};
+</code></pre>
+<p>To be a good citizen, we don't want to force consumers of <code>MyConsumer</code> to <code>#include SomeSwiftPackage-Swift.hpp</code> (in fact this example won't compile due to circular includes), and thus we cannot use this approach. This is a problem because the compiler needs to know what <code>MySwiftClass</code> is. How can we work around this?</p>
+<p>The way I learned to deal with this situation (way back in c++98) was to <code>forward declare</code> the class:</p>
+<pre><code class="language-cpp">namespace SomeSwiftPackage {
+  class MySwiftClass; // &lt;-- We are now forward declaring SomeSwiftPackage::MySwiftClass. Include in the cpp file
+}
+
+class MyConsumer {
+public: 
+  MySwiftClass sc;
+  // ...
+};
+</code></pre>
+<p>We are getting closer, but it seems that <code>forward declares</code> required the use of pointers. Okay let's change <code>sc</code> to a pointer:</p>
+<pre><code class="language-cpp">class MySwiftClass;&quot; 
+class MyConsumer{
+public: 
+  MySwiftClass *sc; // &lt;-- We changed `sc` to be a pointer.
+  // ...
+};
+</code></pre>
+<p>This works. We could also use an of the newer smart pointers. However this means that we are allocating on the heap. We can get by, but what if we want to allocate sc on the stack?</p>
+<p>Looks like we are out of luck here. Why? C++ need to know the size of memory to allocate. Forward Declaring takes that away, thus we must use pointers (or references).</p>
+<h1 id="swift-packages-mixed-languages">Swift Packages (mixed languages)</h1>
+<ul>
+<li><a href="https://github.com/rderik/SwiftCursesTerm/tree/main/Sources">Swift+C Package</a></li>
+<li><a href="https://rderik.com/blog/building-a-text-based-application-using-swift-and-ncurses/">Build a Clock</a></li>
+</ul>
+<pre><code class="language-swift">let package = Package(
+    name: &quot;SwiftCursesTerm&quot;,
+    products: [
+        // Products define the executables and libraries produced by a package, and make them visible to other packages.
+        .library(
+            name: &quot;SwiftCursesTerm&quot;,
+            targets: [&quot;SwiftCursesTerm&quot;]
+        )
+    ],
+    dependencies: [
+        // Dependencies declare other packages that this package depends on.
+        // .package(url: /* package url */, from: &quot;1.0.0&quot;),
+    ],
+    targets: [
+        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
+        .systemLibrary(
+            name: &quot;curses&quot;, 
+            providers: [
+                .apt([&quot;ncurses&quot;]),
+                .brew([&quot;ncurses&quot;])
+            ]
+        ),
+        .target(
+            name: &quot;SwiftCursesTerm&quot;,
+            dependencies: [&quot;curses&quot;]
+        ),
+        .testTarget(
+            name: &quot;SwiftCursesTermTests&quot;,
+            dependencies: [&quot;SwiftCursesTerm&quot;]
+        ),
+    ]
+)
+</code></pre>
+<p><code>Sources/curses/curses.h</code></p>
+<pre><code class="language-cpp">#define _XOPEN_SOURCE_EXTENDED 1
+#include &lt;ncurses.h&gt;
+#include &lt;locale.h&gt;
+</code></pre>
+<p><code>Sources/curses/module.modulemap</code></p>
+<pre><code class="language-swift">module curses {
+  header &quot;curses.h&quot;
+  link &quot;ncurses&quot;
+  export *
+}
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
