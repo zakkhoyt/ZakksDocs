@@ -1,1 +1,0 @@
-[beta testing](https://github.com/aclap-dev/video-downloadhelper/wiki/Beta-versions/)
